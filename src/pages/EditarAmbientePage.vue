@@ -91,7 +91,6 @@
 
 <script>
 import { defineComponent } from 'vue';
-import ambientes from '../assets/data/ambientes.json';
 
 const tipoAmbiente = ['Coberto', 'Descoberto'];
 

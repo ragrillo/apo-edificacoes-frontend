@@ -69,7 +69,7 @@ import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
 import cargos from '../assets/data/cargos.json';
 
-const statusOptions = ["Pendente", "Ativado", "Desativado"];
+const statusOptions = ['Pendente', 'Ativado', 'Desativado'];
 
 export default defineComponent({
   data() {

@@ -86,7 +86,7 @@ import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
 import optionsrole from '../assets/data/cargos.json';
 
-const edificacoes = ['Escola', 'Residência', 'UBS'];
+const edificacoes = ['Escola', 'Residencia', 'UBS'];
 
 export default defineComponent({
   name: 'SignInPage',

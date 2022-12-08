@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <q-card class="q-ma-lg" style="width: 100%; max-width: 512px;">
+    <q-card class="q-ma-lg" style="width: 100%">
       <q-card-section>
         <div class="text-h6">Cadastro de Unidade</div>
         Preencha as informações abaixo.
@@ -11,7 +11,7 @@
         <q-form class="q-gutter-y-md">
           <div class="text-bold">Informações Básicas</div>
 
-          <q-input v-model="form.nome" outlined label="Nome" />
+          <q-input v-model="form.nome" outlined label="Nome Completo" />
           <q-input v-model="form.responsavel" outlined label="Responsável" />
           <q-input v-model="form.telefone" outlined type="tel" label="Telefone" mask="(##) # ####-####" />
 
@@ -22,81 +22,85 @@
           </div>
 
           <div class="text-bold">Endereço</div>
-          <q-input v-model="form.endereco.cep" outlined type="tel" label="CEP" mask="##.###-###" @keyup="handleCep()" />
+          <q-input :loading="isCepLoading" color="primary" v-model="form.endereco.cep" outlined type="tel" label="CEP"
+            mask="##.###-###" @keyup="handleCep()" />
           <q-input v-model="form.endereco.logradouro" outlined label="Logradouro" />
           <q-input v-model="form.endereco.numero" outlined type="number" label="Número" />
           <q-input v-model="form.endereco.bairro" outlined label="Bairro" />
           <q-input v-model="form.endereco.cidade" outlined label="Cidade" />
-          <q-input v-model="form.endereco.estado" outlined label="Estado" mask="XX" />
+          <q-input v-model="form.endereco.estado" outlined label="Estado" />
 
-          <div class="text-bold">Informações sobre {{ form.tipoUnidade }}</div>
-          <div class="q-gutter-y-md">
+          <div class="text-bold">Informações sobre {{ token.edificacao }}</div>
+
+          <div v-show="token.edificacao === 'Escola'" class="q-gutter-y-md">
             <q-select v-model="form.escola.tipoEscola" outlined label="Tipo de escola" :options="opcoes.tipoEscola" />
             <q-select v-model="form.escola.modalidadeEscola" outlined label="Modalidade de ensino"
               :options="opcoes.modalidadeEscola" />
             <q-input v-model="form.escola.quantidadeAlunos" outlined type="number" label="Quantidade de alunos" />
           </div>
+
+          <div v-show="token.edificacao === 'UBS'" class="q-gutter-md">
+            <q-select v-model="form.ubs.tipoUnidade" outlined label="Tipologia da unidade"
+              :options="opcoes.tipoPorte" />
+            <q-input v-model="form.ubs.dataEntregaObra" outlined label="Data de entrega da obra" />
+            <q-input v-model="form.ubs.descricao" type="textarea" outlined label="Descrição da unidade" />
+
+            <div class="text-subtitle1 q-my-md">Informações sobre a construtora</div>
+
+            <q-input v-model="form.ubs.construtora.nome" outlined label="Nome" />
+            <q-input v-model="form.ubs.construtora.telefone" outlined label="Telefone" mask="(##) #####-####" />
+            <q-input v-model="form.ubs.construtora.endereco.logradouro" outlined label="Logradouro" />
+
+            <div class="row">
+              <q-input v-model="form.ubs.construtora.endereco.numero" outlined type="number" class="col"
+                label="Número" />
+              <q-input v-model="form.ubs.construtora.endereco.bairro" outlined class="col q-ml-sm" label="Bairro" />
+            </div>
+
+            <div class="row">
+              <q-input v-model="form.ubs.construtora.endereco.cidade" outlined class="col" label="Cidade" />
+              <q-input v-model="form.ubs.construtora.endereco.estado" outlined class="col q-ml-sm" label="Estado"
+                mask="XX" />
+            </div>
+          </div>
+
+          <div v-show="token.edificacao === 'Residencia'" class="q-gutter-md">
+            <q-select outlined v-model="form.habitacao.tipoUnidade" label="Tipologia da unidade"
+              :options="opcoes.tipoHabitacao" />
+            <q-input outlined v-model="form.habitacao.numeroPavimentos"
+              v-show="form.habitacao.tipoUnidade === 'Apartamento'" label="Número de pavimentos" />
+
+            <div class="q-py-md" v-show="form.habitacao.tipoUnidade === 'Casa'">
+              <div class="text-subtitle2">Selecione as opções abaixo:</div>
+              <div>
+                <q-radio v-model="form.habitacao.tipoCasa[0]" label="Térrea" val="Térrea" />
+                <q-radio v-model="form.habitacao.tipoCasa[0]" label="Sobrado" val="Sobrado" />
+              </div>
+              <div>
+                <q-radio v-model="form.habitacao.tipoCasa[1]" label="Isolado" val="Isolado" />
+                <q-radio v-model="form.habitacao.tipoCasa[1]" label="Germinado" val="Germinado" />
+              </div>
+            </div>
+
+            <q-input v-model="form.habitacao.blocosExistentes" outlined type="number" label="Blocos existentes" />
+            <q-input v-model="form.habitacao.unidadesPorBloco" outlined type="number" label="Unidades por bloco" />
+            <q-input v-model="form.habitacao.totalUnidades" outlined type="number" label="Total de unidades" />
+            <q-input v-model="form.habitacao.nomeConstrutora" outlined label="Nome da construtora" />
+            <q-input v-model="form.habitacao.anoEntregaObra" outlined label="Ano de entrega da obra" mask="####" />
+            <q-input v-model="form.habitacao.descricao" type="textarea" outlined label="Descrição" />
+          </div>
         </q-form>
       </q-card-section>
 
-      <q-card-section v-show="form.tipoUnidade !== ''" class="q-gutter-md">
-
-        <q-form v-show="form.tipoUnidade === 'Habitação'" class="q-gutter-md">
-          <q-select outlined v-model="form.habitacao.tipoUnidade" label="Tipologia da unidade"
-            :options="opcoes.tipoHabitacao" />
-          <q-input outlined v-model="form.habitacao.numeroPavimentos"
-            v-show="form.habitacao.tipoUnidade === 'Apartamento'" label="Número de pavimentos" />
-
-          <div class="q-py-md" v-show="form.habitacao.tipoUnidade === 'Casa'">
-            <div class="text-subtitle2">Selecione as opções abaixo:</div>
-            <div>
-              <q-radio v-model="form.habitacao.tipoCasa[0]" label="Térrea" val="Térrea" />
-              <q-radio v-model="form.habitacao.tipoCasa[0]" label="Sobrado" val="Sobrado" />
-            </div>
-            <div>
-              <q-radio v-model="form.habitacao.tipoCasa[1]" label="Isolado" val="Isolado" />
-              <q-radio v-model="form.habitacao.tipoCasa[1]" label="Germinado" val="Germinado" />
-            </div>
-          </div>
-
-          <q-input v-model="form.habitacao.blocosExistentes" outlined type="number" label="Blocos existentes" />
-          <q-input v-model="form.habitacao.unidadesPorBloco" outlined type="number" label="Unidades por bloco" />
-          <q-input v-model="form.habitacao.totalUnidades" outlined type="number" label="Total de unidades" />
-          <q-input v-model="form.habitacao.nomeConstrutora" outlined label="Nome da construtora" />
-          <q-input v-model="form.habitacao.anoEntregaObra" outlined label="Ano de entrega da obra" mask="####" />
-          <q-input v-model="form.habitacao.descricao" type="textarea" outlined label="Descrição" />
-        </q-form>
-
-        <q-form v-show="form.tipoUnidade === 'UBS'" class="q-gutter-md">
-          <q-select v-model="form.ubs.tipoUnidade" outlined label="Tipologia da unidade" :options="opcoes.tipoPorte" />
-          <q-input v-model="form.ubs.dataEntregaObra" outlined label="Data de entrega da obra" />
-          <q-input v-model="form.ubs.descricao" type="textarea" outlined label="Descrição da unidade" />
-
-          <div class="text-subtitle1 q-my-md">Informações sobre a construtora</div>
-
-          <q-input v-model="form.ubs.construtora.nome" outlined label="Nome" />
-          <q-input v-model="form.ubs.construtora.telefone" outlined label="Telefone" mask="(##) #####-####" />
-          <q-input v-model="form.ubs.construtora.endereco.logradouro" outlined label="Logradouro" />
-          <div class="row">
-            <q-input v-model="form.ubs.construtora.endereco.numero" outlined type="number" class="col" label="Número" />
-            <q-input v-model="form.ubs.construtora.endereco.bairro" outlined class="col q-ml-sm" label="Bairro" />
-          </div>
-          <div class="row">
-            <q-input v-model="form.ubs.construtora.endereco.cidade" outlined class="col" label="Cidade" />
-            <q-input v-model="form.ubs.construtora.endereco.estado" outlined class="col q-ml-sm" label="Estado"
-              mask="XX" />
-          </div>
-        </q-form>
-
-        <div class="column q-mt-lg">
-          <q-btn unelevated color="primary" label="Concluir" @click="handleCadastroUnidade" />
-        </div>
-      </q-card-section>
+      <q-card-actions align="right">
+        <q-btn flat color="primary" label="Concluir" @click="handleCadastroUnidade" />
+      </q-card-actions>
     </q-card>
   </q-page>
 </template>
 
 <script>
+import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
 
@@ -158,23 +162,32 @@ export default defineComponent({
           },
         },
       },
+      token: {},
+      isCepLoading: false,
     };
+  },
+  mounted() {
+    const token = localStorage.getItem('apo@session');
+    this.token = VueJwtDecode.decode(token);
   },
   methods: {
     async handleCep() {
       const { cep } = this.form.endereco;
 
       if (cep.length === 10) {
-        const sanitizedCep = cep.replace('-', '').replace('.', '');
+        this.isCepLoading = true;
 
+        const sanitizedCep = cep.replace('-', '').replace('.', '');
         const url = `https://viacep.com.br/ws/${sanitizedCep}/json/`;
+
         const { data } = await api.get(url);
-        const { logradouro, bairro, localidade, uf } = data;
+        const { logradouro, bairro, localidade } = data;
 
         this.form.endereco.logradouro = logradouro;
         this.form.endereco.bairro = bairro;
         this.form.endereco.cidade = localidade;
-        this.form.endereco.estado = uf;
+
+        this.isCepLoading = false;
       }
     },
     async handleCadastroUnidade() {
@@ -183,17 +196,19 @@ export default defineComponent({
           this.form.habitacao = null;
           this.form.ubs = null;
           break;
-        case 'Habitação':
+        case 'UBS':
+          this.form.habitacao = null;
           this.form.escola = null;
-          this.form.ubs = null;
           break;
         default:
           this.form.escola = null;
-          this.form.habitacao = null;
+          this.form.ubs = null;
           break;
       }
 
       await api.post('/unidade', this.form);
+
+      this.$router.push('ambiente');
     },
   },
 });
