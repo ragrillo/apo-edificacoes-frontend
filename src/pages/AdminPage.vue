@@ -7,13 +7,14 @@
       </q-card-section>
 
       <q-list separator v-if="usuarios.length > 0">
-        <q-item clickable v-ripple v-bind:key="usuario._id" v-for="usuario in usuarios" class="q-pa-md">
+        <q-item clickable v-ripple v-bind:key="usuario._id" v-for="usuario in usuarios" class="q-pa-md"
+          @click="requestusuario(usuario._id, 'details')">
           <q-item-section>
             <q-item-label>{{ usuario.nomeCompleto }}</q-item-label>
             <q-item-label caption>{{ usuario.email }}</q-item-label>
           </q-item-section>
           <q-item-section side>
-            <q-chip clickable outline color="primary" :label="usuario.status" @click="isVisible = true" />
+            <q-chip outline color="primary" :label="usuario.status" />
           </q-item-section>
         </q-item>
       </q-list>
@@ -27,31 +28,36 @@
     </q-card>
 
     <q-dialog v-model="showDetails">
-      <q-card>
-        <q-card-section>
-          <div class="text-h6">Detalhes de {{ user.nomeCompleto }}</div>
-        </q-card-section>
-
-        <q-card-section class="q-gutter-sm">
-          <q-input outlined readonly v-model="user.nomeCompleto" label="Nome" />
-          <q-input outlined readonly v-model="user.telefone" label="Telefone" />
-          <q-input outlined readonly v-model="user.email" label="Email" />
-          <q-input outlined readonly v-model="user.cargo" label="Cargo" />
-          <q-input outlined readonly v-model="user.edificacao" v-show="user.edificacao" label="Edificação" />
-          <q-input outlined readonly v-model="user.status" label="Status" />
-        </q-card-section>
-      </q-card>
-    </q-dialog>
-
-    <q-dialog v-model="isVisible">
       <q-card style="width: 100%">
         <q-card-section>
-          <div class="text-h6">Atualizar registro</div>
-          <span>Deseja ativar o registro de {{ nomeCompleto }}?</span>
+          <div class="text-h6">Informações sobre {{ usuario.nomeCompleto }}</div>
         </q-card-section>
+
+        <q-card-section class="q-gutter-y-lg">
+          <div class="q-gutter-y-md">
+            <q-input outlined readonly v-model="usuario.cargo" label="Cargo" />
+            <q-input outlined readonly v-model="usuario.edificacao" v-show="usuario.edificacao" label="Edificação" />
+            <q-input outlined readonly v-model="usuario.nomeCompleto" label="Nome Completo" />
+            <q-input outlined readonly v-model="usuario.email" label="Email" />
+            <q-input outlined readonly v-model="usuario.telefone" label="Telefone" />
+          </div>
+
+          <div class="q-gutter-y-md" v-show="isEmpresa(usuario.cargo)">
+            <div class="text-bold">Informações sobre {{ usuario.razaoSocial }}</div>
+
+            <q-input outlined readonly v-model="usuario.cnpj" label="CNPJ" />
+            <q-input outlined readonly v-model="usuario.razaoSocial" label="Razão Social" />
+            <q-input outlined readonly v-model="usuario.emailEmpresarial" label="Email Empresarial" />
+            <q-input outlined readonly v-model="usuario.telefoneEmpresarial" label="Telefone Empresarial" />
+          </div>
+
+          <q-select outlined v-model="usuario.status" label="Status" behavior="menu" :options="statusOptions" />
+        </q-card-section>
+
         <q-card-actions align="right">
-          <q-btn flat color="primary" label="Cancelar" @click="isVisible = false" />
-          <q-btn flat color="primary" label="Confirmar" :loading="isLoading" @click="updateStatus()" />
+          <q-btn flat label="Voltar" color="primary" @click="showDetails = false" />
+          <q-btn flat label="Atualizar" color="primary" :loading="isStatusLoading"
+            @click="updateUsuario(usuario._id)" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -61,23 +67,51 @@
 <script>
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
+import cargos from '../assets/data/cargos.json';
+
+const statusOptions = ["Pendente", "Ativado", "Desativado"];
 
 export default defineComponent({
   data() {
     return {
       usuario: {},
       usuarios: [],
-      isVisible: false,
       isLoading: false,
       showDetails: false,
+      isStatusLoading: false,
+      statusOptions,
     };
   },
   mounted() {
-    this.requestUsers();
+    this.requestusuarios();
   },
   methods: {
+    isEmpresa(cargo) {
+      return (cargo === cargos[4].value);
+    },
+    async updateUsuario(id) {
+      this.isStatusLoading = true;
 
-    async requestUsers() {
+      await api.put(`/usuario/${id}`, this.usuario);
+
+      this.isStatusLoading = false;
+      this.showDetails = false;
+
+      this.requestusuarios();
+    },
+    async requestusuario(id, target) {
+      const { data } = await api.get(`/usuario/${id}`);
+      this.usuario = data.body;
+
+      if (target === 'details') {
+        this.showDetails = true;
+        this.isVisible = false;
+      } else {
+        this.showDetails = false;
+        this.isVisible = true;
+      }
+    },
+    async requestusuarios() {
       this.isLoading = true;
 
       const { data } = await api.get('/usuario');
