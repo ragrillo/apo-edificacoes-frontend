@@ -33,7 +33,8 @@
 
         <div class="text-bold">Informaçẽs sobre Usuário</div>
 
-        <q-select v-model="usuario.edificacao" outlined v-show="!isAdmin()" label="Edificação" behavior="menu" :options="edificacoes" />
+        <q-select v-model="usuario.edificacao" outlined v-show="!isAdmin()" label="Edificação" behavior="menu"
+          :options="edificacoes" />
 
         <q-input v-model="usuario.nomeCompleto" outlined label="Nome Completo" />
         <q-input v-model="usuario.telefone" outlined label="Telefone" type="tel" mask="(##) # ####-####" />
@@ -57,10 +58,11 @@
         <div v-show="isEmpresa()" class="q-gutter-y-md">
           <div class="text-bold">Informaçẽs sobre Empresa</div>
 
-          <q-input outlined label="CNPJ" type="tel" mask="##.###.###/####-##" />
-          <q-input outlined label="Razão social" />
-          <q-input outlined label="Telefone empresarial" type="tel"  mask="(##) # ####-####" />
-          <q-input outlined label="Email empresarial" type="email" />
+          <q-input v-model="usuario.cnpj" outlined label="CNPJ" type="tel" mask="##.###.###/####-##" />
+          <q-input v-model="usuario.razaoSocial" outlined label="Razão social" />
+          <q-input v-model="usuario.telefoneEmpresarial" outlined label="Telefone empresarial" type="tel"
+            mask="(##) # ####-####" />
+          <q-input v-model="usuario.emailEmpresarial" outlined label="Email empresarial" type="email" />
         </div>
       </q-form>
     </q-card-section>
@@ -73,7 +75,8 @@
         {{ message }}
       </q-banner>
 
-      <q-btn outline @click="handleSignIn()" :loading="loading" :color="success ? 'grey' : 'primary'" :disable="success" label="Solicitar cadastro" />
+      <q-btn outline @click="handleSignIn()" :loading="loading" :color="success ? 'grey' : 'primary'" :disable="success"
+        label="Solicitar cadastro" />
     </q-card-section>
   </q-card>
 </template>
