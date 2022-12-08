@@ -19,7 +19,10 @@
       </q-list>
 
       <q-card-section v-else>
-        Não há solicitações pendentes
+        <div align="center" v-if="isLoading">
+          <q-circular-progress indeterminate size="sm" color="primary" />
+        </div>
+        <div v-else>Não há solicitações pendentes</div>
       </q-card-section>
     </q-card>
 
@@ -75,8 +78,12 @@ export default defineComponent({
   methods: {
 
     async requestUsers() {
+      this.isLoading = true;
+
       const { data } = await api.get('/usuario');
       this.usuarios = data.body;
+
+      this.isLoading = false;
     },
   },
 });
