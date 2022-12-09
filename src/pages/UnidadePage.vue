@@ -23,7 +23,7 @@
 
           <div class="text-bold">Endereço</div>
           <q-input :loading="isCepLoading" color="primary" v-model="form.endereco.cep" outlined type="tel" label="CEP"
-            mask="##.###-###" @keyup="handleCep()" />
+            mask="##.###-###" @keyup="handleCep(form.endereco)" />
           <q-input v-model="form.endereco.logradouro" outlined label="Logradouro" />
           <q-input v-model="form.endereco.numero" outlined type="number" label="Número" />
           <q-input v-model="form.endereco.bairro" outlined label="Bairro" />
@@ -45,23 +45,19 @@
             <q-input v-model="form.ubs.dataEntregaObra" outlined label="Data de entrega da obra" />
             <q-input v-model="form.ubs.descricao" type="textarea" outlined label="Descrição da unidade" />
 
-            <div class="text-subtitle1 q-my-md">Informações sobre a construtora</div>
+            <div class="text-bold q-my-md">Informações sobre a construtora</div>
 
             <q-input v-model="form.ubs.construtora.nome" outlined label="Nome" />
             <q-input v-model="form.ubs.construtora.telefone" outlined label="Telefone" mask="(##) #####-####" />
+
+            <q-input :loading="isCepLoading" color="primary" v-model="form.ubs.construtora.endereco.cep" outlined
+              type="tel" label="CEP" mask="##.###-###" @keyup="handleCep(form.ubs.construtora.endereco)" />
             <q-input v-model="form.ubs.construtora.endereco.logradouro" outlined label="Logradouro" />
+            <q-input v-model="form.ubs.construtora.endereco.numero" outlined label="Número" />
+            <q-input v-model="form.ubs.construtora.endereco.bairro" outlined label="Bairro" />
+            <q-input v-model="form.ubs.construtora.endereco.cidade" outlined label="Cidade" />
+            <q-input v-model="form.ubs.construtora.endereco.estado" outlined label="Estado" />
 
-            <div class="row">
-              <q-input v-model="form.ubs.construtora.endereco.numero" outlined type="number" class="col"
-                label="Número" />
-              <q-input v-model="form.ubs.construtora.endereco.bairro" outlined class="col q-ml-sm" label="Bairro" />
-            </div>
-
-            <div class="row">
-              <q-input v-model="form.ubs.construtora.endereco.cidade" outlined class="col" label="Cidade" />
-              <q-input v-model="form.ubs.construtora.endereco.estado" outlined class="col q-ml-sm" label="Estado"
-                mask="XX" />
-            </div>
           </div>
 
           <div v-show="token.edificacao === 'Residencia'" class="q-gutter-md">
@@ -103,6 +99,7 @@
 import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
+import estados from '../assets/data/estados.json';
 
 export default defineComponent({
   data() {
@@ -171,8 +168,8 @@ export default defineComponent({
     this.token = VueJwtDecode.decode(token);
   },
   methods: {
-    async handleCep() {
-      const { cep } = this.form.endereco;
+    async handleCep(endereco) {
+      const { cep } = endereco;
 
       if (cep.length === 10) {
         this.isCepLoading = true;
@@ -181,11 +178,12 @@ export default defineComponent({
         const url = `https://viacep.com.br/ws/${sanitizedCep}/json/`;
 
         const { data } = await api.get(url);
-        const { logradouro, bairro, localidade } = data;
+        const { logradouro, bairro, localidade, uf } = data;
 
-        this.form.endereco.logradouro = logradouro;
-        this.form.endereco.bairro = bairro;
-        this.form.endereco.cidade = localidade;
+        endereco.logradouro = logradouro;
+        endereco.bairro = bairro;
+        endereco.cidade = localidade;
+        endereco.estado = estados[uf];
 
         this.isCepLoading = false;
       }
