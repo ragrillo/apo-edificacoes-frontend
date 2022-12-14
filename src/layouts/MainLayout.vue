@@ -1,8 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-page-container>
-      <router-view />
-    </q-page-container>
+    <div id="container">
+      <q-page-container id="content">
+        <router-view />
+      </q-page-container>
+    </div>
   </q-layout>
 </template>
 
@@ -11,10 +13,18 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
-  methods: {
-    goBack() {
-      window.history.back();
-    },
-  },
 });
 </script>
+
+<style>
+#container {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+#content {
+  width: 100%;
+  max-width: 720px;
+}
+</style>
