@@ -13,10 +13,6 @@ const routes: RouteRecordRaw[] = [
       { path: '/unidade', component: () => import('pages/UnidadePage.vue') },
       { path: '/ambiente', component: () => import('pages/AmbientePage.vue') },
       { path: '/ambiente/editar', component: () => import('pages/EditarAmbientePage.vue') },
-      { path: '/criterios', component: () => import('pages/CriteriosPage.vue') },
-      { path: '/criterios/7/iluminacao-artificial', component: () => import('src/pages/criterios/conforto-visual/IluminacaoArtificialPage.vue') },
-      { path: '/criterios/8/Qualidade-do-Ar', component: () => import('src/pages/criterios/QualidadedoArPage.vue') },
-      { path: '/criterios/8/Materiais-e-Acabamentos', component: () => import('src/pages/criterios/MateriaiseAcabamentosPage.vue') },
     ],
   },
 
