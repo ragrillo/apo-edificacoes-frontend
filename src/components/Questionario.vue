@@ -7,16 +7,33 @@
 
     <div v-if="type === 'yes-no'">
       <div v-bind:key="index" v-for="(option, index) in options.fromYesToNo">
-        <q-radio v-model="value" :label="option" />
+        <q-radio v-model="value" :val="option" :label="option" />
       </div>
     </div>
 
     <div v-if="type === 'good-bad'">
       <div v-bind:key="index" v-for="(option, index) in options.fromGoodToBad">
-        <q-radio v-model="value" :label="option" />
+        <q-radio v-model="value" :val="option" :label="option" />
       </div>
     </div>
 
+    <q-dialog v-model="isVisible">
+      <q-card>
+        <q-card-section>
+          <div class="text-bold">{{ label }}</div>
+        </q-card-section>
+
+        <q-separator />
+
+        <q-card-section>
+          {{ hint }}
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Fechar" color="primary" @click="isVisible = false" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
@@ -35,11 +52,12 @@ export default defineComponent({
     return {
       options,
       value: '',
+      isVisible: false,
     };
   },
   methods: {
     showHint() {
-      alert(this.hint);
+      this.isVisible = true;
     },
   },
 });
