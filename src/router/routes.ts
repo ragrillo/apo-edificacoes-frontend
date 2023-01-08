@@ -53,6 +53,10 @@ const routes: RouteRecordRaw[] = [
         path: '/criterio/9',
         component: () => import('src/pages/criterios/ConfortoTermico.vue'),
       },
+      {
+        path: '/criterio/10',
+        component: () => import('src/pages/criterios/ConfortoAcustico.vue'),
+      },
     ],
   },
 
