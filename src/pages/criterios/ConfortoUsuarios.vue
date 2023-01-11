@@ -33,13 +33,7 @@ import perguntas from '../../data/form/criterio-6.json';
 import QuestionarioComponent from '../../components/Questionario.vue';
 
 const titulo = 'SATISFAÇÃO DOS USUÁRIOS';
-
-const criterios = [
-  'Conforto e satisfação',
-  'Controle do conforto geral',
-];
-
-const form = [];
+const criterios = [...new Set(perguntas.map((item) => item.group))];
 
 export default defineComponent({
   name: 'AspectosFisicos',
@@ -52,14 +46,6 @@ export default defineComponent({
   },
   components: {
     QuestionarioComponent,
-  },
-  methods: {
-    handleSelection(value) {
-      form.push(value);
-    },
-    submitForm() {
-      console.log(form);
-    },
   },
 });
 </script>

@@ -33,10 +33,7 @@ import perguntas from '../../data/form/criterio-10.json';
 import QuestionarioComponent from '../../components/Questionario.vue';
 
 const titulo = 'CONFORTO ACÚSTICO';
-
-const criterios = ['Isolamento e conforto acústico'];
-
-const form = [];
+const criterios = [...new Set(perguntas.map((item) => item.group))];
 
 export default defineComponent({
   name: 'ConfortoAcustico',
@@ -49,14 +46,6 @@ export default defineComponent({
   },
   components: {
     QuestionarioComponent,
-  },
-  methods: {
-    handleSelection(value) {
-      form.push(value);
-    },
-    submitForm() {
-      console.log(form);
-    },
   },
 });
 </script>

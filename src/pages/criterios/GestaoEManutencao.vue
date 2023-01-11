@@ -33,15 +33,7 @@ import perguntas from '../../data/form/criterio-11.json';
 import QuestionarioComponent from '../../components/Questionario.vue';
 
 const titulo = 'GESTÃO E MANUTENÇÃO';
-
-const criterios = [
-  'Manutenção periódica',
-  'Qualidade organizacional e gestão',
-  'Eficiência operacional',
-  'Equipamentos e tecnologias',
-];
-
-const form = [];
+const criterios = [...new Set(perguntas.map((item) => item.group))];
 
 export default defineComponent({
   name: 'GestaiEManutencao',
@@ -54,14 +46,6 @@ export default defineComponent({
   },
   components: {
     QuestionarioComponent,
-  },
-  methods: {
-    handleSelection(value) {
-      form.push(value);
-    },
-    submitForm() {
-      console.log(form);
-    },
   },
 });
 </script>

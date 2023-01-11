@@ -2,21 +2,21 @@
   {
     "label": "Há isolamento acústico adequado, no que se refere aos ruídos aéreos provenientes do exterior da edificação?",
     "group": "Isolamento e conforto acústico",
-    "type": "yes-no"
+    "type": "Sim, Não, Não sei responder"
   },
   {
     "label": "Há isolamento acústico adequado, no que se refere aos ruídos aéreos gerados no interior da edificação? (Ex.: isolação entre ambientes).",
     "group": "Isolamento e conforto acústico",
-    "type": "yes-no"
+    "type": "Sim, Não, Não sei responder"
   },
   {
     "label": "A edificação está localizada distante de fontes de ruído intenso ou moderado?",
     "group": "Isolamento e conforto acústico",
-    "type": "yes-no"
+    "type": "Sim, Não, Não sei responder"
   },
   {
     "label": "Como você avalia a satisfação com o ambiente acústico e o conforto acústico?",
     "group": "Isolamento e conforto acústico",
-    "type": "good-bad"
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente"
   }
 ]

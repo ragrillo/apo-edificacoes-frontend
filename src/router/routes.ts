@@ -61,6 +61,26 @@ const routes: RouteRecordRaw[] = [
         path: '/criterio/11',
         component: () => import('src/pages/criterios/GestaoEManutencao.vue'),
       },
+      {
+        path: '/criterio/16',
+        component: () => import('src/pages/criterios/Custos.vue'),
+      },
+      {
+        path: '/criterio/17',
+        component: () => import('src/pages/criterios/LocalUsoEOcupacao.vue'),
+      },
+      {
+        path: '/criterio/19',
+        component: () => import('src/pages/criterios/PromocaoESaude.vue'),
+      },
+      {
+        path: '/criterio/20',
+        component: () => import('src/pages/criterios/ComunicacaoEUsuario.vue'),
+      },
+      {
+        path: '/criterio/21',
+        component: () => import('src/pages/criterios/SociaisECulturas.vue'),
+      },
     ],
   },
 

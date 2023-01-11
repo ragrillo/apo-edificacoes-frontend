@@ -33,15 +33,7 @@ import perguntas from '../../data/form/criterio-9.json';
 import QuestionarioComponent from '../../components/Questionario.vue';
 
 const titulo = 'CONFORTO TÉRMICO';
-
-const criterios = [
-  'Isolamento e conforto térmico',
-  'Umidade nos ambientes',
-  'Variação térmica',
-  'Ventilação natural',
-];
-
-const form = [];
+const criterios = [...new Set(perguntas.map((item) => item.group))];
 
 export default defineComponent({
   name: 'ConfortoTermico',
@@ -54,14 +46,6 @@ export default defineComponent({
   },
   components: {
     QuestionarioComponent,
-  },
-  methods: {
-    handleSelection(value) {
-      form.push(value);
-    },
-    submitForm() {
-      console.log(form);
-    },
   },
 });
 </script>

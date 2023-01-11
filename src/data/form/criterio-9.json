@@ -2,62 +2,62 @@
   {
     "label": "Há isolamento térmico nas paredes?",
     "group": "Isolamento e conforto térmico",
-    "type": "yes-no"
+    "type": "Sim, Não, Não sei responder"
   },
   {
     "label": "Há isolamento térmico da cobertura?",
     "group": "Isolamento e conforto térmico",
-    "type": "yes-no"
+    "type": "Sim, Não, Não sei responder"
   },
   {
     "label": "São utilizados materiais que tenham melhor desempenho térmico a fim de minimizar o uso de sistemas de climatização?",
     "group": "Isolamento e conforto térmico",
-    "type": "yes-no"
+    "type": "Sim, Não, Não sei responder"
   },
   {
     "label": "A climatização neste ambiente, para fins de conforto e/ou assepsia, está adequada as normas?",
     "group": "Isolamento e conforto térmico",
-    "type": "yes-na"
+    "type": "Sim, Não, Não sei responder, Não se aplica"
   },
   {
     "label": "Como você avalia o conforto térmico e a satisfação com as condições térmicas do ocupante?",
     "group": "Isolamento e conforto térmico",
-    "type": "good-bad"
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente"
   },
   {
     "label": "Como você avalia a sensação térmica no ambiente?",
     "group": "Isolamento e conforto térmico",
-    "type": "good-bad"
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente"
   },
   {
     "label": "Como você avalia a faixa de temperatura interna, e sua variação, no ambiente?",
     "group": "Isolamento e conforto térmico",
-    "type": "good-bad"
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente"
   },
   {
     "label": "Como você avalia os níveis de umidade no ambiente?",
     "group": "Umidade nos ambientes",
-    "type": "good-bad"
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente"
   },
   {
     "label": "Como você avalia a variação de temperatura do ar (diferença entre temperatura no exterior e interior da edificação) neste ambiente?",
     "group": "Variação térmica",
-    "type": "good-bad"
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente"
   },
   {
     "label": "Como você avalia as temperaturas no interior do ambiente em diferentes estações do ano?",
     "group": "Variação térmica",
-    "type": "good-bad"
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente"
   },
   {
     "label": "A ventilação natural do ambiente atende os valores mínimos exigidos?",
     "group": "Ventilação natural",
-    "type": "yes-na",
+    "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": "Ver planilha de cálculo de ventilação natural"
   },
   {
     "label": "Como você avalia a ventilação natural neste ambiente?",
     "group": "Ventilação natural",
-    "type": "good-bad"
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente"
   }
 ]

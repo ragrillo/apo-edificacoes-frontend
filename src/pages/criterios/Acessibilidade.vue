@@ -32,13 +32,7 @@ import perguntas from '../../data/form/criterio-3.json';
 import QuestionarioComponent from '../../components/Questionario.vue';
 
 const titulo = 'ACESSIBILIDADE E CIRCULAÇÃO';
-
-const criterios = [
-  'Acessos e circulação no interior da edificação',
-  'Acessibilidade',
-  'Acesso à remoção de resíduos',
-  'Sinalização interna e externa',
-];
+const criterios = [...new Set(perguntas.map((item) => item.group))];
 
 export default defineComponent({
   name: 'DocumentacaoPage',

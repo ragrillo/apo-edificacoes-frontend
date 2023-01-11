@@ -20,7 +20,7 @@
       </div>
 
       <q-card-actions align="right">
-        <q-btn flat label="Concluir" color="primary" />
+        <q-btn flat label="Concluir" color="primary" @click="submitForm" />
       </q-card-actions>
     </q-card>
   </div>
@@ -29,14 +29,14 @@
 <script>
 import { defineComponent } from 'vue';
 
-import perguntas from '../../data/form/criterio-4.json';
+import perguntas from '../../data/form/criterio-16.json';
 import QuestionarioComponent from '../../components/Questionario.vue';
 
-const titulo = 'ASPECTOS FÍSICOS';
+const titulo = 'CUSTOS';
 const criterios = [...new Set(perguntas.map((item) => item.group))];
 
 export default defineComponent({
-  name: 'AspectosFisicos',
+  name: 'CustosCriterio',
   data() {
     return {
       titulo,
