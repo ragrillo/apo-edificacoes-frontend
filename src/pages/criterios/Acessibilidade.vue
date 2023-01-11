@@ -13,13 +13,14 @@
 
         <q-card-section v-bind:key="index"
           v-for="(pergunta, index) in perguntas.filter((item) => item.group === criterio)">
-          <QuestionarioComponent :label="pergunta.label" :type="pergunta.type" :hint="pergunta.hint" />
+          <QuestionarioComponent :label="pergunta.label" :type="pergunta.type" :hint="pergunta.hint"
+            @onSelect="handleSelection" />
 
         </q-card-section>
       </div>
 
       <q-card-actions align="right">
-        <q-btn flat label="Concluir" color="primary" />
+        <q-btn flat label="Concluir" color="primary" @click="submitForm" />
       </q-card-actions>
     </q-card>
   </div>
@@ -33,6 +34,7 @@ import QuestionarioComponent from '../../components/Questionario.vue';
 
 const titulo = 'ACESSIBILIDADE E CIRCULAÇÃO';
 const criterios = [...new Set(perguntas.map((item) => item.group))];
+const form = [];
 
 export default defineComponent({
   name: 'DocumentacaoPage',
@@ -45,6 +47,24 @@ export default defineComponent({
   },
   components: {
     QuestionarioComponent,
+  },
+  methods: {
+    handleSelection(data) {
+      if (data.value) {
+        if (form.some((item) => item.label === data.label)) {
+          form.forEach((item) => {
+            if (item.label === data.label) {
+              item.value = data.value;
+            }
+          });
+        } else {
+          form.push(data);
+        }
+      }
+    },
+    submitForm() {
+      // console.log(form);
+    },
   },
 });
 </script>

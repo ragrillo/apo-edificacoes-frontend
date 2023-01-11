@@ -34,6 +34,7 @@ import QuestionarioComponent from '../../components/Questionario.vue';
 
 const titulo = 'CUSTOS';
 const criterios = [...new Set(perguntas.map((item) => item.group))];
+const form = [];
 
 export default defineComponent({
   name: 'CustosCriterio',
@@ -46,6 +47,24 @@ export default defineComponent({
   },
   components: {
     QuestionarioComponent,
+  },
+  methods: {
+    handleSelection(data) {
+      if (data.value) {
+        if (form.some((item) => item.label === data.label)) {
+          form.forEach((item) => {
+            if (item.label === data.label) {
+              item.value = data.value;
+            }
+          });
+        } else {
+          form.push(data);
+        }
+      }
+    },
+    submitForm() {
+      // console.log(form);
+    },
   },
 });
 </script>

@@ -6,8 +6,9 @@
     </div>
 
     <div>
-      <div :key="index" v-for="(option, index) in type.split(',')">
-        <q-radio v-model="value" :val="option" :label="option" />
+      <div :key="index" v-for="(option, index) in type.split(', ')">
+        <q-radio v-model="value" :val="option" :label="option"
+          :on-update:model-value="this.$emit('onSelect', { label, value })" />
       </div>
     </div>
 
