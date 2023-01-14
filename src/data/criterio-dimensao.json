@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Acessibilidade e Circulação",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/3"
+  },
+  {
+    "name": "Aspectos Físicos",
+    "dimension": "Ambiente",
+    "link": "/criterio/4"
+  },
+  {
+    "name": "Satisfação dos Usuários",
+    "dimension": "Ambiente",
+    "link": "/criterio/6"
+  },
+  {
+    "name": "Conforto Térmico",
+    "dimension": "Ambiente",
+    "link": "/criterio/9"
+  },
+  {
+    "name": "Conforto Acústico",
+    "dimension": "Ambiente",
+    "link": "/criterio/10"
+  },
+  {
+    "name": "Gestão e Manutenção",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/11"
+  },
+  {
+    "name": "Custos",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/16"
+  },
+  {
+    "name": "Local, Uso e Ocupação",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/17"
+  },
+  {
+    "name": "Promoção e Manutenção da Saúde",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/19"
+  },
+  {
+    "name": "Comunicação e Usuário",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/20"
+  },
+  {
+    "name": "Aspectos Sociais e Culturais",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/21"
+  }
+]
