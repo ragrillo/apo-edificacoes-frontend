@@ -81,6 +81,46 @@ const routes: RouteRecordRaw[] = [
         path: '/criterio/21',
         component: () => import('src/pages/criterios/SociaisECulturas.vue'),
       },
+      {
+        path: '/criterio/2',
+        component: () => import('src/pages/criterios/Documentacao.vue'),
+      },
+      {
+        path: '/criterio/1',
+        component: () => import('src/pages/criterios/MateriaiseAcabamentosPage1.vue'),
+      },
+      {
+        path: '/criterio/5',
+        component: () => import('src/pages/criterios/EspacosPage.vue'),
+      },
+      {
+        path: '/criterio/8',
+        component: () => import('src/pages/criterios/QualidadedoArPage1.vue'),
+      },
+      {
+        path: '/criterio/12',
+        component: () => import('src/pages/criterios/SegurancaEstruturalPage.vue'),
+      },
+      {
+        path: '/criterio/22',
+        component: () => import('src/pages/criterios/SegurancaEstruturalPage.vue'),
+      },
+      {
+        path: '/criterio/14',
+        component: () => import('src/pages/criterios/InstalacoesHidraulicasPage.vue'),
+      },
+      {
+        path: '/criterio/15',
+        component: () => import('src/pages/criterios/SustentabilidadePage.vue'),
+      },
+      {
+        path: '/criterio/18',
+        component: () => import('src/pages/criterios/MobilidadePage.vue'),
+      },
+      {
+        path: '/criterio/13',
+        component: () => import('src/pages/criterios/InstalacoesEletricasPage.vue'),
+      },
     ],
   },
 

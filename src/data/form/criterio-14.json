@@ -1,0 +1,56 @@
+[
+    {
+        "label": "Existe o abastecimento de água? (Ex.: Rede pública, poço artesiano, cisterna, poço ou fonte).",
+        "group": "Instalações hidráulicas",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+    },
+    {
+        "label": "Há dimensionamento e materiais adequados para as instalações hidráulicas?",
+        "group": "Instalações hidráulicas",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+    },
+    {
+        "label": "Como você avalia as instalações hidráulicas? (Ex.:Existência de defeitos/manifestações patológicas).",
+        "group": "Instalações hidráulicas",
+        "type": "",
+        "hint": ""      
+    },
+    {
+        "label": "Existe rede pública de coleta de esgoto ou fossa séptica?",
+        "group": "Instalações hidráulicas",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+    },
+    {
+        "label": "Há dimensionamento e materiais adequados para as instalações de esgoto?",
+        "group": "Instalações hidráulicas",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+    },
+    {
+        "label": "Como você avalia as instalações sanitárias? (Ex.: Existência de defeitos/manifestações patológicas).",
+        "group": "Instalações hidráulicas",
+        "type": "Péssimo, Ruim, Regular, Bom, Excelente",
+        "hint": ""      
+    },
+    {
+        "label": "Como você avalia a capacidade do sistema de captação e drenagem pluvial da cobertura?",
+        "group": "Instalações hidráulicas",
+        "type": "Péssimo, Ruim, Regular, Bom, Excelente",
+        "hint": ""      
+    },
+    {
+        "label": "Como você avalia a qualidade e potabilidade das águas servidas? Está de acordo com seu uso?",
+        "group": "Qualidade das águas servidas",
+        "type": " Inexistente, péssimo, ruim, regular, bom, excelente",
+        "hint": ""      
+    },
+    {
+        "label": "Como você avalia a gestão hídrica englobando o abastecimento de água e os riscos hídricos (posição de hidrantes, reservas de água, etc.)?",
+        "group": "Gestão do sistema hidráulico",
+        "type": "Inexistente, péssimo, ruim, regular, bom, excelente",
+        "hint": ""      
+    }
+]
