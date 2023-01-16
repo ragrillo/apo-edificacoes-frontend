@@ -70,12 +70,6 @@
         "group": "Segurança do Patrimonio",
         "type": "Sim, Não, Não sei responder",
         "hint": ""      
-    },
-    {
-        "label": "",
-        "group": "",
-        "type": "",
-        "hint": ""      
     }
     
 ]
