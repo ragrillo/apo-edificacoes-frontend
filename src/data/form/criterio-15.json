@@ -3,187 +3,218 @@
         "label": "Nesta edificação é feita a coleta e o aproveitamento de águas da chuva? (Ex.: Utilização em bacias sanitárias, rega de jardins, limpeza ou outros usos permitidos).",
         "group": "Gestão de captação de chuvas",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""
+        ,"institution":[""]   
     },
     {
         "label": "Existe estratégias para a redução da poluição ambiental causada por poluentes internos e externos?",
         "group": "Poluição ambiental - redução de poluentes internos e externos",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Existe gestão dos possíveis riscos causados pela poluição sejam eles químicos, biológicos ou ambientais?",
         "group": "Poluição ambiental - redução de poluentes internos e externos",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": ""      
+        ,"institution":["UBS"]
     },
     {
         "label": "Existe gestão das emissões de CO2 no local?",
         "group": "Poluição ambiental - redução de poluentes internos e externos",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": ""      
+        ,"institution":["UBS"]
     },
     {
         "label": "Existe um plano de gestão ambiental?",
         "group": "Plano de gestão ambiental",
         "type": "Sim, Não, Não sei responder, Não se aplica",
-        "hint": ""      
+        "hint": ""     
+        ,"institution":[""]    
     },
     {
         "label": "Foi adotada, ou está prevista para adoção futura, alguma ferramenta de classificação da sustentabilidade da edificação (green rating tools)?",
         "group": "Plano de gestão ambiental",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""   
+        ,"institution":[""]      
     },
     {
         "label": "Como você avalia as medidas adotadas de conscientização e educação para a sustentabilidade dos ocupantes em geral?",
         "group": "Plano de gestão ambiental",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Como você avalia as medidas adotadas de conscientização e educação para a sustentabilidade dos servidores especificamente?",
         "group": "Plano de gestão ambiental",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "São estimuladas inovações que tragam melhor desempenho ambiental na edificação?",
         "group": "Plano de gestão ambiental",
         "type": "Sim, Não, Não sei responder, Não se aplica",
-        "hint": ""      
+        "hint": ""   
+        ,"institution":[""]      
     },
     {
         "label": "Existe estratégias para diminuir a demanda de energia para iluminação e ao mesmo tempo aprimorar o desempenho na iluminação da edificação? (Ex.: sensores de presença para acionamento de lâmpadas; especificação de luminárias e lâmpadas de baixo consumo energético).",
         "group": "Economia e eficiência energética",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""    
+        ,"institution":[""]     
     },
     {
         "label": "Existe estratégias para diminuir a demanda para o sistema de climatização da edificação, e aprimorar o desempenho dos equipamentos?",
         "group": "Economia e eficiência energética",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Existe estratégias para diminuir o consumo por meio do uso racional, equipamentos e materiais mais eficientes?",
         "group": "Economia e eficiência energética",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Como você avalia o desempenho energético da edificação?",
         "group": "Economia e eficiência energética",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": ""   
+        ,"institution":[""]      
     },
     {
         "label": "São utilizados materiais que tenham menor consumo de energia embutida?",
         "group": "Economia e eficiência energética",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":[""]       
     },
     {
         "label": "Existe o uso de fontes alternativas de energia?",
         "group": "Fontes de energia alternativa",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":[""]       
     },
     {
         "label": "Existe produção local de energia?",
         "group": "Fontes de energia alternativa",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]       
     },
     {
         "label": "Como você avalia o consumo de água por meio da estatística e dos equipamentos e instalações?",
         "group": "Economia e eficiência hídrica",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Existem estratégias para diminuir o consumo de água pelo uso racional, equipamentos e materiais mais eficientes?",
         "group": "Economia e eficiência hídrica",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":[""]       
     },
     {
         "label": "Como você avaliia a adoção de maneiras de reduzir o consumo da água para irrigação do paisagismo?",
         "group": "Economia e eficiência hídrica",
         "type": "Inexistente, Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": ""
+        ,"institution":[""]         
     },
     {
         "label": "Existe o reuso de águas cinzas/ servidas?",
         "group": "Uso de águas cinzas",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":[""]       
     },
     {
         "label": "Existem medidas para evitar a formação do efeito ilha de calor?",
         "group": "Redução do efeito ilha de calor",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Estão sendo desenvolvidas avaliações do impacto do ciclo de vida do edifício? Estão sendo tomadas medidas para que essas sejam desenvolvidas futuramente?",
         "group": "ACV - Avaliação do ciclo de vida",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""
+        ,"institution":[""]         
     },
     {
         "label": "São feitas contratações de especialistas em questões de desempenho ambiental, para verificação externa?",
         "group": "Contratação de especialista ambiental",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Existe o uso racional de insumos, visando o decréscimo na produção de resíduos?",
         "group": "Uso racional de insumos",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Como você avalia a produção de resíduos na edificação?",
         "group": "Gestão de resíduos",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Como você avalia o gerenciamento de resíduo sólido considerando sua separação, reciclagem e reutilização?",
         "group": "Gestão de resíduos",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     },
     {
         "label": "Como você avalia o gerenciamento de resíduos líquidos englobando o tratamento de efluente e a preservação de recursos hídricos?",
         "group": "Gestão de resíduos",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":[""]       
     },
     {
         "label": "São adotadas medidas para evitar a liberação de resíduos gasosos para a atmosfera e combater emissão de compostos que prejudiquem a saúde?",
         "group": "Gestão de resíduos",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": ""   
+        ,"institution":[""]      
     },
     {
         "label": "Como você avalia a destinação de resíduos radioativos? Está adequada evitando a contaminação e visando a preservação da saúde?",
         "group": "Gestão de resíduos",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":["UBS"]    
     },
     {
         "label": "Como você avalia a gestão de resíduos buscando o uso racional de recursos naturais?",
         "group": "Gestão de resíduos",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":[""]       
     },
     {
         "label": "São adotadas medidas de recuperação de efluentes?",
         "group": "Recuperação de efluentes",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]        
     }
 
 ]

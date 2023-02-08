@@ -4,21 +4,17 @@
       <div class="text-h6">{{ titulo }}</div>
       Responda o questionário abaixo
     </div>
-
     <q-card>
+      {{ token }}
       <div v-bind:key="index" v-for="(criterio, index) in criterios">
-        <q-card-section>
-          <div class="text-bold">{{ criterio.toUpperCase() }}</div>
-        </q-card-section>
-
-        <q-card-section v-bind:key="index"
-          v-for="(pergunta, index) in perguntas.filter((item) => item.group === criterio)">
-          <QuestionarioComponent :label="pergunta.label" :type="pergunta.type" :hint="pergunta.hint"
-            @onSelect="handleSelection" />
-
-        </q-card-section>
-      </div>
-
+          <q-card-section>
+            <div class="text-bold">{{ criterio.toUpperCase() }}</div>
+          </q-card-section>
+          <q-card-section v-bind:key="index" v-for="(pergunta, index) in perguntas.filter((item) => (item.group === criterio && ((item.institution[1] === '' || item.institution[1] === token.edificacao) || (item.institution[2] == token.edificacao))))">
+            <QuestionarioComponent :label="pergunta.label" :type="pergunta.type" :hint="pergunta.hint"
+              @onSelect="handleSelection"/>
+          </q-card-section>
+        </div>
       <q-card-actions align="right">
         <q-btn flat label="Concluir" color="primary" @click="submitForm" />
       </q-card-actions>
@@ -28,22 +24,29 @@
 
 <script>
 import { defineComponent } from 'vue';
-
+import VueJwtDecode from 'vue-jwt-decode';
 import perguntas from '../../data/form/criterio-1.json';
 import QuestionarioComponent from '../../components/Questionario.vue';
 
 const titulo = 'MATERIAIS E ACABAMENTOS';
 const criterios = [...new Set(perguntas.map((item) => item.group))];
+
 const form = [];
 
 export default defineComponent({
   name: 'AspectosFisicos',
   data() {
+    const token = '';
     return {
       titulo,
       criterios,
       perguntas,
+      token,
     };
+  },
+  mounted() {
+    const token = localStorage.getItem('apo@session');
+    this.token = VueJwtDecode.decode(token);
   },
   components: {
     QuestionarioComponent,

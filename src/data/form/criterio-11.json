@@ -3,40 +3,48 @@
     "label": "São realizadas manutenções periódicas na edificação/estabelecimento? ",
     "group": "Manutenção periódica",
     "type": "Sim, Não, Não sei responder"
+    ,"institution":["UBS, Escola"]
   },
   {
     "label": "Como você avalia as medidas adotadas para a manutenção da edificação/estabelecimento? (Ex.: Existe a presença de equipe adequada e espaços técnicos, visando também a redução de custos?)",
     "group": "Manutenção periódica",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente, Não se aplica"
+    ,"institution":["UBS"]
   },
   {
     "label": "O projeto conta com engenharia apropriada para sistema de gerenciamento e controle nas operações?",
     "group": "Qualidade organizacional e gestão",
     "type": "Sim, Não, Não sei responder"
+    ,"institution":["UBS"]
   },
   {
     "label": "Existe o estímulo nas questões gerenciais que tragam melhor desempenho ambiental na edificação.",
     "group": "Qualidade organizacional e gestão",
     "type": "Sim, Não, Não sei responder"
+    ,"institution":["UBS"]
   },
   {
     "label": "Como você avalia a eficiência operacional da edificação/ estabelecimento?",
     "group": "Eficiência operacional",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
+    ,"institution":["UBS"]
   },
   {
     "label": "Os fluxos de trabalho e a logística dos processos são otimizados? O estabelecimento funciona de maneira organizada?",
     "group": "Eficiência operacional",
     "type": "Sim, Não, Não sei responder, Não se aplica"
+    ,"institution":["UBS"]
   },
   {
     "label": "Como você avalia a produtividade no local de trabalho?",
     "group": "Eficiência operacional",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente, Não se aplica"
+    ,"institution":"UBS, ESCOLA"
   },
   {
     "label": "Como você avalia a casa de máquinas da edificação e/ou seus equipamentos e tecnologias?",
     "group": "Equipamentos e tecnologias",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
+    ,"institution":["UBS"]
   }
 ]

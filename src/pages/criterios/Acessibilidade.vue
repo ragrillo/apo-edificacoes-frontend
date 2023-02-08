@@ -12,7 +12,7 @@
         </q-card-section>
 
         <q-card-section v-bind:key="index"
-          v-for="(pergunta, index) in perguntas.filter((item) => item.group === criterio)">
+          v-for="(pergunta, index) in perguntas.filter((item) => (item.group === criterio && ((item.institution[1] === '' || item.institution[1] === token.edificacao) || (item.institution[2] == token.edificacao))))">
           <QuestionarioComponent :label="pergunta.label" :type="pergunta.type" :hint="pergunta.hint"
             @onSelect="handleSelection" />
 
@@ -28,7 +28,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-
+import VueJwtDecode from 'vue-jwt-decode';
 import perguntas from '../../data/form/criterio-3.json';
 import QuestionarioComponent from '../../components/Questionario.vue';
 
@@ -39,11 +39,17 @@ const form = [];
 export default defineComponent({
   name: 'DocumentacaoPage',
   data() {
+    const token = 'UBS';
     return {
       titulo,
       criterios,
       perguntas,
+      token,
     };
+  },
+  mounted() {
+    const token = localStorage.getItem('apo@session');
+    this.token = VueJwtDecode.decode(token);
   },
   components: {
     QuestionarioComponent,

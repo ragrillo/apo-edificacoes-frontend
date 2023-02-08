@@ -4,14 +4,12 @@
       {{ label }}
       <q-btn v-if="hint" flat dense rounded icon="info" color="grey" @click="showHint" />
     </div>
-
     <div>
       <div :key="index" v-for="(option, index) in type.split(', ')">
         <q-radio v-model="value" :val="option" :label="option"
           :on-update:model-value="this.$emit('onSelect', { label, value })" />
       </div>
     </div>
-
     <q-dialog v-model="isVisible">
       <q-card style="width: 100%">
         <q-card-section>
@@ -35,7 +33,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'QuestionarioComponent',
-  props: ['label', 'type', 'hint'],
+  props: ['label', 'type', 'hint', 'institution'],
   data() {
     return {
       value: '',
@@ -48,4 +46,5 @@ export default defineComponent({
     },
   },
 });
+
 </script>

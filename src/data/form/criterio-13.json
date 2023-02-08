@@ -3,48 +3,56 @@
         "label": "Existe o abastecimento de energia elétrica? (Ex.: Rede pública, gerador ou energia solar).",
         "group": "Instalações elétricas",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":[""]    
     },
     {
         "label": "Há dimensionamento e materiais adequados para as instalações elétricas? ",
         "group": "Instalações elétricas",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""
+        ,"institution":[""]      
     },
     {
         "label": "Como você avalia as instalações elétricas? (Ex.:Existência de defeitos/manifestações patológicas)",
         "group": "Instalações elétricas",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]     
     },
     {
         "label": "Existe a verificação do consumo de energia da edificação?",
         "group": "Instalações elétricas",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""
+        ,"institution":[""]      
     },
     {
         "label": "Foi verificada a fonte energética principal do empreendimento durante as fases do empreendimento?",
         "group": "Instalações elétricas",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""   
+        ,"institution":[""]   
     },
     {
         "label": "Como você avalia o sistema de telecomunicação instalado na edificação? (Ex.: Telefones, computadores).",
         "group": "Sistema de telecomunicação",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]     
     },
     {
         "label": "Existe acesso à internet",
         "group": "Sistema de telecomunicação",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" 
+        ,"institution":[""]     
     },
     {
         "label": "Estão sendo tomadas medidas para a redução de consumo em horário de pico, evitando que o sistema de abastecimento de energia entre em pane devido à sobrecarga do sistema na hora de pico?",
         "group": "Redução de consumo em horário de pico (gestão)",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": ""  
+        ,"institution":[""]    
     }
 ]
