@@ -70,16 +70,16 @@ export default defineComponent({
         return;
       }
 
-      const body = { email: this.email.trim(), password: this.password.trim() };
-      const { data } = await api.post('/usuario/login', body);
+      const payload = { email: this.email.trim(), senha: this.password.trim() };
+      const { data } = await api.post('/usuarios/login', payload);
 
-      if (data.status === 200) {
+      if (data.statusCode === 200) {
         localStorage.setItem('apo@session', data.body);
 
         const { cargo } = VueJwtDecode.decode(data.body);
 
-        const ADMIN = 'Administrador do site ou Equipe de TI';
-        const nextPage = cargo === ADMIN ? 'admin' : 'unidade';
+        const ADMIN = 5;
+        const nextPage = cargo === ADMIN ? '/admin' : '/unidade';
 
         this.$router.push(nextPage);
       } else {
