@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Algum componente da edificação já teve que ser trocado?",
+    "group": "Custos de manutenção",
+    "type": "Sim, Não, Não sei responder, Não se aplica"
+    ,"institution":[""]   
+  },
+  {
+    "label": "Foram realizadas estratégias para redução de custos? (Ex.: Custos de execução da obra, custos de manutenção da edificação).",
+    "group": "Custos de manutenção",
+    "type": "Sim, Não, Não sei responder, Não se aplica"
+    ,"institution":[""]   
+  },
+  {
+    "label": "Como você avalia os custos operacionais e custos de manutenção?",
+    "group": "Custos de manutenção",
+    "type": "Muito caro, Caro, Regular, Bom, Excelente"
+    ,"institution":[""]   
+  },
+  {
+    "label": "Como você avalia a viabilidade econômica do empreendimento? A edificação atingiu as expectativas técnicas e financeiras (custos previstos x realizados)?",
+    "group": "Custos previstos x realizados",
+    "type": "Sim, Não, Não sei responder"
+    ,"institution":[""]   
+  },
+  {
+    "label": "Foi realizada uma avaliação dos custos antes de iniciar o empreendimento? (Ex.: Plano de negócios).",
+    "group": "Custos previstos x realizados",
+    "type": "Sim, Não, Não sei responder"
+    ,"institution":[""]   
+  }
+]

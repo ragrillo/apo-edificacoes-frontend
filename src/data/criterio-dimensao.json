@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Materiais e Acabamentos",
+    "dimension": "Ambiente",
+    "link": "/criterio/1"
+  },
+  {
+    "name": "Escolhas Construtivas e Documentação",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/2"
+  },
+  {
+    "name": "Espaços",
+    "dimension": "Ambiente",
+    "link": "/criterio/5"
+  },
+  {
+    "name": "Qualidade do Ar",
+    "dimension": "Ambiente",
+    "link": "/criterio/8"
+  },
+  {
+    "name": "Segurança Estrutural",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/12"
+  },
+  {
+    "name": "Instalações Elétricas",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/13"
+  },
+  {
+    "name": "Instalações Hidraulicas",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/14"
+  },
+  {
+    "name": "Sustentabilidade",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/15"
+  },
+  {
+    "name": "Mobilidade",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/18"
+  },
+  {
+    "name": "Segurança Pessoal e Patrimonial",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/22"
+  },
+  {
+    "name": "Conforto Visual",
+    "dimension": "Ambiente",
+    "link": "/criterio/7"
+  },
+  {
+    "name": "Acessibilidade e Circulação",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/3"
+  },
+  {
+    "name": "Aspectos Físicos",
+    "dimension": "Ambiente",
+    "link": "/criterio/4"
+  },
+  {
+    "name": "Satisfação dos Usuários",
+    "dimension": "Ambiente",
+    "link": "/criterio/6"
+  },
+  {
+    "name": "Conforto Térmico",
+    "dimension": "Ambiente",
+    "link": "/criterio/9"
+  },
+  {
+    "name": "Conforto Acústico",
+    "dimension": "Ambiente",
+    "link": "/criterio/10"
+  },
+  {
+    "name": "Gestão e Manutenção",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/11"
+  },
+  {
+    "name": "Custos",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/16"
+  },
+  {
+    "name": "Local, Uso e Ocupação",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/17"
+  },
+  {
+    "name": "Promoção e Manutenção da Saúde",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/19"
+  },
+  {
+    "name": "Comunicação e Usuário",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/20"
+  },
+  {
+    "name": "Aspectos Sociais e Culturais",
+    "dimension": "Gestão e Projeto",
+    "link": "/criterio/21"
+  }
+]

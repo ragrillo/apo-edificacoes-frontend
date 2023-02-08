@@ -1,0 +1,27 @@
+[
+  {
+    "label": "O estabelecimento estimula a partilha de conhecimentos, o ensino e a pesquisa?",
+    "group": "Comunicação entre usuários",
+    "type": "Sim, Não, Não sei responder, Não se aplica"
+    ,"institution":[""]
+  },
+  {
+    "label": "Como você avalia a comunicação, interação e transparência entre os diferentes usuários da edificação?",
+    "group": "Comunicação entre usuários",
+    "type": "Péssimo, Ruim, Regular, Bom, Excelente, Não se aplica"
+    ,"institution":[""]
+
+  },
+  {
+    "label": "Existe um manual do usuário da edificação que permita o conhecimento sobre o processo construtivo e instalações?",
+    "group": "Manual do usuário",
+    "type": "Sim, Não, Não sei responder"
+    ,"institution":[""]
+  },
+  {
+    "label": "Existe um plano de pesquisas de satisfação para obter o feedback do desempenho do estabelecimento?",
+    "group": "Pesquisa de satisfação",
+    "type": "Sim, Não, Não sei responder"
+    ,"institution":[""]
+  }
+]

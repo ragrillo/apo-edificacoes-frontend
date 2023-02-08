@@ -18,7 +18,7 @@
 
     <q-card-actions align="right">
       <q-btn flat color="primary" label="Anterior" to="/ambiente" />
-      <q-btn flat color="primary" label="Próximo" to="/ambiente/editar" />
+      <q-btn flat color="primary" label="Próximo" to="/home" />
     </q-card-actions>
   </q-card>
 
@@ -83,7 +83,7 @@
 
       <q-card-actions align="right">
         <q-btn flat color="primary" label="Cancelar" @click="editingMode = false" />
-        <q-btn flat color="primary" label="Salvar" />
+        <q-btn flat color="primary" label="Salvar"/>
       </q-card-actions>
     </q-card>
   </q-dialog>

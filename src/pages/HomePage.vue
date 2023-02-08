@@ -1,66 +1,63 @@
 <template>
-  <div class="q-ma-md">
-    <q-card>
-      <q-card-section class="flex justify-between q-py-lg">
-        <q-circular-progress show-value size="75px" color="primary" track-color="grey-3"
-          :value="calcularProgressoTotal">
-          {{ calcularProgressoTotal }}%
-        </q-circular-progress>
+  <q-tabs class="text-primary" v-model="dimension" @update:model-value="handleDimensionChange">
+    <q-tab name="Ambiente" label="Ambiente" />
+    <q-tab name="Gestão e Projeto" label="Gestão e Projeto" />
+  </q-tabs>
 
-        <div align="right" style="width: 70%">
-          <div class="text-bold">{{ totalCriteriosCompletos }} de 21 critérios concluídos</div>
-          Vamos realizar a avaliação da sua unidade
-        </div>
+  <q-tab-panels v-model="dimension">
+    <q-tab-panel name="Ambiente">
+      <q-list v-bind:key="index" v-for="(item, index) in criterios">
+        <q-item class="q-py-sm">
+          <q-item-section>
+            <q-item-label>{{ item.name }}</q-item-label>
+          </q-item-section>
 
-      </q-card-section>
+          <q-item-section side>
+            <q-btn flat color="primary" label="Responder" @click="this.$router.push(item.link)" />
+          </q-item-section>
+        </q-item>
 
-      <q-tabs v-model="tab" class="text-grey" active-color="primary" indicator-color="primary" align="justify"
-        narrow-indicator>
-        <q-tab name="geral" label="Aspectos Gerais" />
-        <q-tab name="ambientes" label="Ambientes" />
-        <q-tab name="projeto" label="Projeto" />
-        <q-tab name="gestao" label="Gestão" />
-      </q-tabs>
+        <q-separator />
+      </q-list>
+    </q-tab-panel>
 
-      <q-tab-panels v-model="tab" animated>
-        <q-tab-panel name="geral">
-          <CriteriosPage />
-        </q-tab-panel>
-        <q-tab-panel name="ambientes">
-          <CriteriosPage />
-        </q-tab-panel>
-        <q-tab-panel name="projeto">
-          <CriteriosPage />
-        </q-tab-panel>
-        <q-tab-panel name="gestao">
-          <CriteriosPage />
-        </q-tab-panel>
-      </q-tab-panels>
-    </q-card>
-  </div>
+    <q-tab-panel name="Gestão e Projeto">
+      <q-list v-bind:key="index" v-for="(item, index) in criterios">
+        <q-item class="q-py-sm">
+          <q-item-section>
+            <q-item-label>{{ item.name }}</q-item-label>
+          </q-item-section>
+
+          <q-item-section side>
+            <q-btn flat color="primary" label="Responder" @click="this.$router.push(item.link)" />
+          </q-item-section>
+        </q-item>
+
+        <q-separator />
+      </q-list>
+    </q-tab-panel>
+  </q-tab-panels>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import CriteriosPage from './CriteriosPage.vue';
-
-const criterio = 0;
-const example = ['Ambiente 1', 'Ambiente 2'];
+import data from '../data/criterio-dimensao.json';
 
 export default defineComponent({
   name: 'HomePage',
-  components: {
-    CriteriosPage,
-  },
   data() {
     return {
-      tab: 'geral',
-      totalCriteriosCompletos: criterio,
-      ambientes: example,
+      criterios: [],
+      dimension: 'Ambiente',
     };
   },
-  computed: {
-    calcularProgressoTotal: () => Math.floor((criterio / 21) * 100),
+  methods: {
+    handleDimensionChange() {
+      this.criterios = data.filter((item) => item.dimension === this.dimension);
+    },
+  },
+  mounted() {
+    this.handleDimensionChange();
   },
 });
 </script>

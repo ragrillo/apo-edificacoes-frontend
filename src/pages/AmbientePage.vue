@@ -14,7 +14,7 @@
     </q-list>
 
     <q-card-actions align="right">
-      <q-btn flat color="primary" label="Próximo" to="/ambiente/editar" />
+      <q-btn flat color="primary" label="Próximo" to="/ambiente/editar"/>
     </q-card-actions>
   </q-card>
 </template>
@@ -23,7 +23,7 @@
 import { defineComponent } from 'vue';
 import ambiente from '../assets/data/ambientes.json';
 
-const edificacao = 'habitacao';
+const edificacao = 'escola';
 
 export default defineComponent({
   name: 'AmbientePage',
@@ -32,5 +32,6 @@ export default defineComponent({
       ambientes: ambiente[edificacao],
     };
   },
+
 });
 </script>

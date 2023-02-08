@@ -1,0 +1,267 @@
+[
+    {
+        "label": "Como você avalia as quadras poliesportivas? (Ex.:Existência de defeitos/manifestações patológicas)",
+        "group": "Área de recreação e amenidades",
+        "type": "Péssimo, Ruim, Regular, Bom, Excelente",
+        "hint": ""
+        ,"institution":["Escola"]    
+    },
+    {
+        "label": "Como você avalia os playgrounds e pátios? (Ex.:Existência de defeitos/manifestações patológicas)",
+        "group": "Área de recreação e amenidades",
+        "type": "Péssimo, Ruim, Regular, Bom, Excelente",
+        "hint": ""
+        ,"institution":["Escola"]        
+    },
+    {
+        "label": "A configuração do pátio é compatível com a capacidade de usuários?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "O pátio é planejado para utilização em atividades diversas? (Ex.: lazer, festas, eventos).",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Possui áreas de descanso com bancos, bebedouros e espaço para exposição de trabalhos?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os pisos dos playgrounds e pátios possuem revestimento liso, mas não escorregadio? (Ex.: piso cerâmico ou piso material lavável, não escorregadio e resistente à abrasão).",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "O dimensionamento dos os playgrounds e pátios está adequado?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os pátios cobertos possuem paredes de material liso, lavável e impermeável até a altura mínima de 0,50 m?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os pátios cobertos possuem tetos com material que permita conforto térmico e acústico?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os pátios cobertos possuem esquadrias com material de fácil manutenibilidade, resistente e que garanta estanqueidade?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os pátios descobertos estão implantados em locais distante das áreas de serviços, depósito de lixo, gás e estacionamento?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os pátios descobertos apresentam espaços diversificados, sombreados e descobertos?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os patios descobertos possuem áreas permeáveis, pisos variados como grama e areia?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os pátios descobertos possuem bancos e brinquedos como escorregador, balanço, túneis, casa de boneca, etc.?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os pátios descobertos possuem brinquedos acessíveis para crianças com deficiência?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os playgrounds e pátios possuem áreas adequadas (medidas)?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os playgrounds e pátios possuem bancos com material impermeável?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os playgrounds e pátios possuem iluminação adequada?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Existem amenidades para os usuários? (Ex.: lugares para comprar bebidas e lanches).",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Os funcionários têm acesso a amenidades como bancos (ATM), bebidas e lanches?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Existe área coberta para recreação dos usuários?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Existe área de jogos e brinquedos?",
+        "group": "Área de recreação e amenidades",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["Escola"]  
+    },
+    {
+        "label": "Este ambiente possui a amplitude a ele necessária?",
+        "group": "Dimensões dos espaços",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "Sala de recepção e espera com capacidade para 45 pessoas com área total de 68m² Banheiros para pessoas com deficiência com área útil de 2,55m²Dispor de 2 banheiros para funcionários com 3,5m² cadaDispor de dois consultórios com sanitário anexo: 1 sanitário comum com 1,6m² e 1 sanitário para pessoas com deficiência com 2,55m²1 espaço de almoxarifado com área de 3m²1 espaço de depósito de material de limpeza com 2m²Sala de administração e gerência com área de 12,5m²Farmácia (estocagem/dispensação de medicamentos) com 14m²4 consultórios indiferenciados / acolhimento com 9m²2 consultórios com sanitário com área total de 9m² cada1 consultório odontológico para 3 equipes com 30m²1 sala de coleta com 4m²1 sala de imunização com 9m²1 sala de curativos com 9m²Sala de coleta e curativos com 9m²Copa com área mínima de 6m²Sala de expurgo com 5 m²Sala de esterilização/ estocagem de material esterilizado com 5m²Depósito de resíduos comuns com 2,3m²Depósito de resíduos contaminados com 1,5m² Depósito de resíduos recicláveis com 1,5m²"      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "Existe um balcão de informações para área de registro, com informações sobre a localização dos funcionários?",
+        "group": "Atendimento ao público",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["UBS"]
+
+    },
+    {
+        "label": "Existe uma sala para área de espera, em boas condições, para os usuários da edificação?",
+        "group": "Área de espera",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["UBS"]
+
+    },
+    {
+        "label": "Os banheiros estão localizados de forma lógica, conveniente e discreta?",
+        "group": "Banheiros",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "Dispor de 3 banheiros para pessoas com deficiência com área útil de 2,55m²Dispor de 2 banheiros para funcionários com 3,5m² cadaDispor de dois consultórios com sanitário anexo: 1 sanitário comum com 1,6m² e 1 sanitário para pessoas com deficiência com 2,55m²Banheiro anexo a sala de procedimento (área de 4,8m²)"      
+        ,"institution":["UBS"]
+
+    },
+    {
+        "label": "Existem espaços para armazenamento?",
+        "group": "Espaço de armazenamento/ almoxarifado",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "1 espaço de almoxarifado com área de 3m²1 espaço de depósito de material de limpeza com 2m²"      
+        ,"institution":["UBS"]
+
+    },
+    {
+        "label": "Existe espaço para administração e reuniões formais?",
+        "group": "Espaços de administração",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "1 espaço com área de 12,5m²"      
+        ,"institution":["UBS"]
+
+    },
+    {
+        "label": "Os funcionários possuem locais convenientes para se concentrar no trabalho?",
+        "group": "Área de trabalho",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "1 sala de atividades coletivas/ ACS 25m² (funcionários)1 Sala de demonstração e aplicação em saúde (1m² por ouvinte)1 sala de imunização com 9m²Farmácia (estocagem/dispensação de medicamentos) com 14m²4 consultórios indiferenciados / acolhimento com 9m² cada (englobando sala de preparo do paciente)2 consultórios com sanitário com área total de 9m² cada1 consultório odontológico para 2 equipes com 20m²1 consultório odontológico para 3 equipes com 30m²1 sala de inalação coletiva para 6 pacientes com 9m² (previsto 1,6m² por paciente na RDC Nº 50)1 sala de coleta com 4m²Sala de coleta e curativos1 sala de curativos com 9m²1 sala de relatório (1m² por funcionário)1 sala de aplicação de medicamentosSala de armazenagem e distribuição de alimentos de programas especiais"      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "Os funcionários têm um local conveniente para mudar e armazenar com segurança pertences e roupas?",
+        "group": "Área de vestiário",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "Os funcionários possuem local dedicado as refeições?",
+        "group": "Copa / Cozinha ",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "Copa com área mínima de 6m²"      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "A equipe de funcionários pode descansar e relaxar em locais separados dos demais usuários da edificação?",
+        "group": "Área de descanso",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "Existem instalações para os acompanhantes?",
+        "group": "Área de apoio aos usuários",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "Em quartos hospitalares de pediatria e geriatria devem ser previstos espaços para cadeira de acompanhante ao lado do leito"      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "O ambiente têm janelas que permitam aos usuários a visualização de cenas e paisagens do exterior?",
+        "group": "Paisagismo",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "Os ambientes têm aberturas que permitam fácil acesso a áreas externas ajardinadas? (Ex: áreas com plantas e fontes d’água, sombreadas e com bancos).",
+        "group": "Paisagismo",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "Como você avalia a conexão com a natureza ou área externa? (Ex.: os usuários podem ver facilmente o céu, o terreno, as plantas, a vegetação e a natureza?)",
+        "group": "Paisagismo",
+        "type": "Péssimo, Ruim, Regular, Bom, Excelente",
+        "hint": ""      
+        ,"institution":["UBS"]
+    },
+    {
+        "label": "Como você avalia a adequação do projeto paisagístico? Os usuários têm acesso a áreas paisagísticas utilizáveis?",
+        "group": "Paisagismo",
+        "type": "Péssimo, Ruim, Regular, Bom, Excelente",
+        "hint": "Vista interna para detalhe de jardim gramado com 3,2m²Priorizar as espécies vegetais que demandem pouca manutenção; espécies nativas da região e frutíferas; vegetação de rápido crescimento e resistentes a pragas e doenças; vegetação de porte ou rasteira, evitando-se a formação de moitas."      
+        ,"institution":["UBS"]
+    }
+    
+]

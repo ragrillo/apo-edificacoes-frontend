@@ -65,6 +65,7 @@
 </template>
 
 <script>
+import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
 import cargos from '../assets/data/cargos.json';
@@ -83,6 +84,21 @@ export default defineComponent({
     };
   },
   mounted() {
+    const token = localStorage.getItem('apo@session');
+
+    if (!token) {
+      this.$router.back();
+      return;
+    }
+
+    const { cargo } = VueJwtDecode.decode(token);
+    const ADMIN = cargos[0].value;
+
+    if (cargo !== ADMIN) {
+      this.$router.back();
+      return;
+    }
+
     this.requestusuarios();
   },
   methods: {

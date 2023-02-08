@@ -1,0 +1,101 @@
+[
+    {
+        "label": "Há controle de entrada e saída de usuários?",
+        "group": "Segurança dos usuários",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""
+        ,"institution":[""]
+
+    },
+    {
+        "label": "Há controle de entrada de pessoas estranhas na edificação?",
+        "group": "Segurança dos usuários",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""
+    ,"institution":[""]
+
+    },{
+        "label": "Há esquema de policiamento para inibição de tráfico de tóxicos/drogas no estabelecimento?",
+        "group": "Segurança dos usuários",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "" 
+    ,"institution":[""]
+
+    },
+    {
+        "label": "Há esquema de policiamento para inibição de tráfico de tóxicos/drogas nas imediações do estabelecimento?",
+        "group": "Segurança dos usuários",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""
+    ,"institution":[""]
+
+    },{
+        "label": "Como você avalia o nível de segurança geral como usuário da edificação?",
+        "group": "Segurança dos usuários",
+        "type": "Péssimo, Ruim, Regular, Bom, Excelente",
+        "hint": "" 
+    ,"institution":[""]
+             
+    },
+    {
+        "label": "Há controle de entrada de pessoas estranhas na edificação?",
+        "group": "Segurança dos usuários",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "" 
+    ,"institution":[""]
+
+    },{
+        "label": "Como você avalia o nível de segurança para realizar suas atividades de trabalho como funcionário do estabelecimento?",
+        "group": "Segurança no trabalho",
+        "type": "Péssimo, Ruim, Regular, Bom, Excelente",
+        "hint": ""
+    ,"institution":[""]
+
+    },
+    {
+        "label": "Há vigilância para o período diurno?",
+        "group": "Segurança do Patrimonio",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "" 
+    ,"institution":[""]
+
+    },{
+        "label": "Há vigilância para o período noturno?",
+        "group": "Segurança do Patrimonio",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""  
+    ,"institution":[""]
+
+    },
+    {
+        "label": "Há vigilância para os finais de semana e feriados?",
+        "group": "Segurança do Patrimonio",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "" 
+    ,"institution":[""]
+
+    },{
+        "label": "Há iluminação do lado de fora da edificação?",
+        "group": "Segurança do Patrimonio",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "" 
+    ,"institution":[""]
+
+    },
+    {
+        "label": "Há mecanismos de proteção para equipamentos mais caros?",
+        "group": "Segurança do Patrimonio",
+        "type": "Sim, Não, Não sei responder",
+        "hint": ""
+    ,"institution":[""]
+
+    },{
+        "label": "Há segurança nas suas imediações?",
+        "group": "Segurança do Patrimonio",
+        "type": "Sim, Não, Não sei responder",
+        "hint": "" 
+    ,"institution":[""]
+
+    }
+    
+]
