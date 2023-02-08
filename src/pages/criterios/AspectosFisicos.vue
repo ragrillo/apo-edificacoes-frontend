@@ -39,12 +39,10 @@ const form = [];
 export default defineComponent({
   name: 'AspectosFisicos',
   data() {
-    const token = 'UBS';
     return {
       titulo,
       criterios,
       perguntas,
-      token,
     };
   },
   mounted() {

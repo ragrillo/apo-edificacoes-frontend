@@ -39,12 +39,10 @@ const form = [];
 export default defineComponent({
   name: 'DocumentacaoPage',
   data() {
-    const token = 'UBS';
     return {
       titulo,
       criterios,
       perguntas,
-      token,
     };
   },
   mounted() {
