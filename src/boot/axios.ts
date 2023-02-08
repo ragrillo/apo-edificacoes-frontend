@@ -15,7 +15,7 @@ declare module '@vue/runtime-core' {
 // for each client)
 const api = axios.create({
   baseURL: process.env.API_URL,
-  headers: { 'x-api-key': 'apo-api-key' }
+  headers: { 'x-api-key': 'apo-api-key' },
 });
 
 export default boot(({ app }) => {
