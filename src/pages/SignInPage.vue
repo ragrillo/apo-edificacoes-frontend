@@ -47,14 +47,6 @@
           </template>
         </q-input>
 
-        <q-input v-model="usuario.confirmarSenha" outlined label="Confirmar senha"
-          :type="showPassword ? 'text' : 'password'">
-          <template v-slot:append>
-            <q-btn dense rounded flat @click="showPassword = !showPassword"
-              :icon="showPassword ? 'visibility_off' : 'visibility'" />
-          </template>
-        </q-input>
-
         <div v-show="isEmpresa()" class="q-gutter-y-md">
           <div class="text-bold">Informaçẽs sobre Empresa</div>
 
@@ -101,7 +93,6 @@ export default defineComponent({
         telefone: '',
         email: '',
         senha: '',
-        confirmarSenha: '',
         cnpj: '',
         razaoSocial: '',
         telefoneEmpresarial: '',
@@ -115,27 +106,22 @@ export default defineComponent({
   },
   methods: {
     isEmpresa() {
-      return this.usuario.cargo === optionsrole[4].value;
+      return this.usuario.cargo === 'Sócio proprietário, Empreendedor, Chefe da Secretaria ou Prefeitura';
     },
     isAdmin() {
-      return this.usuario.cargo === optionsrole[0].value;
+      return this.usuario.cargo === 'Administrador do site ou Equipe de TI';
     },
-    sanitizeData() {
-      this.usuario.nomeCompleto.trim();
-      this.usuario.email.trim();
-      this.usuario.senha.trim();
-      this.usuario.confirmarSenha.trim();
-      this.usuario.razaoSocial.trim();
-      this.usuario.emailEmpresarial.trim();
+    getNumericalValueOfCargo() {
+      return optionsrole.map((opt) => opt.value).indexOf(this.usuario.cargo) + 1;
     },
     async handleSignIn() {
       this.loading = true;
       this.showPassword = false;
 
-      this.sanitizeData();
-      const { data } = await api.post('/usuario', this.usuario);
+      this.usuario.cargo = this.getNumericalValueOfCargo();
+      const { data } = await api.post('/usuarios', this.usuario);
 
-      this.success = data.status === 201;
+      this.success = data.statusCode === 201;
       this.message = data.body;
 
       this.loading = false;
