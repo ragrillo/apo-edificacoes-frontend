@@ -189,22 +189,14 @@ export default defineComponent({
       }
     },
     async handleCadastroUnidade() {
-      switch (this.form.tipoUnidade) {
-        case 'Escola':
-          this.form.habitacao = null;
-          this.form.ubs = null;
-          break;
-        case 'UBS':
-          this.form.habitacao = null;
-          this.form.escola = null;
-          break;
-        default:
-          this.form.escola = null;
-          this.form.ubs = null;
-          break;
-      }
+      const edificacao = this.token.edificacao.toLowerCase();
+      const payload = { ...this.form, ...this.form[edificacao] };
 
-      await api.post('/unidade', this.form);
+      delete payload.escola;
+      delete payload.habitacao;
+      delete payload.ubs;
+
+      await api.post(`/unidades/${edificacao}`, payload);
 
       this.$router.push('ambiente');
     },
