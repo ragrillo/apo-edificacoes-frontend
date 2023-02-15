@@ -79,7 +79,7 @@ export default defineComponent({
         const { cargo } = VueJwtDecode.decode(data.body);
 
         const ADMIN = 5;
-        const nextPage = cargo === ADMIN ? '/admin' : '/unidade';
+        const nextPage = cargo === ADMIN ? '/admin' : '/perfil';
 
         this.$router.push(nextPage);
       } else {
