@@ -35,7 +35,7 @@
     </q-card>
     <div class="q-pa-lg">
       <span>Ainda não possui conta? </span>
-      <router-link to="#/signin">Cadastre-se!</router-link>
+      <router-link to="/signin">Cadastre-se!</router-link>
     </div>
   </q-page>
 </template>
