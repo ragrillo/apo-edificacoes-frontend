@@ -17,7 +17,7 @@ const { configure } = require('quasar/wrappers');
 require('dotenv').config();
 
 module.exports = configure((ctx) => ({
-  
+
   // https://v2.quasar.dev/quasar-cli-webpack/supporting-ts
   supportTS: {
     tsCheckerConfig: {
@@ -63,6 +63,7 @@ module.exports = configure((ctx) => ({
     vueRouterMode: 'hash', // available values: 'hash', 'history'
     env: {
       API_URL: process.env.QUASAR_ENV_API_URL,
+      API_KEY: process.env.QUASAR_ENV_API_KEY,
     },
 
     // transpile: false,

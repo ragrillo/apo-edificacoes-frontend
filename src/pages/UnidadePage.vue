@@ -40,8 +40,7 @@
           </div>
 
           <div v-show="token.edificacao === 'UBS'" class="q-gutter-md">
-            <q-select v-model="form.ubs.tipoUnidade" outlined label="Tipologia da unidade"
-              :options="opcoes.tipoPorte" />
+            <q-select v-model="form.ubs.tipoUnidade" outlined label="Tipologia da unidade" :options="opcoes.tipoPorte" />
             <q-input v-model="form.ubs.dataEntregaObra" outlined label="Data de entrega da obra" />
             <q-input v-model="form.ubs.descricao" type="textarea" outlined label="Descrição da unidade" />
 
@@ -107,7 +106,7 @@ export default defineComponent({
       opcoes: {
         tipoEscola: ['Municipal', 'Estadual', 'Federal', 'Particular'],
         tipoHabitacao: ['Casa', 'Apartamento'],
-        modalidadeEscola: ['Infantil', 'Fundamental', 'Médio', 'Jovens e Adultos'],
+        modalidadeEscola: ['Infantil', 'Fundamental', 'Médio', 'Jovens e Adultos', 'Fundamental e Médio'],
         horarioFuncionamento: ['Manhã', 'Tarde', 'Noite'],
         tipoPorte: ['Porte I', 'Porte II', 'Porte III', 'Porte IV', 'Porte V'],
       },
@@ -195,7 +194,6 @@ export default defineComponent({
       delete payload.escola;
       delete payload.habitacao;
       delete payload.ubs;
-
       await api.post(`/unidades/${edificacao}`, payload);
 
       this.$router.push('ambiente');

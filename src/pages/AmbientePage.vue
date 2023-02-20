@@ -14,24 +14,39 @@
     </q-list>
 
     <q-card-actions align="right">
-      <q-btn flat color="primary" label="Próximo" to="/ambiente/editar"/>
+      <q-btn flat color="primary" label="Próximo" to="/ambiente/editar" />
+    </q-card-actions>
+    <q-card-actions align="left">
+      <q-btn flat color="primary" label="Teste" @click="imprimirConsole" />
     </q-card-actions>
   </q-card>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import ambiente from '../assets/data/ambientes.json';
+import VueJwtDecode from 'vue-jwt-decode';
+// import ambiente from '../assets/data/ambientes.json';
 
-const edificacao = 'escola';
+// const edificacao = 'escola';
 
 export default defineComponent({
   name: 'AmbientePage',
   data() {
     return {
-      ambientes: ambiente[edificacao],
+      token: {},
+      ambientes: [],
     };
   },
-
+  mounted() {
+    const token = localStorage.getItem('apo@session');
+    this.token = VueJwtDecode.decode(token);
+  },
+  methods: {
+    //  imprimirConsole() {
+    //    const data = {
+    //      ambientes: ambiente[this.token.edificacao],
+    //    };
+    //  },
+  },
 });
 </script>
