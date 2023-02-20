@@ -10,23 +10,13 @@
     </q-header>
 
     <q-page-container>
+
       <q-card class="my-card">
         <q-card-section class="titulo-secao">
           <h1 class="text-h5">Unidades Cadastradas</h1>
           <hr color="#1976d2">
         </q-card-section>
-        <q-card-section class="card-unidade">
-          <div class="text-h6">{{ token.edificacao }}</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-        <q-card-section class="card-unidade">
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-        <q-card-section class="card-unidade">
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
+        <CardUnidade v-for="unidade in listaUnidades" :key="unidade.nomeUnidade" v-bind="unidade" />
       </q-card>
       <q-card-section class="column q-gutter-sm">
         <q-btn unelevated label="Adicionar Unidade" class="btn" @click="cadastrarNovaUnidade" />
@@ -39,19 +29,33 @@
 
 <script>
 import { defineComponent } from 'vue';
-import VueJwtDecode from 'vue-jwt-decode';
+import CardUnidade from '../components/CardUnidade.vue';
 // import { api } from '../boot/axios';
+
+const unidadesList = [
+  {
+    nomeUnidade: 'Escola Joao',
+    responsavel: 'Rafael',
+  },
+  {
+    nomeUnidade: 'Escola Pedro',
+    responsavel: 'Rafael',
+  },
+  {
+    nomeUnidade: 'Escola Fran',
+    responsavel: 'Rafael',
+  },
+];
 
 export default defineComponent({
   name: 'PerfilPage',
-  data() {
-    return {
-      token: {},
-    };
+  components: {
+    CardUnidade,
   },
-  mounted() {
-    const token = localStorage.getItem('apo@session');
-    this.token = VueJwtDecode.decode(token);
+  setup() {
+    return {
+      listaUnidades: unidadesList,
+    };
   },
   methods: {
     async cadastrarNovaUnidade() {

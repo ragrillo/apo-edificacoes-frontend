@@ -25,9 +25,9 @@
 <script>
 import { defineComponent } from 'vue';
 import VueJwtDecode from 'vue-jwt-decode';
-import ambiente from '../assets/data/ambientes.json';
+// import ambiente from '../assets/data/ambientes.json';
 
-const edificacao = 'escola';
+// const edificacao = 'escola';
 
 export default defineComponent({
   name: 'AmbientePage',
@@ -42,13 +42,11 @@ export default defineComponent({
     this.token = VueJwtDecode.decode(token);
   },
   methods: {
-    imprimirConsole() {
-      const data = {
-        ambientes: ambiente[this.token.edificacao],
-      };
-      console.log(this.token.edificacao);
-      console.log(data.ambientes);
-    },
+    //  imprimirConsole() {
+    //    const data = {
+    //      ambientes: ambiente[this.token.edificacao],
+    //    };
+    //  },
   },
 });
 </script>
