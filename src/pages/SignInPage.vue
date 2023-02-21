@@ -37,9 +37,9 @@
           :options="edificacoes" />
 
         <q-input v-model="usuario.nomeCompleto" outlined label="Nome Completo" />
+        <q-input v-model="usuario.razaoSocial" outlined label="Nome da Empresa" />
         <q-input v-model="usuario.telefone" outlined label="Telefone" type="tel" mask="(##) # ####-####" />
         <q-input v-model="usuario.email" outlined label="E-mail" type="email" />
-
         <q-input v-model="usuario.senha" outlined label="Senha" :type="showPassword ? 'text' : 'password'">
           <template v-slot:append>
             <q-btn dense rounded flat @click="showPassword = !showPassword"
