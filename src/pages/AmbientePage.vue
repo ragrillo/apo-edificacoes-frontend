@@ -4,37 +4,58 @@
       <div class="text-h6">Cadastro de Ambiente</div>
       Preencha as informações abaixo.
     </q-card-section>
+    <q-card-section class="titulo-secao">
+      <h1 class="text-h6">Selecione um Ambiente para cadastrar</h1>
+      <hr color="#1976d2">
+    </q-card-section>
+    <DropDownAmbientes @ambienteSelecionado="addAmbiente" />
 
-    <q-list separator>
-      <q-item v-bind:key="index" v-for="(ambiente, index) in ambientes" class="q-pt-md">
-        <q-item-section>
-          <q-item-label lines="1">{{ ambiente }}</q-item-label>
-        </q-item-section>
-      </q-item>
-    </q-list>
+    <q-card-section class="titulo-secao">
+      <h1 class="text-h6">Ambientes cadastrados</h1>
+      <hr color="#1976d2">
+    </q-card-section>
 
-    <q-card-actions align="right">
-      <q-btn flat color="primary" label="Próximo" to="/ambiente/editar" />
-    </q-card-actions>
-    <q-card-actions align="left">
-      <q-btn flat color="primary" label="Teste" @click="imprimirConsole" />
-    </q-card-actions>
+    <div v-show="seAmbienteCadastrado()">
+      <CardAmbiente v-for="ambiente in listaAmbiente" :key="ambiente.nomeUnidade" v-bind="ambiente" />
+    </div>
+
+    <div class="row justify-between">
+      <q-card-actions align="right">
+        <q-btn flat color="primary" label="Adicionar Ambiente" to="/ambiente/editar" />
+      </q-card-actions>
+      <q-card-actions align="left">
+        <q-btn flat color="primary" label="Iniciar Avaliação" @click="addAmbiente" />
+      </q-card-actions>
+    </div>
   </q-card>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 import VueJwtDecode from 'vue-jwt-decode';
-// import ambiente from '../assets/data/ambientes.json';
+import DropDownAmbientes from 'src/components/DropDownAmbientes.vue';
+import CardAmbiente from '../components/CardAmbiente.vue';
 
-// const edificacao = 'escola';
+const ambienteList = [{
+  nomeUnidade: 'Escola Joao',
+  nomeAmbiente: 'Rafael',
+}];
 
 export default defineComponent({
   name: 'AmbientePage',
+  components: {
+    DropDownAmbientes,
+    CardAmbiente,
+  },
   data() {
     return {
       token: {},
       ambientes: [],
+    };
+  },
+  setup() {
+    return {
+      listaAmbiente: ambienteList,
     };
   },
   mounted() {
@@ -42,11 +63,12 @@ export default defineComponent({
     this.token = VueJwtDecode.decode(token);
   },
   methods: {
-    //  imprimirConsole() {
-    //    const data = {
-    //      ambientes: ambiente[this.token.edificacao],
-    //    };
-    //  },
+    addAmbiente(ambienteEscolhido) {
+      console.log(ambienteEscolhido, ambienteList.length);
+    },
+    seAmbienteCadastrado() {
+      return ambienteList.length >= 1;
+    },
   },
 });
 </script>

@@ -44,7 +44,7 @@ import { defineComponent } from 'vue';
 import data from '../data/criterio-dimensao.json';
 
 export default defineComponent({
-  name: 'HomePage',
+  name: 'CriteriosPage',
   data() {
     return {
       criterios: [],

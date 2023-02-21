@@ -35,7 +35,7 @@ import CardUnidade from '../components/CardUnidade.vue';
 const unidadesList = [
   {
     nomeUnidade: 'Escola Joao',
-    responsavel: 'Rafael',
+    nomeAmbiente: 'Rafael',
   },
   {
     nomeUnidade: 'Escola Pedro',

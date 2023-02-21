@@ -87,9 +87,14 @@
         </q-form>
       </q-card-section>
 
-      <q-card-actions align="right">
-        <q-btn flat color="primary" label="Concluir" @click="handleCadastroUnidade" />
-      </q-card-actions>
+      <div class="row justify-between">
+        <q-card-actions align="left">
+          <q-btn flat color="primary" label="Voltar" @click="handleCadastroUnidade" to="/perfil" />
+        </q-card-actions>
+        <q-card-actions align="right">
+          <q-btn flat color="primary" label="Cadastrar Ambientes" @click="handleCadastroUnidade" to="/ambiente" />
+        </q-card-actions>
+      </div>
     </q-card>
   </q-page>
 </template>
@@ -196,7 +201,7 @@ export default defineComponent({
       delete payload.ubs;
       await api.post(`/unidades/${edificacao}`, payload);
 
-      this.$router.push('ambiente');
+      // this.$router.push('ambiente');
     },
   },
 });
