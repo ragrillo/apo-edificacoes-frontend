@@ -1,7 +1,13 @@
 <template>
-  <q-card-section class="card-unidade">
-    <div class="text-h6">{{ nomeUnidade }}</div>
-    <div class="text-subtitle2">{{ responsavel }}</div>
+  <q-card-section class="card-unidade full-width row  justify-between items-center content-center">
+    <q-card-section>
+      <div class=" text-h6">{{ nomeUnidade }}</div>
+      <div class="text-subtitle2">{{ responsavel }}</div>
+    </q-card-section>
+    <q-card-actions class="right">
+      <q-btn no-caps class="btn-unidade" to="/">Editar</q-btn>
+      <q-btn no-caps class="btn-unidade">Avaliar</q-btn>
+    </q-card-actions>
   </q-card-section>
 </template>
 
@@ -41,4 +47,7 @@ export default defineComponent({
   background: #ecf2ff
   margin-bottom: 10px
 
+.btn-unidade
+  padding: 1.5em
+  margin-right: 3em
 </style>
