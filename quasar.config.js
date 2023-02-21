@@ -95,7 +95,7 @@ module.exports = configure((ctx) => ({
     },
     port: 8080,
     open: true,
-    proxy: 'https://viacep.com.br/', // opens browser window automatically
+    // opens browser window automatically
   },
 
   // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework

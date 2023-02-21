@@ -5,8 +5,8 @@
       <div class="text-subtitle2">{{ responsavel }}</div>
     </q-card-section>
     <q-card-actions class="right">
-      <q-btn no-caps class="btn-unidade" to="/">Editar</q-btn>
-      <q-btn no-caps class="btn-unidade">Avaliar</q-btn>
+      <q-btn no-caps class="btn-unidade" to="/unidade">Editar</q-btn>
+      <q-btn no-caps class="btn-unidade" to="/criterio">Avaliar</q-btn>
     </q-card-actions>
   </q-card-section>
 </template>
