@@ -179,15 +179,16 @@ export default defineComponent({
         this.isCepLoading = true;
 
         const sanitizedCep = cep.replace('-', '').replace('.', '');
-        const url = `https://viacep.com.br/ws/${sanitizedCep}/json/`;
+        const url = `https://viacep.com.br/ws/${sanitizedCep}/json`;
 
-        const { data } = await api.get(url);
-        const { logradouro, bairro, localidade, uf } = data;
+        const response = await fetch('https://viacep.com.br/ws/80050380/json');
+        const data = await response.json();
+        console.log(data.logradouro);
 
-        endereco.logradouro = logradouro;
-        endereco.bairro = bairro;
-        endereco.cidade = localidade;
-        endereco.estado = estados[uf];
+        endereco.logradouro = data.logradouro;
+        endereco.bairro = data.bairro;
+        endereco.cidade = data.localidade;
+        endereco.estado = data.uf;
 
         this.isCepLoading = false;
       }
