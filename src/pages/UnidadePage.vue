@@ -103,7 +103,6 @@
 import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
-import estados from '../assets/data/estados.json';
 
 export default defineComponent({
   data() {
@@ -181,9 +180,8 @@ export default defineComponent({
         const sanitizedCep = cep.replace('-', '').replace('.', '');
         const url = `https://viacep.com.br/ws/${sanitizedCep}/json`;
 
-        const response = await fetch('https://viacep.com.br/ws/80050380/json');
+        const response = await fetch(url);
         const data = await response.json();
-        console.log(data.logradouro);
 
         endereco.logradouro = data.logradouro;
         endereco.bairro = data.bairro;

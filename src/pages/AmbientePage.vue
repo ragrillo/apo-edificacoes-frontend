@@ -8,7 +8,9 @@
       <h1 class="text-h6">Selecione um Ambiente para cadastrar</h1>
       <hr color="#1976d2">
     </q-card-section>
-    <DropDownAmbientes @ambienteSelecionado="addAmbiente" />
+
+    <SelectAmbiente @ambienteSelecionado="addAmbiente" />
+    <PopUpEditarAmbiente v-model="editar" @fecharPopUp="fecharPopUp" :nomeAmbiente="this.ambiente" />
 
     <q-card-section class="titulo-secao">
       <h1 class="text-h6">Ambientes cadastrados</h1>
@@ -21,10 +23,10 @@
 
     <div class="row justify-between">
       <q-card-actions align="right">
-        <q-btn flat color="primary" label="Adicionar Ambiente" to="/ambiente/editar" />
+        <q-btn flat color="primary" label="voltar" to="/unidade" />
       </q-card-actions>
       <q-card-actions align="left">
-        <q-btn flat color="primary" label="Iniciar Avaliação" @click="addAmbiente" />
+        <q-btn flat color="primary" label="Salvar" to="/perfil" />
       </q-card-actions>
     </div>
   </q-card>
@@ -33,8 +35,9 @@
 <script>
 import { defineComponent } from 'vue';
 import VueJwtDecode from 'vue-jwt-decode';
-import DropDownAmbientes from 'src/components/DropDownAmbientes.vue';
+import PopUpEditarAmbiente from 'src/components/PopUpEditarAmbiente.vue';
 import CardAmbiente from '../components/CardAmbiente.vue';
+import SelectAmbiente from '../components/QselectAmbiente.vue';
 
 const ambienteList = [{
   nomeUnidade: 'Escola Joao',
@@ -44,13 +47,16 @@ const ambienteList = [{
 export default defineComponent({
   name: 'AmbientePage',
   components: {
-    DropDownAmbientes,
     CardAmbiente,
+    SelectAmbiente,
+    PopUpEditarAmbiente,
   },
   data() {
     return {
       token: {},
       ambientes: [],
+      editar: false,
+      ambiente: '',
     };
   },
   setup() {
@@ -64,10 +70,14 @@ export default defineComponent({
   },
   methods: {
     addAmbiente(ambienteEscolhido) {
-      console.log(ambienteEscolhido, ambienteList.length);
+      this.ambiente = ambienteEscolhido;
+      this.editar = true;
     },
     seAmbienteCadastrado() {
       return ambienteList.length >= 1;
+    },
+    fecharPopUp(comandoFechar) {
+      this.editar = comandoFechar;
     },
   },
 });
