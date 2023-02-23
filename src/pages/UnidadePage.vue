@@ -87,9 +87,14 @@
         </q-form>
       </q-card-section>
 
-      <q-card-actions align="right">
-        <q-btn flat color="primary" label="Concluir" @click="handleCadastroUnidade" />
-      </q-card-actions>
+      <div class="row justify-between">
+        <q-card-actions align="left">
+          <q-btn flat color="primary" label="Voltar" @click="handleCadastroUnidade" to="/perfil" />
+        </q-card-actions>
+        <q-card-actions align="right">
+          <q-btn flat color="primary" label="Cadastrar Ambientes" @click="handleCadastroUnidade" to="/ambiente" />
+        </q-card-actions>
+      </div>
     </q-card>
   </q-page>
 </template>
@@ -174,15 +179,16 @@ export default defineComponent({
         this.isCepLoading = true;
 
         const sanitizedCep = cep.replace('-', '').replace('.', '');
-        const url = `https://viacep.com.br/ws/${sanitizedCep}/json/`;
+        const url = `https://viacep.com.br/ws/${sanitizedCep}/json`;
 
-        const { data } = await api.get(url);
-        const { logradouro, bairro, localidade, uf } = data;
+        const response = await fetch('https://viacep.com.br/ws/80050380/json');
+        const data = await response.json();
+        console.log(data.logradouro);
 
-        endereco.logradouro = logradouro;
-        endereco.bairro = bairro;
-        endereco.cidade = localidade;
-        endereco.estado = estados[uf];
+        endereco.logradouro = data.logradouro;
+        endereco.bairro = data.bairro;
+        endereco.cidade = data.localidade;
+        endereco.estado = data.uf;
 
         this.isCepLoading = false;
       }
@@ -196,7 +202,7 @@ export default defineComponent({
       delete payload.ubs;
       await api.post(`/unidades/${edificacao}`, payload);
 
-      this.$router.push('ambiente');
+      // this.$router.push('ambiente');
     },
   },
 });

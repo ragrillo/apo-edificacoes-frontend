@@ -1,12 +1,10 @@
 <template>
-  <q-card-section class="card-unidade full-width row  justify-between items-center content-center">
+  <q-card-section class="card-Ambiente full-width row  justify-between items-center content-center">
     <q-card-section>
-      <div class=" text-h6">{{ nomeUnidade }}</div>
-      <div class="text-subtitle2">{{ responsavel }}</div>
+      <div class=" text-h6">{{ nomeAmbiente }}</div>
     </q-card-section>
     <q-card-actions class="right">
-      <q-btn no-caps class="btn-unidade" to="/unidade">Editar</q-btn>
-      <q-btn no-caps class="btn-unidade" to="/criterio">Avaliar</q-btn>
+      <q-btn no-caps class="btn-Ambiente" to="/Ambiente">Editar</q-btn>
     </q-card-actions>
   </q-card-section>
 </template>
@@ -16,14 +14,14 @@ import { defineComponent } from 'vue';
 import VueJwtDecode from 'vue-jwt-decode';
 
 export default defineComponent({
-  name: 'CardUnidade',
+  name: 'CardAmbiente',
   props: {
     nomeUnidade: {
       type: String,
       required: true,
     },
 
-    responsavel: {
+    nomeAmbiente: {
       type: String,
       default: '',
     },
@@ -43,11 +41,11 @@ export default defineComponent({
 
 <style lang="sass" scoped>
 
-.card-unidade
+.card-Ambiente
   background: #ecf2ff
   margin-bottom: 10px
 
-.btn-unidade
+.btn-Ambiente
   padding: 1.5em
   margin-right: 3em
 </style>
