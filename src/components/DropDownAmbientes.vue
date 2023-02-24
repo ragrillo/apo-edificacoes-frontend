@@ -35,7 +35,6 @@ export default defineComponent({
   methods: {
     onItemClick(itemSelecionado) {
       this.$emit('ambienteSelecionado', itemSelecionado);
-      console.log(this.$refs.teste.label);
     },
   },
 });
