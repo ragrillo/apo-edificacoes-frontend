@@ -7,11 +7,11 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '',
-        component: () => import('pages/IndexPage.vue'),
+        component: () => import('pages/LoginPage.vue'),
       },
       {
-        path: '/home',
-        component: () => import('pages/HomePage.vue'),
+        path: '/criterio',
+        component: () => import('src/pages/CriteriosPage.vue'),
       },
       {
         path: '/login',
@@ -24,6 +24,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/admin',
         component: () => import('pages/AdminPage.vue'),
+      },
+      {
+        path: '/perfil',
+        component: () => import('pages/PerfilPage.vue'),
       },
       {
         path: '/unidade',
@@ -87,7 +91,7 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: '/criterio/1',
-        component: () => import('src/pages/criterios/MateriaiseAcabamentosPage1.vue'),
+        component: () => import('src/pages/criterios/MateriaiseAcabamentosPage.vue'),
       },
       {
         path: '/criterio/5',

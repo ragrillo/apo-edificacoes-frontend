@@ -1,71 +1,53 @@
 <template>
-    <div class="q-ma-md">
-        <q-card class="q-mb-md">
-            <q-card-section>
-                <div class="text-h6">
-                    Materiais e Acabamentos
-                </div>
-            </q-card-section>
-            <q-card-section>
-              <div>Avalie a qualidade dos materiais utilizados na construção da moradia</div>
-            </q-card-section>
-            <q-card-section v-bind:key="index" v-for="(index, p) in perguntas">
-                <q-select
-                v-show="perguntas[p].enunciado !== 'Outros (inserir)'"
-                :label="perguntas[p].enunciado"
-                :options="opt1"
-                v-model="perguntas[p].resposta"
-                outlined
-                >
-                </q-select>
-                    <q-input
-                    v-show="perguntas[p].resposta !== '' && perguntas[p].enunciado !== 'Outros (inserir)'"
-                    class="q-py-md"
-                    v-model="perguntas[p].observacao"
-                    autogrow
-                    outlined
-                    label="Observações:"
-                    >
-                    </q-input>
-                    <q-input
-                    v-show="perguntas[p].enunciado === 'Outros (inserir)'"
-                    class="q-py-md"
-                    v-model="perguntas[9].resposta"
-                    autogrow
-                    outlined
-                    label="Outros:"
-                    >
-                    </q-input>
-            </q-card-section>
-            <q-card-section>
-            </q-card-section>
-            <q-card-section>
-                <div>{{ perguntas2[0].enunciado }}</div>
-                <q-radio v-model="perguntas2[0].resposta" :label="opt3[0]" :val="opt3[0]"></q-radio>
-                <q-radio v-model="perguntas2[0].resposta" :label="opt3[1]" :val="opt3[1]"></q-radio>
-            </q-card-section>
-            <q-card-section v-show="perguntas2[0].resposta === 'Sim'">
-                <div class="q-gutter-sm" v-for="(index, i) in opt2" v-bind:key="index" >
-                    <q-checkbox v-model="perguntas2[1].resposta" :val="opt2[i]" :label="opt2[i]"/>
-                </div>
-                <pre>{{ perguntas2[1].resposta }}</pre>
-            </q-card-section>
-            <q-card-section v-show="perguntas2[0].resposta === 'Sim'">
-                <div>Outros:</div>
-                <q-input class="q-py-md"
-                v-model="perguntas2[1].observacao"
-                autogrow
-                outlined
-                >
-                </q-input>
-            </q-card-section>
-        </q-card>
-    </div>
+  <div class="q-ma-md">
+    <q-card class="q-mb-md">
+      <q-card-section>
+        <div class="text-h6">
+          Materiais e Acabamentos
+        </div>
+      </q-card-section>
+      <q-card-section>
+        <div>Avalie a qualidade dos materiais utilizados na construção da moradia</div>
+      </q-card-section>
+      <q-card-section v-bind:key="index" v-for="(index, p) in perguntas">
+        <q-select v-show="perguntas[p].enunciado !== 'Outros (inserir)'" :label="perguntas[p].enunciado" :options="opt1"
+          v-model="perguntas[p].resposta" outlined>
+        </q-select>
+        <q-input v-show="perguntas[p].resposta !== '' && perguntas[p].enunciado !== 'Outros (inserir)'" class="q-py-md"
+          v-model="perguntas[p].observacao" autogrow outlined label="Observações:">
+        </q-input>
+        <q-input v-show="perguntas[p].enunciado === 'Outros (inserir)'" class="q-py-md" v-model="perguntas[9].resposta"
+          autogrow outlined label="Outros:">
+        </q-input>
+      </q-card-section>
+      <q-card-section>
+      </q-card-section>
+      <q-card-section>
+        <div>{{ perguntas2[0].enunciado }}</div>
+        <q-radio v-model="perguntas2[0].resposta" :label="opt3[0]" :val="opt3[0]"></q-radio>
+        <q-radio v-model="perguntas2[0].resposta" :label="opt3[1]" :val="opt3[1]"></q-radio>
+      </q-card-section>
+      <q-card-section v-show="perguntas2[0].resposta === 'Sim'">
+        <div class="q-gutter-sm" v-for="(index, i) in opt2" v-bind:key="index">
+          <q-checkbox v-model="perguntas2[1].resposta" :val="opt2[i]" :label="opt2[i]" />
+        </div>
+        <pre>{{ perguntas2[1].resposta }}</pre>
+      </q-card-section>
+      <q-card-section v-show="perguntas2[0].resposta === 'Sim'">
+        <div>Outros:</div>
+        <q-input class="q-py-md" v-model="perguntas2[1].observacao" autogrow outlined>
+        </q-input>
+      </q-card-section>
+    </q-card>
+  </div>
 </template>
 <script>
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  props: {
+    ambienteSelecionado: String,
+  },
   data() {
     return {
       opt3: ['Sim', 'Não'],

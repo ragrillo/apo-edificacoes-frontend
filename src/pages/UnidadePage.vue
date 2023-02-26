@@ -40,8 +40,7 @@
           </div>
 
           <div v-show="token.edificacao === 'UBS'" class="q-gutter-md">
-            <q-select v-model="form.ubs.tipoUnidade" outlined label="Tipologia da unidade"
-              :options="opcoes.tipoPorte" />
+            <q-select v-model="form.ubs.tipoUnidade" outlined label="Tipologia da unidade" :options="opcoes.tipoPorte" />
             <q-input v-model="form.ubs.dataEntregaObra" outlined label="Data de entrega da obra" />
             <q-input v-model="form.ubs.descricao" type="textarea" outlined label="Descrição da unidade" />
 
@@ -88,9 +87,14 @@
         </q-form>
       </q-card-section>
 
-      <q-card-actions align="right">
-        <q-btn flat color="primary" label="Concluir" @click="handleCadastroUnidade" />
-      </q-card-actions>
+      <div class="row justify-between">
+        <q-card-actions align="left">
+          <q-btn flat color="primary" label="Voltar" @click="handleCadastroUnidade" to="/perfil" />
+        </q-card-actions>
+        <q-card-actions align="right">
+          <q-btn flat color="primary" label="Cadastrar Ambientes" @click="handleCadastroUnidade" to="/ambiente" />
+        </q-card-actions>
+      </div>
     </q-card>
   </q-page>
 </template>
@@ -99,7 +103,6 @@
 import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
-import estados from '../assets/data/estados.json';
 
 export default defineComponent({
   data() {
@@ -107,16 +110,17 @@ export default defineComponent({
       opcoes: {
         tipoEscola: ['Municipal', 'Estadual', 'Federal', 'Particular'],
         tipoHabitacao: ['Casa', 'Apartamento'],
-        modalidadeEscola: ['Infantil', 'Fundamental', 'Médio', 'Jovens e Adultos'],
+        modalidadeEscola: ['Infantil', 'Fundamental', 'Médio', 'Jovens e Adultos', 'Fundamental e Médio'],
         horarioFuncionamento: ['Manhã', 'Tarde', 'Noite'],
         tipoPorte: ['Porte I', 'Porte II', 'Porte III', 'Porte IV', 'Porte V'],
       },
       form: {
+        proprietario: '',
         nome: '',
         responsavel: '',
         telefone: '',
         horarioFuncionamento: [],
-        tipoUnidade: 'Escola',
+        tipoUnidade: '',
         endereco: {
           cep: '',
           logradouro: '',
@@ -175,30 +179,30 @@ export default defineComponent({
         this.isCepLoading = true;
 
         const sanitizedCep = cep.replace('-', '').replace('.', '');
-        const url = `https://viacep.com.br/ws/${sanitizedCep}/json/`;
+        const url = `https://viacep.com.br/ws/${sanitizedCep}/json`;
 
-        const { data } = await api.get(url);
-        const { logradouro, bairro, localidade, uf } = data;
+        const response = await fetch(url);
+        const data = await response.json();
 
-        endereco.logradouro = logradouro;
-        endereco.bairro = bairro;
-        endereco.cidade = localidade;
-        endereco.estado = estados[uf];
+        endereco.logradouro = data.logradouro;
+        endereco.bairro = data.bairro;
+        endereco.cidade = data.localidade;
+        endereco.estado = data.uf;
 
         this.isCepLoading = false;
       }
     },
     async handleCadastroUnidade() {
       const edificacao = this.token.edificacao.toLowerCase();
+      this.form.proprietario = this.token.id;
       const payload = { ...this.form, ...this.form[edificacao] };
 
       delete payload.escola;
       delete payload.habitacao;
       delete payload.ubs;
+      await api.post(`/unidades?edificacao=${edificacao}`, payload);
 
-      await api.post(`/unidades/${edificacao}`, payload);
-
-      this.$router.push('ambiente');
+      // this.$router.push('ambiente');
     },
   },
 });

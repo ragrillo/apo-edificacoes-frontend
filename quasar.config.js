@@ -95,6 +95,12 @@ module.exports = configure((ctx) => ({
     },
     port: 8080,
     open: true, // opens browser window automatically
+    headers: {
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD',
+        'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Request-With, X-HTTP-Method-Override, Content-Type, Authorization, Accept, Content-Type, X-Requested-By'
+      }
   },
 
   // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework

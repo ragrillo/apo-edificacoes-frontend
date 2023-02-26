@@ -4,34 +4,81 @@
       <div class="text-h6">Cadastro de Ambiente</div>
       Preencha as informações abaixo.
     </q-card-section>
+    <q-card-section class="titulo-secao">
+      <h1 class="text-h6">Selecione um Ambiente para cadastrar</h1>
+      <hr color="#1976d2">
+    </q-card-section>
 
-    <q-list separator>
-      <q-item v-bind:key="index" v-for="(ambiente, index) in ambientes" class="q-pt-md">
-        <q-item-section>
-          <q-item-label lines="1">{{ ambiente }}</q-item-label>
-        </q-item-section>
-      </q-item>
-    </q-list>
+    <SelectAmbiente @ambienteSelecionado="addAmbiente" />
+    <PopUpEditarAmbiente v-model="editar" @fecharPopUp="fecharPopUp" :nomeAmbiente="this.ambiente" />
 
-    <q-card-actions align="right">
-      <q-btn flat color="primary" label="Próximo" to="/ambiente/editar"/>
-    </q-card-actions>
+    <q-card-section class="titulo-secao">
+      <h1 class="text-h6">Ambientes cadastrados</h1>
+      <hr color="#1976d2">
+    </q-card-section>
+
+    <div v-show="seAmbienteCadastrado()">
+      <CardAmbiente v-for="ambiente in listaAmbiente" :key="ambiente.nomeUnidade" v-bind="ambiente" />
+    </div>
+
+    <div class="row justify-between">
+      <q-card-actions align="right">
+        <q-btn flat color="primary" label="voltar" to="/perfil" />
+      </q-card-actions>
+      <q-card-actions align="left">
+        <q-btn flat color="primary" label="Salvar" to="/perfil" />
+      </q-card-actions>
+    </div>
   </q-card>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import ambiente from '../assets/data/ambientes.json';
+import VueJwtDecode from 'vue-jwt-decode';
+import PopUpEditarAmbiente from 'src/components/PopUpEditarAmbiente.vue';
+import CardAmbiente from '../components/CardAmbiente.vue';
+import SelectAmbiente from '../components/QselectAmbiente.vue';
 
-const edificacao = 'escola';
+const ambienteList = [{
+  nomeUnidade: 'Escola Joao',
+  nomeAmbiente: 'Rafael',
+}];
 
 export default defineComponent({
   name: 'AmbientePage',
+  components: {
+    CardAmbiente,
+    SelectAmbiente,
+    PopUpEditarAmbiente,
+  },
   data() {
     return {
-      ambientes: ambiente[edificacao],
+      token: {},
+      ambientes: [],
+      editar: false,
+      ambiente: '',
     };
   },
-
+  setup() {
+    return {
+      listaAmbiente: ambienteList,
+    };
+  },
+  mounted() {
+    const token = localStorage.getItem('apo@session');
+    this.token = VueJwtDecode.decode(token);
+  },
+  methods: {
+    addAmbiente(ambienteEscolhido) {
+      this.ambiente = ambienteEscolhido;
+      this.editar = true;
+    },
+    seAmbienteCadastrado() {
+      return ambienteList.length >= 1;
+    },
+    fecharPopUp(comandoFechar) {
+      this.editar = comandoFechar;
+    },
+  },
 });
 </script>
