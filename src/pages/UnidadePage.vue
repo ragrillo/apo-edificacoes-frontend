@@ -115,11 +115,12 @@ export default defineComponent({
         tipoPorte: ['Porte I', 'Porte II', 'Porte III', 'Porte IV', 'Porte V'],
       },
       form: {
+        proprietario: '',
         nome: '',
         responsavel: '',
         telefone: '',
         horarioFuncionamento: [],
-        tipoUnidade: 'Escola',
+        tipoUnidade: '',
         endereco: {
           cep: '',
           logradouro: '',
@@ -193,12 +194,13 @@ export default defineComponent({
     },
     async handleCadastroUnidade() {
       const edificacao = this.token.edificacao.toLowerCase();
+      this.form.proprietario = this.token.id;
       const payload = { ...this.form, ...this.form[edificacao] };
 
       delete payload.escola;
       delete payload.habitacao;
       delete payload.ubs;
-      await api.post(`/unidades/${edificacao}`, payload);
+      await api.post(`/unidades?edificacao=${edificacao}`, payload);
 
       // this.$router.push('ambiente');
     },

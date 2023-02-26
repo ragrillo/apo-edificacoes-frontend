@@ -16,7 +16,7 @@
           <h1 class="text-h5">Unidades Cadastradas</h1>
           <hr color="#1976d2">
         </q-card-section>
-        <CardUnidade v-for="unidade in listaUnidades" :key="unidade.nomeUnidade" v-bind="unidade" />
+        <CardUnidade v-for="unidade in this.dadosUnidade" :key="unidade.nome" v-bind="unidade" />
       </q-card>
       <q-card-section class="column q-gutter-sm">
         <q-btn unelevated label="Adicionar Unidade" class="btn" @click="cadastrarNovaUnidade" />
@@ -29,33 +29,27 @@
 
 <script>
 import { defineComponent } from 'vue';
+import VueJwtDecode from 'vue-jwt-decode';
 import CardUnidade from '../components/CardUnidade.vue';
-// import { api } from '../boot/axios';
-
-const unidadesList = [
-  {
-    nomeUnidade: 'Escola Joao',
-    nomeAmbiente: 'Rafael',
-  },
-  {
-    nomeUnidade: 'Escola Pedro',
-    responsavel: 'Rafael',
-  },
-  {
-    nomeUnidade: 'Escola Fran',
-    responsavel: 'Rafael',
-  },
-];
+import { api } from '../boot/axios';
 
 export default defineComponent({
   name: 'PerfilPage',
+  data() {
+    return {
+      loading: true,
+      dadosUnidade: null,
+      nomeUnidade: null,
+      responsavel: '',
+    };
+  },
   components: {
     CardUnidade,
   },
-  setup() {
-    return {
-      listaUnidades: unidadesList,
-    };
+  mounted() {
+    const token = localStorage.getItem('apo@session');
+    this.token = VueJwtDecode.decode(token);
+    this.nomeUnidade = api.get(`unidades/${this.token.id}`).then((resposta) => { this.dadosUnidade = resposta.data; });
   },
   methods: {
     async cadastrarNovaUnidade() {
