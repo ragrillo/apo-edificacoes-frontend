@@ -2,61 +2,50 @@
   <q-card class="q-ma-md">
     <q-card-section>
       <div class="text-h6">Solicitar cadastro</div>
-      Preencha as informações abaixo.
+      <p>Cadastrar uma Empresa ou um Usuário.</p>
     </q-card-section>
     <q-separator />
 
     <q-card-section>
-      <q-form class="q-gutter-y-md">
-        <div class="text-bold">Selecione seu cargo</div>
+      <div class="text-bold">Selecione o tipo de cadastro</div>
+      <CadastroSelect @usuarioSelecionado="addUsuario" />
+      <div v-show="!isTelaInicial()">
+        <q-form class="q-gutter-y-md" v-show="!isCadastroEmpresa()">
+          <div v-show="!isMorador()">
+            <div class="text-bold">Selecione seu cargo</div>
+            <CargoSelect @cargoSelecionado="addCargo" />
+          </div>
 
-        <q-select v-model="usuario.cargo" outlined :options="optionsrole" label="Cargo" behavior="menu" emit-value>
-          <template v-slot:option="scope">
-            <q-item v-bind="scope.itemProps" class="fit justify-between">
-              <q-item-section>
-                <q-item-label>{{ scope.opt.value }}</q-item-label>
-              </q-item-section>
-              <q-item-section side>
-                <q-btn dense flat rounded style="max-width:50px" icon="info" push>
-                  <q-popup-proxy style="width: 50%" context-menu>
-                    <q-banner>
-                      <span>
-                        {{ scope.opt.label }}
-                      </span>
-                    </q-banner>
-                  </q-popup-proxy>
-                </q-btn>
-              </q-item-section>
-            </q-item>
-          </template>
-        </q-select>
+          <div class="text-bold">{{ `Informaçẽs sobre ${this.cadastro}` }}</div>
+          <q-select v-model="usuario.edificacao" outlined v-show="!isMorador()" label="Edificação" behavior="menu"
+            :options="edificacoes" />
+          <q-select v-model="usuario.edificacao" outlined v-show="isMorador()" readonly label="Edificação" behavior="menu"
+            :options="edificacoes" />
 
-        <div class="text-bold">Informaçẽs sobre Usuário</div>
+          <q-input v-model="usuario.nomeCompleto" outlined label="Nome Completo" />
+          <q-input v-model="usuario.razaoSocial" outlined label="Nome da Empresa" v-show="!isMorador()" />
+          <q-input v-model="usuario.telefone" outlined label="Telefone" type="tel" mask="(##) # ####-####" />
+          <q-input v-model="usuario.email" outlined label="E-mail" type="email" />
+          <q-input v-model="usuario.senha" outlined label="Senha" :type="showPassword ? 'text' : 'password'">
+            <template v-slot:append>
+              <q-btn dense rounded flat @click="showPassword = !showPassword"
+                :icon="showPassword ? 'visibility_off' : 'visibility'" />
+            </template>
+          </q-input>
+        </q-form>
+        <q-form class="q-gutter-y-md" v-show="isCadastroEmpresa()">
+          <div class="q-gutter-y-md">
+            <div class="text-bold">Informaçẽs sobre Empresa</div>
 
-        <q-select v-model="usuario.edificacao" outlined v-show="!isAdmin()" label="Edificação" behavior="menu"
-          :options="edificacoes" />
+            <q-input v-model="usuario.cnpj" outlined label="CNPJ" type="tel" mask="##.###.###/####-##" />
+            <q-input v-model="usuario.razaoSocial" outlined label="Razão social" />
+            <q-input v-model="usuario.telefoneEmpresarial" outlined label="Telefone empresarial" type="tel"
+              mask="(##) # ####-####" />
+            <q-input v-model="usuario.emailEmpresarial" outlined label="Email empresarial" type="email" />
+          </div>
 
-        <q-input v-model="usuario.nomeCompleto" outlined label="Nome Completo" />
-        <q-input v-model="usuario.razaoSocial" outlined label="Nome da Empresa" />
-        <q-input v-model="usuario.telefone" outlined label="Telefone" type="tel" mask="(##) # ####-####" />
-        <q-input v-model="usuario.email" outlined label="E-mail" type="email" />
-        <q-input v-model="usuario.senha" outlined label="Senha" :type="showPassword ? 'text' : 'password'">
-          <template v-slot:append>
-            <q-btn dense rounded flat @click="showPassword = !showPassword"
-              :icon="showPassword ? 'visibility_off' : 'visibility'" />
-          </template>
-        </q-input>
-
-        <div v-show="isEmpresa()" class="q-gutter-y-md">
-          <div class="text-bold">Informaçẽs sobre Empresa</div>
-
-          <q-input v-model="usuario.cnpj" outlined label="CNPJ" type="tel" mask="##.###.###/####-##" />
-          <q-input v-model="usuario.razaoSocial" outlined label="Razão social" />
-          <q-input v-model="usuario.telefoneEmpresarial" outlined label="Telefone empresarial" type="tel"
-            mask="(##) # ####-####" />
-          <q-input v-model="usuario.emailEmpresarial" outlined label="Email empresarial" type="email" />
-        </div>
-      </q-form>
+        </q-form>
+      </div>
     </q-card-section>
 
     <q-card-section class="column">
@@ -75,6 +64,8 @@
 
 <script>
 import { defineComponent } from 'vue';
+import CargoSelect from 'src/components/CargoSelect.vue';
+import CadastroSelect from 'src/components/CadastroSelect.vue';
 import { api } from '../boot/axios';
 import optionsrole from '../assets/data/cargos.json';
 
@@ -82,10 +73,21 @@ const edificacoes = ['Escola', 'Residência', 'UBS'];
 
 export default defineComponent({
   name: 'SignInPage',
+  components: {
+    CargoSelect,
+    CadastroSelect,
+  },
   data() {
     return {
       edificacoes,
       optionsrole,
+      cadastro: '',
+      empresa: {
+        nome: '',
+        cnpj: '',
+        endereço: '',
+        telefone: '',
+      },
       usuario: {
         cargo: '',
         edificacao: '',
@@ -111,6 +113,19 @@ export default defineComponent({
     isAdmin() {
       return this.usuario.cargo === 'Administrador do site ou Equipe de TI';
     },
+    isCadastroEmpresa() {
+      return this.cadastro === 'Empresa';
+    },
+    isMorador() {
+      if (this.cadastro === 'Morador') {
+        this.usuario.edificacao = 'Residência';
+        return this.cadastro === 'Morador';
+      }
+      return false;
+    },
+    isTelaInicial() {
+      return this.cadastro === '';
+    },
     getNumericalValueOfCargo() {
       return optionsrole.map((opt) => opt.value).indexOf(this.usuario.cargo) + 1;
     },
@@ -125,6 +140,13 @@ export default defineComponent({
       this.message = data.body;
 
       this.loading = false;
+    },
+    addCargo(cargoEscolhido) {
+      this.usuario.cargo = cargoEscolhido;
+      this.usuario.edificacao = '';
+    },
+    addUsuario(usuarioEscolhido) {
+      this.cadastro = usuarioEscolhido;
     },
   },
 });
