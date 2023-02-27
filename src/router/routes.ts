@@ -91,7 +91,7 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: '/criterio/1',
-        component: () => import('src/pages/criterios/MateriaiseAcabamentosPage.vue'),
+        component: () => import('src/pages/criterios/MateriaiseAcabamentosPage1.vue'),
       },
       {
         path: '/criterio/5',

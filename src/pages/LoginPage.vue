@@ -73,18 +73,14 @@ export default defineComponent({
       const payload = { email: this.email.trim(), senha: this.password.trim() };
       const { data } = await api.post('/usuarios/login', payload);
 
-      if (data.statusCode === 200) {
-        localStorage.setItem('apo@session', data.body);
+      localStorage.setItem('apo@session', data);
 
-        const { cargo } = VueJwtDecode.decode(data.body);
+      const { cargo } = VueJwtDecode.decode(data);
 
-        const ADMIN = 5;
-        const nextPage = cargo === ADMIN ? '/admin' : '/perfil';
+      const ADMIN = 5;
+      const nextPage = cargo === ADMIN ? '/admin' : '/perfil';
 
-        this.$router.push(nextPage);
-      } else {
-        this.errorMessage = data.body;
-      }
+      this.$router.push(nextPage);
 
       this.isLoading = false;
     },

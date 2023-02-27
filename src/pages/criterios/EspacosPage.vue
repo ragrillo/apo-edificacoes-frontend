@@ -40,14 +40,16 @@ export default defineComponent({
   name: 'ESCOLHAS CONSTRUTIVAS E DOCUMENTAÇÃO',
   data() {
     return {
+      edificacao: '',
       titulo,
       criterios,
       perguntas,
     };
   },
   mounted() {
-    const token = localStorage.getItem('apo@session');
-    this.token = VueJwtDecode.decode(token);
+    const data = localStorage.getItem('apo@session');
+    const { edificacao } = VueJwtDecode.decode(data);
+    this.edificacao = edificacao;
   },
   components: {
     QuestionarioComponent,

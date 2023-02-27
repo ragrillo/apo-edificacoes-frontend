@@ -12,7 +12,7 @@
         </q-card-section>
 
         <q-card-section v-bind:key="index"
-          v-for="(pergunta, index) in perguntas.filter((item) => (item.group === criterio && ((item.institution[1] === '' || item.institution[1] === token.edificacao) || (item.institution[2] == token.edificacao))))">
+          v-for="(pergunta, index) in perguntas.filter((item) => (item.group === criterio && ((item.institution[1] === '' || item.institution[1] === edificacao) || (item.institution[2] == edificacao))))">
           <QuestionarioComponent :label="pergunta.label" :type="pergunta.type" :hint="pergunta.hint"
             @onSelect="handleSelection" />
 
@@ -40,14 +40,16 @@ export default defineComponent({
   name: 'AspectosFisicos',
   data() {
     return {
+      edificacao: '',
       titulo,
       criterios,
       perguntas,
     };
   },
   mounted() {
-    const token = localStorage.getItem('apo@session');
-    this.token = VueJwtDecode.decode(token);
+    const data = localStorage.getItem('apo@session');
+    const { edificacao } = VueJwtDecode.decode(data);
+    this.edificacao = edificacao;
   },
   components: {
     QuestionarioComponent,
