@@ -10,7 +10,7 @@
           <q-card-section>
             <div class="text-bold">{{ criterio.toUpperCase() }}</div>
           </q-card-section>
-          <q-card-section v-bind:key="index" v-for="(pergunta, index) in perguntas.filter((item) => (item.group === criterio && ((item.institution[1] === '' || item.institution[1] === token.edificacao) || (item.institution[2] == token.edificacao))))">
+          <q-card-section v-bind:key="index" v-for="(pergunta, index) in perguntas.filter((item) => (item.group === criterio && ((item.institution[1] === '' || item.institution[1] === edificacao) || (item.institution[2] == edificacao))))">
             <QuestionarioComponent :label="pergunta.label" :type="pergunta.type" :hint="pergunta.hint"
               @onSelect="handleSelection"/>
           </q-card-section>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+
 import { defineComponent } from 'vue';
 import VueJwtDecode from 'vue-jwt-decode';
 import perguntas from '../../data/form/criterio-1.json';
@@ -32,22 +33,23 @@ const titulo = 'MATERIAIS E ACABAMENTOS';
 const criterios = [...new Set(perguntas.map((item) => item.group))];
 
 const form = [];
-
 export default defineComponent({
   name: 'AspectosFisicos',
   data() {
     return {
+      edificacao: '',
       titulo,
       criterios,
       perguntas,
     };
   },
-  mounted() {
-    const token = localStorage.getItem('apo@session');
-    this.token = VueJwtDecode.decode(token);
-  },
   components: {
     QuestionarioComponent,
+  },
+  mounted() {
+    const data = localStorage.getItem('apo@session');
+    const { edificacao } = VueJwtDecode.decode(data);
+    this.edificacao = edificacao;
   },
   methods: {
     handleSelection(data) {
