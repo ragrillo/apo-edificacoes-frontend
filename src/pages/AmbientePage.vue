@@ -39,10 +39,7 @@ import PopUpEditarAmbiente from 'src/components/PopUpEditarAmbiente.vue';
 import CardAmbiente from '../components/CardAmbiente.vue';
 import SelectAmbiente from '../components/QselectAmbiente.vue';
 
-const ambienteList = [{
-  nomeUnidade: 'Escola Joao',
-  nomeAmbiente: 'Rafael',
-}];
+const ambienteList = [{}];
 
 export default defineComponent({
   name: 'AmbientePage',
