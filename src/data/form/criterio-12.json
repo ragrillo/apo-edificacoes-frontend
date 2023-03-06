@@ -18,14 +18,14 @@
         "group": "Sinalização",
         "type": "Sim, Não, Não sei responder",
         "hint": ""   
-        ,"institution":["UBS"]   
+        ,"institution":["ubs"]   
     },
     {
         "label": "Há equipamentos de iluminação de emergência adequados?",
         "group": "Sinalização",
         "type": "Sim, Não, Não sei responder",
         "hint": ""      
-        ,"institution":["UBS"]
+        ,"institution":["ubs"]
     },
     {
         "label": "A edificação possui Certificado de Vistoria de Prevenção contra Incêncio / Plano de Prevenção contra Incêndio emitido pelo Corpo de Bombeiros vigente?",

@@ -18,7 +18,7 @@
     "group": "Influência na saúde",
     "type": "Sim, Não, Não sei responder",
     "hint": ""
-    ,"institution":["UBS"]
+    ,"institution":["ubs"]
   },
   {
     "label": "Como você avalia as medidas de higiene e limpeza adotadas na edificação?",
@@ -46,7 +46,7 @@
     "group": "Medidas preventivas",
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": ""
-    ,"institution":["UBS"]
+    ,"institution":["ubs"]
   },
   {
     "label": "São disponibilizados mecanismos para sanitarização das mãos assim como sua divulgação?",
@@ -60,20 +60,20 @@
     "group": "Serviços de saúde",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente, Não se aplica",
     "hint": ""
-    ,"institution":["UBS, Escola"]
+    ,"institution":["ubs, escolas"]
   },
   {
     "label": "O estabelecimento fornece serviços de nutrição?",
     "group": "Serviços de nutrição",
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": ""
-    ,"institution":["UBS, Escola"]
+    ,"institution":["ubs, escolas"]
   },
   {
     "label": "Como funcionário você se sente cansado e estressado devido à rotina de trabalho?",
     "group": "Fadiga e stress no trabalho",
     "type": "Sempre estressado, Muito estressado, Estresse médio, Pouco estressado, Nunca se sentiu estressado, Não se aplica",
     "hint": ""
-    ,"institution":["UBS, Escola"]
+    ,"institution":["ubs, escolas"]
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "UBS": [
+  "ubs": [
     "Almoxarifado",
     "Área Descoberta / Playground",
     "BWC",
@@ -26,7 +26,7 @@
     "Sala de Vacinas",
     "Outros (descrever)"
   ],
-  "Habitação": [
+  "residencias": [
     "Sala",
     "Dormitório",
     "Banheiro",
@@ -38,7 +38,7 @@
     "Garagem",
     "Outros (descrever)"
   ],
-  "Escola": [
+  "escolas": [
     "Recepção",
     "Diretoria",
     "Secretaria",

@@ -177,7 +177,7 @@
         "group": "Pintura de paredes",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "RDC 50_UBS.:  As fachadas externas da edificação recebem pintura texturizada nas cores cinza, azul e verde, conforme projeto (BRASIL, 2014b).Com relação a área externa, utilizar: cor verde claro em até 60% da área; cor verde escuro em 15% da área; cor azul em até 15% da área; cor branca em até 10% da área.",
-        "institution":["UBS",""] 
+        "institution":["ubs",""] 
     },
     {
         "label": "Como você avalia a orientação das fachadas com vidros? (Ex.: As aberturas de orientação solar inadequadas são protegidas por elementos externos; os vidros das janelas dos ambientes com ar-condicionado, para melhor eficiência, são duplos?).",

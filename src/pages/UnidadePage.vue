@@ -169,7 +169,7 @@ export default defineComponent({
   },
   mounted() {
     const token = localStorage.getItem('apo@session');
-    // this.token = VueJwtDecode.decode(token);
+    this.token = VueJwtDecode.decode(token);
   },
   methods: {
     async handleCep(endereco) {
@@ -194,7 +194,7 @@ export default defineComponent({
     },
     async handleCadastroUnidade() {
       const edificacao = this.token.edificacao.toLowerCase();
-      console.log(edificacao);
+      // console.log(edificacao);
       this.form.proprietario = this.token.id;
       const payload = { ...this.form, ...this.form[edificacao] };
 

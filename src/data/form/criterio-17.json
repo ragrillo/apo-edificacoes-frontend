@@ -11,14 +11,14 @@
     "group": "Localização e conexão com o entorno",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente",
     "hint": "1. É proibida a localização de Edificação Assistencial à Saúde (EAS) em zonas próximas a depósitos de lixo, indústrias ruidosas e/ou poluentes.\n\n2. Evitar implantação em locais de preservação ambiental.\n\n3. Deverão ser evitados terrenos próximos de rede de alta tensão, cemitério, posto de gasolina, aeroporto, matadouro, vazadouros de lixo e vias de grande tráfego.\n\n4. Dimensões adequadas para a instalação do Porte da UBS definida (para UBS de Porte I - mínimo de 30mx30m, para o UBS de Porte II - mínimo de 35mx30m, para UBS de Porte III - mínimo de 39mx33m e para UBS de Porte IV - mínimo de 49mx33m)."
-    ,"institution":["UBS"]
+    ,"institution":["ubs"]
   },
   {
     "label": "Na sua opinião o empreendimento é um bom vizinho para os edifícios adjacentes? Como você avalia os impactos relativos à implantação da edificação no entorno?",
     "group": "Localização e conexão com o entorno",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente",
     "hint": "1. Evitar: sombreamento de áreas do entorno; alteração da ventilação sobre o entorno imediato; criação de calor na implantação da edificação; perturbação do solo; transtornos pelo PGT; alterações na paisagem.\n\n2. Em fase de obra, evitar interferências com as propriedades, atividades e tráfego de veículos na vizinhança do local dos serviços e obras, programando adequadamente as atividades executivas."
-    ,"institution":["UBS"]
+    ,"institution":["ubs"]
   },
   {
     "label": "Como você avalia a reabilitação das redondezas? Foi previsto cuidados com a implantação nas redondezas do empreendimento? (Ex.: Zelo pelos encontros das calçadas, paisagismo integrado, entre outros.)",

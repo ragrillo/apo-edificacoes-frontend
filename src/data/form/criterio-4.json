@@ -101,13 +101,13 @@
     "label": "Como você avalia a integração volumétrica do edifício com o entorno? (Ex.: existe coerência entre as partes do edifício e a sua imagem externa; se a volumetria e tipologia do edifício consideram a escala humana; e, se a forma do edifício agrada o sentido estético).",
     "group": "Composição arquitetônica",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":["UBS"] 
+    ,"institution":["ubs"] 
   },
   {
     "label": "A composição arquitetônica é adequada?",
     "group": "Composição arquitetônica",
     "type": "Sim, Não, Não sei responder"
-    ,"institution":["UBS"]
+    ,"institution":["ubs"]
   },
   {
     "label": "Como você avalia a divisão e organização interna da edificação?",
@@ -156,7 +156,7 @@
     "label": "Há instalações, espaços e mobiliários ergonômicos?",
     "group": "Mobiliário e ergonomia",
     "type": "Sim, Não, Não sei responder"
-    ,"institution":["UBS"] 
+    ,"institution":["ubs"] 
     
   },
   {

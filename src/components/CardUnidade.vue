@@ -22,10 +22,13 @@ export default defineComponent({
       type: String,
       required: true,
     },
-
     telefone: {
       type: String,
       default: '',
+    },
+    id: {
+      type: String,
+      required: true,
     },
   },
   data() {

@@ -12,7 +12,7 @@
         "group":"Qualidade e execução de Projetos",
         "type":"Sim, Não, Não sei responder",
         "hint":""
-        ,"institution":["UBS",""] 
+        ,"institution":["ubs",""] 
     },
     {
         "label":"O conceito de projeto é satisfatório, com padrões adequados de espaço, qualidade, exigências funcionais e compatibilidade dos subsistemas da construção?",
@@ -83,7 +83,7 @@
         "group":"Tramitação de documentos",
         "type":"Sim, Não, Não sei responder",
         "hint":""
-        ,"institution":["UBS",""] 
+        ,"institution":["ubs",""] 
     }
     
     

@@ -18,14 +18,14 @@
         "group": "Poluição ambiental - redução de poluentes internos e externos",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": ""      
-        ,"institution":["UBS"]
+        ,"institution":["ubs"]
     },
     {
         "label": "Existe gestão das emissões de CO2 no local?",
         "group": "Poluição ambiental - redução de poluentes internos e externos",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": ""      
-        ,"institution":["UBS"]
+        ,"institution":["ubs"]
     },
     {
         "label": "Existe um plano de gestão ambiental?",
@@ -200,7 +200,7 @@
         "group": "Gestão de resíduos",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""  
-        ,"institution":["UBS"]    
+        ,"institution":["ubs"]    
     },
     {
         "label": "Como você avalia a gestão de resíduos buscando o uso racional de recursos naturais?",

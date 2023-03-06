@@ -49,12 +49,12 @@ export default defineComponent({
   mounted() {
     const token = localStorage.getItem('apo@session');
     this.token = VueJwtDecode.decode(token);
-    this.nomeUnidade = api.get(`unidades/${this.token.id}`).then((resposta) => { this.dadosUnidade = resposta.data; });
+    this.nomeUnidade = api.get(`unidades/${this.token.edificacao}/proprietario/${this.token.id}`).then((resposta) => { this.dadosUnidade = resposta.data; });
   },
   methods: {
     async cadastrarNovaUnidade() {
-      console.log(this.token);
-      // this.$router.push('unidade');
+      // console.log(this.token);
+      this.$router.push('unidade');
     },
   },
 
