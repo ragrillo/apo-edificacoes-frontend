@@ -53,7 +53,8 @@ export default defineComponent({
   },
   methods: {
     async cadastrarNovaUnidade() {
-      this.$router.push('unidade');
+      console.log(this.token);
+      // this.$router.push('unidade');
     },
   },
 
