@@ -30,6 +30,8 @@
           </q-banner>
         </div>
 
+        <span class="messageError" v-if="messageUsuario">Usuário não encontrado</span>
+
         <q-btn unelevated label="Login" color="amber" class="text-black" :loading="isLoading" @click="handleLogin()" />
       </q-card-section>
     </q-card>
@@ -41,7 +43,6 @@
 </template>
 
 <script>
-import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
 
@@ -55,6 +56,8 @@ export default defineComponent({
       passError: false,
       isLoading: false,
       errorMessage: '',
+      messageUsuario: false,
+
     };
   },
   methods: {
@@ -71,19 +74,24 @@ export default defineComponent({
       }
 
       const payload = { email: this.email.trim(), senha: this.password.trim() };
-      const { data } = await api.post('/usuarios/login', payload);
 
-      localStorage.setItem('apo@session', data);
-
-      const { cargo } = VueJwtDecode.decode(data);
-
-      const ADMIN = 5;
-      const nextPage = cargo === ADMIN ? '/admin' : '/perfil';
-
-      this.$router.push(nextPage);
+      await api.post('/usuarios/login', payload)
+        .then((res) => {
+          localStorage.setItem('apo@session', res.data);
+          this.$router.push('/perfil');
+        })
+        .catch(() => {
+          this.errorMessage = 'Usuário não encontrado';
+        });
 
       this.isLoading = false;
     },
   },
 });
 </script>
+
+<style lang="sass" scoped>
+.messageError
+  color: red
+
+</style>

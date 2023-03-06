@@ -11,7 +11,7 @@
         <q-form class="q-gutter-y-md">
           <div class="text-bold">Informações Básicas</div>
 
-          <q-input v-model="form.nome" outlined label="Nome Completo" />
+          <q-input v-model="form.nome" outlined label="Nome" />
           <q-input v-model="form.responsavel" outlined label="Responsável" />
           <q-input v-model="form.telefone" outlined type="tel" label="Telefone" mask="(##) # ####-####" />
 
@@ -89,7 +89,7 @@
 
       <div class="row justify-between">
         <q-card-actions align="left">
-          <q-btn flat color="primary" label="Voltar" @click="handleCadastroUnidade" to="/perfil" />
+          <q-btn flat color="primary" label="Salvar" @click="handleCadastroUnidade" to="/perfil" />
         </q-card-actions>
         <q-card-actions align="right">
           <q-btn flat color="primary" label="Cadastrar Ambientes" @click="handleCadastroUnidade" to="/ambiente" />
@@ -115,11 +115,12 @@ export default defineComponent({
         tipoPorte: ['Porte I', 'Porte II', 'Porte III', 'Porte IV', 'Porte V'],
       },
       form: {
+        proprietario: '',
         nome: '',
         responsavel: '',
         telefone: '',
         horarioFuncionamento: [],
-        tipoUnidade: 'Escola',
+        tipoUnidade: '',
         endereco: {
           cep: '',
           logradouro: '',
@@ -168,7 +169,7 @@ export default defineComponent({
   },
   mounted() {
     const token = localStorage.getItem('apo@session');
-    this.token = VueJwtDecode.decode(token);
+    // this.token = VueJwtDecode.decode(token);
   },
   methods: {
     async handleCep(endereco) {
@@ -193,6 +194,8 @@ export default defineComponent({
     },
     async handleCadastroUnidade() {
       const edificacao = this.token.edificacao.toLowerCase();
+      console.log(edificacao);
+      this.form.proprietario = this.token.id;
       const payload = { ...this.form, ...this.form[edificacao] };
 
       delete payload.escola;

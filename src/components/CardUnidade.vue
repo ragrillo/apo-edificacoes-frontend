@@ -1,8 +1,8 @@
 <template>
   <q-card-section class="card-unidade full-width row  justify-between items-center content-center">
     <q-card-section>
-      <div class=" text-h6">{{ nomeUnidade }}</div>
-      <div class="text-subtitle2">{{ responsavel }}</div>
+      <div class=" text-h6">{{ nome }}</div>
+      <div class="text-subtitle2">{{ telefone }}</div>
     </q-card-section>
     <q-card-actions class="right">
       <q-btn no-caps class="btn-unidade" to="/unidade">Editar</q-btn>
@@ -18,12 +18,12 @@ import VueJwtDecode from 'vue-jwt-decode';
 export default defineComponent({
   name: 'CardUnidade',
   props: {
-    nomeUnidade: {
+    nome: {
       type: String,
       required: true,
     },
 
-    responsavel: {
+    telefone: {
       type: String,
       default: '',
     },

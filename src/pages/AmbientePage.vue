@@ -23,7 +23,7 @@
 
     <div class="row justify-between">
       <q-card-actions align="right">
-        <q-btn flat color="primary" label="voltar" to="/unidade" />
+        <q-btn flat color="primary" label="voltar" to="/perfil" />
       </q-card-actions>
       <q-card-actions align="left">
         <q-btn flat color="primary" label="Salvar" to="/perfil" />
@@ -39,10 +39,7 @@ import PopUpEditarAmbiente from 'src/components/PopUpEditarAmbiente.vue';
 import CardAmbiente from '../components/CardAmbiente.vue';
 import SelectAmbiente from '../components/QselectAmbiente.vue';
 
-const ambienteList = [{
-  nomeUnidade: 'Escola Joao',
-  nomeAmbiente: 'Rafael',
-}];
+const ambienteList = [{}];
 
 export default defineComponent({
   name: 'AmbientePage',

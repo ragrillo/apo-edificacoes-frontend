@@ -70,9 +70,6 @@ export default defineComponent({
     addAmbiente(ambienteEscolhido) {
       this.ambiente = ambienteEscolhido;
     },
-    imprimeConsole() {
-      console.log(this.ambiente);
-    },
   },
   mounted() {
     this.handleDimensionChange();
