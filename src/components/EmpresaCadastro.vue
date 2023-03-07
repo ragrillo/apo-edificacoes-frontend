@@ -35,6 +35,7 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import { api } from '../boot/axios';
+import estados from '../data/estados.json';
 
 const formComponent = ref();
 
@@ -85,7 +86,7 @@ export default defineComponent({
         this.form.logradouro = data.logradouro;
         this.form.bairro = data.bairro;
         this.form.cidade = data.localidade;
-        this.form.estado = data.uf;
+        this.form.estado = estados[data.uf];
 
         this.isCepLoading = false;
       }

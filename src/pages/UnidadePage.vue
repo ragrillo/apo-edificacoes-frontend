@@ -103,6 +103,7 @@
 import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
+import estados from '../data/estados.json';
 
 export default defineComponent({
   data() {
@@ -187,7 +188,7 @@ export default defineComponent({
         endereco.logradouro = data.logradouro;
         endereco.bairro = data.bairro;
         endereco.cidade = data.localidade;
-        endereco.estado = data.uf;
+        endereco.estado = estados[data.uf];
 
         this.isCepLoading = false;
       }

@@ -72,7 +72,10 @@ export default defineComponent({
           if (sucess) {
             this.loading = true;
             this.showPassword = false;
-            await api.post('/usuarios', this.form)
+
+            const payload = { ...this.form, edificacao: 'residencias' };
+
+            await api.post('/usuarios', payload)
               .then(() => {
                 this.message = `Cadastro da ${this.tipoCadastro} solicitado com sucesso`;
                 this.loading = false;

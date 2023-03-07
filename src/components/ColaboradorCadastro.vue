@@ -67,6 +67,20 @@ const form = ref({
 
 const requiredRules = (val) => (val && val.length > 0) || 'Obrigatório';
 
+const edificacoesValues = {
+  Escola: 'escolas',
+  Residência: 'residencias',
+  UBS: 'ubs',
+};
+
+const cargoValues = {
+  'Coordenador da Unidade': 1,
+  'Engenheiro Civil ou Arquiteto': 2,
+  'Sócio proprietário, Empreendedor, Chefe da Secretaria ou Prefeitura': 3,
+  'Diretor do departamento ou Administrador da empresa': 4,
+  'Administrador do site ou Equipe de TI': 5,
+};
+
 export default defineComponent({
   name: 'ColaboradorCadastro',
   components: {
@@ -99,7 +113,14 @@ export default defineComponent({
           if (sucess) {
             this.loading = true;
             this.showPassword = false;
-            await api.post('/usuarios', this.form)
+
+            const payload = {
+              ...this.form,
+              cargo: cargoValues[this.form.cargo],
+              edificacao: edificacoesValues[this.form.edificacao],
+            };
+
+            await api.post('/usuarios', payload)
               .then(() => {
                 this.message = `Cadastro da ${this.tipoCadastro} solicitado com sucesso`;
                 this.loading = false;
