@@ -5,7 +5,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": "",
         "institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+        "cargo":["1","2"]
     },
     {
         "label": "Se sim, em quais destes ambientes: Sala de Estar, Dormitórios, Copa/Cozinha, Área de Serviço?",
@@ -13,7 +13,7 @@
         "type": "Sala de Estar, Dormitórios, Copa/Cozinha, Área de Serviço",
         "hint": "",
         "institution":[""],  
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+        "cargo":["1","2"]
     },
     {
         "label": "A iluminação natural do ambiente atende a NBR 15575?",
@@ -21,6 +21,6 @@
         "type": "Sim, Não, Não sei responder",
         "hint": "" ,
         "institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]    
+        "cargo":["1","2"]    
     }
 ]

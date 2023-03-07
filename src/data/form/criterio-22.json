@@ -4,7 +4,7 @@
         "group": "Segurança dos usuários",
         "type": "Sim, Não, Não sei responder",
         "hint": ""
-        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+        ,"institution":[""],"cargo":["1","2"]
 
     },
     {
@@ -12,14 +12,14 @@
         "group": "Segurança dos usuários",
         "type": "Sim, Não, Não sei responder",
         "hint": ""
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },{
         "label": "Há esquema de policiamento para inibição de tráfico de tóxicos/drogas no estabelecimento?",
         "group": "Segurança dos usuários",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },
     {
@@ -27,14 +27,14 @@
         "group": "Segurança dos usuários",
         "type": "Sim, Não, Não sei responder",
         "hint": ""
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },{
         "label": "Como você avalia o nível de segurança geral como usuário da edificação?",
         "group": "Segurança dos usuários",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
              
     },
     {
@@ -42,14 +42,14 @@
         "group": "Segurança dos usuários",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },{
         "label": "Como você avalia o nível de segurança para realizar suas atividades de trabalho como funcionário do estabelecimento?",
         "group": "Segurança no trabalho",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
-    ,"institution":[""],"cargo":["Coordenador da Unidade"]
+    ,"institution":[""],"cargo":["1"]
 
     },
     {
@@ -57,14 +57,14 @@
         "group": "Segurança do Patrimonio",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },{
         "label": "Há vigilância para o período noturno?",
         "group": "Segurança do Patrimonio",
         "type": "Sim, Não, Não sei responder",
         "hint": ""  
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },
     {
@@ -72,14 +72,14 @@
         "group": "Segurança do Patrimonio",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },{
         "label": "Há iluminação do lado de fora da edificação?",
         "group": "Segurança do Patrimonio",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },
     {
@@ -87,14 +87,14 @@
         "group": "Segurança do Patrimonio",
         "type": "Sim, Não, Não sei responder",
         "hint": ""
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     },{
         "label": "Há segurança nas suas imediações?",
         "group": "Segurança do Patrimonio",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-    ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    ,"institution":[""],"cargo":["1","2"]
 
     }
     

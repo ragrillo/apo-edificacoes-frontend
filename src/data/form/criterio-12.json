@@ -5,7 +5,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": ""
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
+        "cargo":["1","2"]      
     },
     {
         "label": "Há rotas de fuga?",
@@ -13,7 +13,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": ""
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
+        "cargo":["1","2"]      
     },
     {
         "label": "Há equipamentos sinalização adequados?",
@@ -21,7 +21,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": ""   
         ,"institution":["ubs"],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]   
+        "cargo":["1","2"]   
     },
     {
         "label": "Há equipamentos de iluminação de emergência adequados?",
@@ -29,7 +29,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": ""      
         ,"institution":["ubs"],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+        "cargo":["1","2"]
     },
     {
         "label": "A edificação possui Certificado de Vistoria de Prevenção contra Incêncio / Plano de Prevenção contra Incêndio emitido pelo Corpo de Bombeiros vigente?",
@@ -37,7 +37,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": ""      
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+        "cargo":["1","2"]
     },
     {
         "label": "Existe uma gestão de emergências, gerenciamento de riscos e planos de contingência avaliando se os sistemas de emergência são projetados para minimizar a interrupção dos serviços prestados? A edificação possui planos de emergência para enfrentar situações críticas como falta de energia elétrica, água, incêndio e inundações?",
@@ -45,7 +45,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": ""
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
+        "cargo":["1","2"]      
     },
     {
         "label": "Há a disponibilidade de telefones de emergência?",
@@ -53,7 +53,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade"]     
+        "cargo":["1"]     
     },
     {
         "label": "Foi realizada a impermeabilização da cobertura?",
@@ -61,7 +61,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Engenheiro Civil ou Arquiteto"]     
+        "cargo":["2"]     
     },
     {
         "label": "Como você avalia a estrutura de cobertura? Os materiais são adequados?",
@@ -69,7 +69,7 @@
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
+        "cargo":["1","2"]     
     },
     {
         "label": "Como você avalia o telhamento da cobertura? Os materiais são adequados?",
@@ -77,7 +77,7 @@
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
+        "cargo":["1","2"]     
     },
     {
         "label": "Como você avalia a cobertura em geral? Existência de defeitos/manifestações patológicas?",
@@ -85,7 +85,7 @@
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
+        "cargo":["1","2"]      
     },
     {
         "label": "Como você avalia os portões, grades e muros? Existência de defeitos/manifestações patológicas?",
@@ -93,7 +93,7 @@
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
+        "cargo":["1","2"]     
     },
     {
         "label": "O pátio de serviço possui portões com trava?",
@@ -101,7 +101,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
+        "cargo":["1","2"]     
     },
     {
         "label": "Há cercamento visualmente permeável? (Ex.: Cobogó, gradil, tela, muro ou outro).",
@@ -109,7 +109,7 @@
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
+        "cargo":["1","2"]     
     },
     {
         "label": "Como você avalia a ergonomia dos portões, grades e muros?",
@@ -117,7 +117,7 @@
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
+        "cargo":["1","2"]      
     },
     {
         "label": "Como você avalia as áreas não pavimentadas? Existência de defeitos/manifestações patológicas?",
@@ -125,7 +125,7 @@
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
+        "cargo":["1","2"]     
     },
     {
         "label": "Como você avalia o desempenho estrutural da edificação (Existe Recalques, trincas e/ou fissuras)?",
@@ -133,7 +133,7 @@
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
+        "cargo":["1","2"]     
     },
     {
         "label": "Como você avalia a estrutura da edificação? Existência de defeitos/manifestações patológicas?",
@@ -141,7 +141,7 @@
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
         ,"institution":[""],
-        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
+        "cargo":["1","2"]      
     }
 
 ]
