@@ -32,14 +32,14 @@
 
           <div class="text-bold">Informações sobre {{ token.edificacao }}</div>
 
-          <div v-show="token.edificacao === 'Escola'" class="q-gutter-y-md">
+          <div v-show="token.edificacao === 'escolas'" class="q-gutter-y-md">
             <q-select v-model="form.escola.tipoEscola" outlined label="Tipo de escola" :options="opcoes.tipoEscola" />
             <q-select v-model="form.escola.modalidadeEscola" outlined label="Modalidade de ensino"
               :options="opcoes.modalidadeEscola" />
             <q-input v-model="form.escola.quantidadeAlunos" outlined type="number" label="Quantidade de alunos" />
           </div>
 
-          <div v-show="token.edificacao === 'UBS'" class="q-gutter-md">
+          <div v-show="token.edificacao === 'ubs'" class="q-gutter-md">
             <q-select v-model="form.ubs.tipoUnidade" outlined label="Tipologia da unidade" :options="opcoes.tipoPorte" />
             <q-input v-model="form.ubs.dataEntregaObra" outlined label="Data de entrega da obra" />
             <q-input v-model="form.ubs.descricao" type="textarea" outlined label="Descrição da unidade" />
@@ -59,7 +59,7 @@
 
           </div>
 
-          <div v-show="token.edificacao === 'Residencia'" class="q-gutter-md">
+          <div v-show="token.edificacao === 'residencias'" class="q-gutter-md">
             <q-select outlined v-model="form.habitacao.tipoUnidade" label="Tipologia da unidade"
               :options="opcoes.tipoHabitacao" />
             <q-input outlined v-model="form.habitacao.numeroPavimentos"
