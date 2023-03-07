@@ -56,8 +56,7 @@
 
         <q-card-actions align="right">
           <q-btn flat label="Voltar" color="primary" @click="showDetails = false" />
-          <q-btn flat label="Atualizar" color="primary" :loading="isStatusLoading"
-            @click="updateUsuario(usuario._id)" />
+          <q-btn flat label="Atualizar" color="primary" :loading="isStatusLoading" @click="updateUsuario(usuario._id)" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -65,7 +64,7 @@
 </template>
 
 <script>
-import VueJwtDecode from 'vue-jwt-decode';
+// import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
 import cargos from '../assets/data/cargos.json';
@@ -84,20 +83,20 @@ export default defineComponent({
     };
   },
   mounted() {
-    const token = localStorage.getItem('apo@session');
+    // const token = localStorage.getItem('apo@session');
 
-    if (!token) {
-      this.$router.back();
-      return;
-    }
+    // if (!token) {
+    //   this.$router.back();
+    //   return;
+    // }
 
-    const { cargo } = VueJwtDecode.decode(token);
-    const ADMIN = cargos[0].value;
+    // const { cargo } = VueJwtDecode.decode(token);
+    // const ADMIN = cargos[0].value;
 
-    if (cargo !== ADMIN) {
-      this.$router.back();
-      return;
-    }
+    // if (cargo !== ADMIN) {
+    //   this.$router.back();
+    //   return;
+    // }
 
     this.requestusuarios();
   },
@@ -108,7 +107,10 @@ export default defineComponent({
     async updateUsuario(id) {
       this.isStatusLoading = true;
 
-      await api.put(`/usuario/${id}`, this.usuario);
+      const payload = this.usuario;
+      delete payload._id;
+
+      await api.put(`/usuarios/${id}`, payload);
 
       this.isStatusLoading = false;
       this.showDetails = false;
@@ -116,8 +118,8 @@ export default defineComponent({
       this.requestusuarios();
     },
     async requestusuario(id, target) {
-      const { data } = await api.get(`/usuario/${id}`);
-      this.usuario = data.body;
+      const { data } = await api.get(`/usuarios/${id}`);
+      this.usuario = data;
 
       if (target === 'details') {
         this.showDetails = true;
@@ -130,8 +132,8 @@ export default defineComponent({
     async requestusuarios() {
       this.isLoading = true;
 
-      const { data } = await api.get('/usuario');
-      this.usuarios = data.body;
+      const { data } = await api.get('/usuarios');
+      this.usuarios = data;
 
       this.isLoading = false;
     },
