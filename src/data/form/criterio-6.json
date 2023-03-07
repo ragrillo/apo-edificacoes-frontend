@@ -3,72 +3,84 @@
     "label": "Há a disponibilidade de mecanismos de controle da irradiação térmica no ambiente e inércia térmica?",
     "group": "Conforto e satisfação",
     "type": "Sim, Não, Não sei responder, Não se aplica"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a poluição luminosa causada pelo brilho da iluminação artificial?",
     "group": "Conforto e satisfação",
     "type": "Extremamente poluído luminosamente, Muita poluição luminosa, Regular, Pouca poluição luminosa, Sem poluição luminosa"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a satisfação com o trabalho pelo funcionário?",
     "group": "Conforto e satisfação",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente, Não se aplica"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade"]
   },
   {
     "label": "Como você avalia o conforto geral do ocupante?",
     "group": "Conforto e satisfação",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a satisfação geral do ocupante?",
     "group": "Conforto e satisfação",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia o bem-estar do ocupante?",
     "group": "Conforto e satisfação",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a sensação de acolhimento do ocupante?",
     "group": "Conforto e satisfação",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a capacidade do ocupante em controlar o ambiente em sua volta?",
     "group": "Controle do conforto geral",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Há o controle de fechamento e abertura de persiana, portas e janelas pelos ocupantes?",
     "group": "Controle do conforto geral",
     "type": "Sim, Não, Não sei responder, Não se aplica"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Os ocupantes têm controle da iluminação?",
     "group": "Controle do conforto geral",
     "type": "Sim, Não, Não sei responder, Não se aplica"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a capacidade do ocupante em controlar seu conforto higro-térmico englobando os sistemas de resfriamento, aquecimento, ventilação e sistemas de condicionamento de ar?",
     "group": "Controle do conforto geral",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente, Não se aplica"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Foram tomadas medidas para possibilitar o controle do conforto acústico?",
     "group": "Controle do conforto geral",
     "type": "Sim, Não, Não sei responder"
-    ,"institution":["ubs"]
+    ,"institution":["ubs"],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   }
 ]

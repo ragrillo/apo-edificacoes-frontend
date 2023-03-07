@@ -4,126 +4,144 @@
         "group": "Extintores",
         "type": "Sim, Não, Não sei responder",
         "hint": ""
-        ,"institution":[""]      
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
     },
     {
         "label": "Há rotas de fuga?",
         "group": "Rotas de fuga",
         "type": "Sim, Não, Não sei responder",
         "hint": ""
-        ,"institution":[""]      
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
     },
     {
         "label": "Há equipamentos sinalização adequados?",
         "group": "Sinalização",
         "type": "Sim, Não, Não sei responder",
         "hint": ""   
-        ,"institution":["ubs"]   
+        ,"institution":["ubs"],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]   
     },
     {
         "label": "Há equipamentos de iluminação de emergência adequados?",
         "group": "Sinalização",
         "type": "Sim, Não, Não sei responder",
         "hint": ""      
-        ,"institution":["ubs"]
+        ,"institution":["ubs"],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
     },
     {
         "label": "A edificação possui Certificado de Vistoria de Prevenção contra Incêncio / Plano de Prevenção contra Incêndio emitido pelo Corpo de Bombeiros vigente?",
         "group": "Gestão de emergências",
         "type": "Sim, Não, Não sei responder",
         "hint": ""      
-        ,"institution":[""]
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
     },
     {
         "label": "Existe uma gestão de emergências, gerenciamento de riscos e planos de contingência avaliando se os sistemas de emergência são projetados para minimizar a interrupção dos serviços prestados? A edificação possui planos de emergência para enfrentar situações críticas como falta de energia elétrica, água, incêndio e inundações?",
         "group": "Gestão de emergências",
         "type": "Sim, Não, Não sei responder",
         "hint": ""
-        ,"institution":[""]      
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
     },
     {
         "label": "Há a disponibilidade de telefones de emergência?",
         "group": "Gestão de emergências",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade"]     
     },
     {
         "label": "Foi realizada a impermeabilização da cobertura?",
         "group": "Recalques, trincas e fissuras",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Engenheiro Civil ou Arquiteto"]     
     },
     {
         "label": "Como você avalia a estrutura de cobertura? Os materiais são adequados?",
         "group": "Recalques, trincas e fissuras",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
     },
     {
         "label": "Como você avalia o telhamento da cobertura? Os materiais são adequados?",
         "group": "Recalques, trincas e fissuras",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
     },
     {
         "label": "Como você avalia a cobertura em geral? Existência de defeitos/manifestações patológicas?",
         "group": "Recalques, trincas e fissuras",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
-        ,"institution":[""]      
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
     },
     {
         "label": "Como você avalia os portões, grades e muros? Existência de defeitos/manifestações patológicas?",
         "group": "Recalques, trincas e fissuras",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
     },
     {
         "label": "O pátio de serviço possui portões com trava?",
         "group": "Recalques, trincas e fissuras",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
     },
     {
         "label": "Há cercamento visualmente permeável? (Ex.: Cobogó, gradil, tela, muro ou outro).",
         "group": "Recalques, trincas e fissuras",
         "type": "Sim, Não, Não sei responder",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
     },
     {
         "label": "Como você avalia a ergonomia dos portões, grades e muros?",
         "group": "Recalques, trincas e fissuras",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
-        ,"institution":[""]      
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
     },
     {
         "label": "Como você avalia as áreas não pavimentadas? Existência de defeitos/manifestações patológicas?",
         "group": "Recalques, trincas e fissuras",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
     },
     {
         "label": "Como você avalia o desempenho estrutural da edificação (Existe Recalques, trincas e/ou fissuras)?",
         "group": "Recalques, trincas e fissuras",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": "" 
-        ,"institution":[""]     
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]     
     },
     {
         "label": "Como você avalia a estrutura da edificação? Existência de defeitos/manifestações patológicas?",
         "group": "Recalques, trincas e fissuras",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
-        ,"institution":[""]      
+        ,"institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
     }
 
 ]

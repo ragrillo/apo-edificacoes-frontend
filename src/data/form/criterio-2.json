@@ -3,16 +3,17 @@
         "label":"Foi entregue (estão disponíveis para consulta) plantas, projetos e memoriais",
         "group":"Qualidade e execução de Projetos",
         "type":"Sim, Não, Não sei responder",
-        "hint":""
-        ,
-        "institution":[""]
+        "hint":"",
+        "institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"Foi entregue manual de uso, operação e manutenção",
         "group":"Qualidade e execução de Projetos",
         "type":"Sim, Não, Não sei responder",
         "hint":""
-        ,"institution":["ubs",""] 
+        ,"institution":["ubs",""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"O conceito de projeto é satisfatório, com padrões adequados de espaço, qualidade, exigências funcionais e compatibilidade dos subsistemas da construção?",
@@ -20,70 +21,64 @@
         "type":"Sim, Não, Não sei responder",
         "hint":"Avaliar a adequação do projeto arquitetônico às atividades propostas pelo EAS - verificação da pertinência do projeto físico apresentado com a proposta assistencial pretendida, por unidade funcional e conjunto do EAS, objetivando o cumprimento da assistência proposta."
         ,
-        "institution":[""]
+        "institution":[""],
+        "cargo":["Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"É possivel modificar ou adaptar os ambientes para novas funções",
         "group":"Flexibilidade e adaptabilidade",
         "type":"Sim, Não, Não sei responder",
-        "hint":""
-        ,
-        "institution":[""]
+        "hint":"",
+        "institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"Existe a presença de reserva de espaço para construção, alteração ou ampliação?",
         "group":"Flexibilidade e adaptabilidade",
         "type":"Sim, Não, Não sei responder",
-        "hint":"Escolher terreno que possua folga de espaço e desenvolver o projeto de forma a permitir ampliações ou alterações prevendo: expansão necessária para novas tecnologias; uso de jardins e pátios como reserva de áreas; previsão de sobra estrutural. "
-        ,
-        "institution":[""]
+        "hint":"Escolher terreno que possua folga de espaço e desenvolver o projeto de forma a permitir ampliações ou alterações prevendo: expansão necessária para novas tecnologias; uso de jardins e pátios como reserva de áreas; previsão de sobra estrutural. ",
+        "institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"O projeto utiliza o conceito arquitetônico da planta livre, com uma modulação regular a partir de uma malha pré-definida econômica e compatível com a estrutura? São utilizados componentes pré-fabricados, padronizados que possam ser removidos, repostos ou reutilizados em ambientes diferentes?",
         "group":"Sistema construtivo modulado e pré-fabricado",
         "type":"Sim, Não, Não sei responder",
-        "hint":"RDC 50. Paredes pré-fabricadas podem ser usadas, desde que quando instaladas tenham acabamento monolítico, ou seja, não possuam ranhuras ou perfis estruturais aparentes e sejam resistentes à lavagem e ao uso de desinfetantes, conforme preconizado no manual citado no primeiro parágrafo desse item. Nas áreas semicríticas as divisórias só podem ser utilizadas se forem, também, resistentes ao uso de desinfetantes e a lavagem com água e sabão, conforme preconizado no manual citado no primeiro parágrafo desse item."
-        ,
-        "institution":[""]
+        "hint":"RDC 50. Paredes pré-fabricadas podem ser usadas, desde que quando instaladas tenham acabamento monolítico, ou seja, não possuam ranhuras ou perfis estruturais aparentes e sejam resistentes à lavagem e ao uso de desinfetantes, conforme preconizado no manual citado no primeiro parágrafo desse item. Nas áreas semicríticas as divisórias só podem ser utilizadas se forem, também, resistentes ao uso de desinfetantes e a lavagem com água e sabão, conforme preconizado no manual citado no primeiro parágrafo desse item.",
+        "institution":[""],
+        "cargo":["Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"O projeto foi aprovado pelos órgãos competentes (Prefeitura, Meio Ambiente, Corpo de Bombeiros, etc)",
         "group":"Legislação de uso do terreno",
         "type":"Sim, Não, Não sei responder",
-        "hint":""
-        ,
-        "institution":[""]
+        "hint":"",
+        "institution":[""],
+        "cargo":["Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"O projeto reflete exigências das autoridades de planejamento urbano? (Ex.: Avaliar o uso adequado à legislação de uso do solo quanto ao seu zoneamento).",
         "group":"Legislação de uso do terreno",
         "type":"Sim, Não, Não sei responder",
-        "hint":"RDC 50. Atendimento às normas e leis de uso e ocupação do solo. Verificação conformidade da ocupação da edificação com os parâmetros construtivos estabelecidos pelo zoneamento."
-        ,
-        "institution":[""]
+        "hint":"RDC 50. Atendimento às normas e leis de uso e ocupação do solo. Verificação conformidade da ocupação da edificação com os parâmetros construtivos estabelecidos pelo zoneamento.",
+        "institution":[""],
+        "cargo":["Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"A edificação atende à legislação quanto ao uso adequado do solo quanto à sua taxa de ocupação.",
         "group":"Legislação de uso do terreno",
         "type":"Sim, Não, Não sei responder",
-        "hint":"RDC 50. Atendimento às normas e leis de uso e ocupação do solo. Verificação conformidade da ocupação da edificação com os parâmetros construtivos estabelecidos pelo zoneamento."
-        ,
-        "institution":[""]
-    },
-    {
-        "label":"A edificação atende à legislação quanto a área superficial para infiltração de água pluvial.",
-        "group":"Legislação de uso do terreno",
-        "type":"Sim, Não, Não sei responder",
-        "hint":"RDC 50. Atendimento às normas e leis de uso e ocupação do solo. Verificação conformidade da ocupação da edificação com os parâmetros construtivos estabelecidos pelo zoneamento."
-        ,
-        "institution":[""]
+        "hint":"RDC 50. Atendimento às normas e leis de uso e ocupação do solo. Verificação conformidade da ocupação da edificação com os parâmetros construtivos estabelecidos pelo zoneamento.",
+        "institution":[""],
+        "cargo":["Engenheiro Civil ou Arquiteto"]
     },
     {
         "label":"Como você avalia a tramitação interna de documentos entre os usuários da edificação?",
         "group":"Tramitação de documentos",
         "type":"Sim, Não, Não sei responder",
         "hint":""
-        ,"institution":["ubs",""] 
+        ,"institution":["ubs",""],
+        "cargo":["Coordenador da Unidade"]
     }
     
     

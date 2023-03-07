@@ -51,7 +51,7 @@ import { defineComponent, ref } from 'vue';
 import { api } from '../boot/axios';
 import CargoSelect from './CargoSelect.vue';
 
-const edificacoes = ['Escola', 'Residência', 'UBS'];
+const edificacoes = ['escolas', 'residencias', 'ubs'];
 
 const formComponent = ref();
 

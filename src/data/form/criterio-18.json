@@ -4,91 +4,91 @@
         "group": "Acesso ao transporte público",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""   
-        ,"institution":[""]      
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
     },
     {
         "label": "Existe bicicletário adequado, visível e bem localizado?",
         "group": "Mobilidade de baixo impacto",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": ""  
-        ,"institution":[""]       
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]       
     },
     {
         "label": "Existem calçadas adequadas para os usuários que desejem ir a pé?",
         "group": "Mobilidade de baixo impacto",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": " Deve ser livre de qualquer obstáculo, ter inclinação transversal até 3 %, ser contínua entre lotes e ter no mínimo 1,20 m de largura e 2,10m de altura livre."      
-        ,"institution":[""]   
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]   
     },
     {
         "label": "Existem estacionamentos diferenciados por tipo de usuário? (Ex.: Funcionários, visitantes, usuários da edificação).",
         "group": "Áreas de estacionamentos e gestão do tráfego",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": "" 
-        ,"institution":[""]        
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]        
     },
     {
         "label": "Área de estacionamento com material permeável?",
         "group": "Áreas de estacionamentos e gestão do tráfego",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": ""  
-        ,"institution":[""]       
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]       
     },
     {
         "label": "Reserva de vagas para idosos e para pessoas com deficiência?",
         "group": "Áreas de estacionamentos e gestão do tráfego",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": ""  
-        ,"institution":[""]       
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]       
     },
     {
         "label": "Áreas de embarque/ desembarque ou outras medidas do tipo para evitar tráfego, sem influenciar no estacionamento?",
         "group": "Áreas de estacionamentos e gestão do tráfego",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": "" 
-        ,"institution":[""]        
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]        
     },
     {
         "label": "Espaço destinado a veículos de apoio e manutenção? (Ex.: Previsão de parada de ambulâncias / remoção de resíduos / carga e descarga de mantimentos).",
         "group": "Áreas de estacionamentos e gestão do tráfego",
         "type": "Sim, Não, Não sei responder, Não se aplica",
         "hint": "A área externa para embarque e desembarque de ambulância deve ter 21m²."   
-        ,"institution":[""]      
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]      
     },
     {
         "label": "Como você avalia o estacionamento edificação? Existência de defeitos/manifestações patológicas?",
         "group": "Áreas de estacionamentos e gestão do tráfego",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
-        ,"institution":[""]         
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]         
     },
     {
         "label": "Como você avalia o layout do estacionamento?",
         "group": "Áreas de estacionamentos e gestão do tráfego",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
-        ,"institution":[""]         
+        ,"institution":[""],"cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]         
     },
     {
         "label": "Como você avalia a distância da edificação em relação a outros serviços? (Ex.: Farmácias, supermercados, bancos, etc.)",
         "group": "Distâncias ",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""
-        ,"institution":[""]         
+        ,"institution":[""],"cargo":["Coordenador da Unidade"]         
     },
     {
         "label": "Como você avalia a distância entre a casa dos funcionários até o destino na edificação?",
         "group": "Distâncias ",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""    
-        ,"institution":[""]     
+        ,"institution":[""],"cargo":["Coordenador da Unidade"]     
     },
     {
         "label": "Como você avalia as distâncias internas percorridas pelos funcionários?",
         "group": "Distâncias ",
         "type": "Péssimo, Ruim, Regular, Bom, Excelente",
         "hint": ""   
-        ,"institution":[""]      
+        ,"institution":[""],"cargo":["Coordenador da Unidade"]      
     }
 
 ]

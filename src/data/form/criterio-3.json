@@ -3,9 +3,10 @@
     "label": "O acesso é apropriado para os pedestres?",
     "group": "Acessos e circulação no interior da edificação",
     "type": "Sim, Não, Não sei responder",
-    "hint": "Todos os estacionamentos devem garantir uma faixa de circulação de pedestre que garanta um trajeto seguro, com largura mínima de 1,20 m até o local de interesse. Este trajeto vai compor a rota acessível."
-    ,
-    "institution":[""]
+    "hint": "Todos os estacionamentos devem garantir uma faixa de circulação de pedestre que garanta um trajeto seguro, com largura mínima de 1,20 m até o local de interesse. Este trajeto vai compor a rota acessível.",
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
+    
   },
   {
     "label": "Existe diferenciação de circulação e de acessos para os diferentes tipos de usuários do edifício?",
@@ -13,7 +14,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": "Os acessos devem ser vinculados através de rota acessível à circulação principal e às circulações de emergência. Os acessos devem permanecer livres de quaisquer obstáculos de forma permanente."
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia os corredores quanto suas dimensões, iluminação, sinalização, e materiais considerando a adequação, resistência, durabilidade e absorção sonora?",
@@ -21,7 +23,8 @@
     "type": "Péssimo, Ruim, Regular, Bom, Excelente",
     "hint": "Os corredores devem ser dimensionados de acordo com o fluxo de pessoas, assegurando uma faixa livre de barreiras ou obstáculos. As larguras mínimas para corredores em edificações e equipamentos urbanos são: 1,50 m para corredores de uso público."
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a inclinação das rampas, iluminação, sinalização, localização, materiais, corrimãos de escadas e rampas, seguindo a NBR 9050?",
@@ -29,7 +32,8 @@
     "type": "Péssimo, Ruim, Regular, Bom, Excelente",
     "hint": "Seguir requisitos da NBR 9050."
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a localização dos elevadores? (Ex.: é adequada, de fácil acesso e bem-sinalizada; a capacidade, o dimensionamento, a instalação e a quantidade de elevadores são calculadas corretamente).",
@@ -37,7 +41,8 @@
     "type": "Péssimo, Ruim, Regular, Bom, Excelente",
     "hint": ""
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "A edificação possui escadas?",
@@ -45,7 +50,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": ""
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "A edificação possui rampas?",
@@ -53,7 +59,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": ""
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "A edificação possui elevador?",
@@ -61,7 +68,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": ""
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Existem suportes físicos como corrimão e bancos?",
@@ -69,7 +77,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": "NBR 9050. Sinalização de espaço reservado para PCR, barras de apoio e demais adaptações nos sanitários"
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Existe suporte cognitivo?",
@@ -77,7 +86,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": "NBR 9050."
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Existem mecanismos para o suporte sensorial?",
@@ -85,7 +95,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": "NBR 9050. Sinalização de sanitários em Braille. Faixa tátil de alcance acessível nas paredes. Uso de som e áudio."
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a acessibilidade do local? (Ex.: o acesso ao edifício é apropriado para todos, incluindo pessoas deficientes).",
@@ -93,7 +104,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": "NBR 9050."
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia o acesso de materiais e veículos de remoção de resíduos? (EX.: é separado do acesso do público e de pessoal).",
@@ -101,7 +113,8 @@
     "type": "Péssimo, Ruim, Regular, Bom, Excelente",
     "hint": "Vaga para veículo coleta de resíduos com 12,5m²"
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Verificar a existência de circulação limpa e suja.",
@@ -109,7 +122,8 @@
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": ""
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a orientação e sinalização externa? (Ex.: é de boa qualidade e integrada à solução do projeto).",
@@ -117,7 +131,8 @@
     "type": "Péssimo, Ruim, Regular, Bom, Excelente",
     "hint": "A sinalização deve ser autoexplicativa, perceptível e legível para todos, inclusive para as pessoas com deficiência. Incluir sinais de localização, advertência e instrução."
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a sinalização interna e orientações transmitidas aos ocupantes pela edificação?",
@@ -125,6 +140,7 @@
     "type": "Péssimo, Ruim, Regular, Bom, Excelente",
     "hint": "Símbolos: internacional de acesso (SIA), de pessoas com deficiência visual e de pessoas com deficiência auditiva, de atendimento preferencial"
     ,
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   }
 ]

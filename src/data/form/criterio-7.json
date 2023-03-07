@@ -3,18 +3,24 @@
         "label": "É necessário ligar a luz artificial durante o dia (9h00 às 15h00) para atividades rotineiras?",
         "group": "Iluminação natural",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "",
+        "institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
     },
     {
         "label": "Se sim, em quais destes ambientes: Sala de Estar, Dormitórios, Copa/Cozinha, Área de Serviço?",
         "group": "Iluminação natural",
         "type": "Sala de Estar, Dormitórios, Copa/Cozinha, Área de Serviço",
-        "hint": ""      
+        "hint": "",
+        "institution":[""],  
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
     },
     {
         "label": "A iluminação natural do ambiente atende a NBR 15575?",
         "group": "Iluminação natural",
         "type": "Sim, Não, Não sei responder",
-        "hint": ""      
+        "hint": "" ,
+        "institution":[""],
+        "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]    
     }
 ]

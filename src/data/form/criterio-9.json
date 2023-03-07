@@ -3,73 +3,85 @@
     "label": "Há isolamento térmico nas paredes?",
     "group": "Isolamento e conforto térmico",
     "type": "Sim, Não, Não sei responder",
-    "institution":[""]
+    "institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Há isolamento térmico da cobertura?",
     "group": "Isolamento e conforto térmico",
     "type": "Sim, Não, Não sei responder"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "São utilizados materiais que tenham melhor desempenho térmico a fim de minimizar o uso de sistemas de climatização?",
     "group": "Isolamento e conforto térmico",
     "type": "Sim, Não, Não sei responder"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "A climatização neste ambiente, para fins de conforto e/ou assepsia, está adequada as normas?",
     "group": "Isolamento e conforto térmico",
     "type": "Sim, Não, Não sei responder, Não se aplica"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia o conforto térmico e a satisfação com as condições térmicas do ocupante?",
     "group": "Isolamento e conforto térmico",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a sensação térmica no ambiente?",
     "group": "Isolamento e conforto térmico",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a faixa de temperatura interna, e sua variação, no ambiente?",
     "group": "Isolamento e conforto térmico",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia os níveis de umidade no ambiente?",
     "group": "Umidade nos ambientes",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a variação de temperatura do ar (diferença entre temperatura no exterior e interior da edificação) neste ambiente?",
     "group": "Variação térmica",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia as temperaturas no interior do ambiente em diferentes estações do ano?",
     "group": "Variação térmica",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "A ventilação natural do ambiente atende os valores mínimos exigidos?",
     "group": "Ventilação natural",
     "type": "Sim, Não, Não sei responder, Não se aplica",
     "hint": "Ver planilha de cálculo de ventilação natural"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   },
   {
     "label": "Como você avalia a ventilação natural neste ambiente?",
     "group": "Ventilação natural",
     "type": "Péssimo, Ruim, Regular, Bom, Excelente"
-    ,"institution":[""]
+    ,"institution":[""],
+    "cargo":["Coordenador da Unidade","Engenheiro Civil ou Arquiteto"]
   }
 ]

@@ -5,12 +5,11 @@
       Responda o questionário abaixo
     </div>
     <q-card>
-      {{ token }}
       <div v-bind:key="index" v-for="(criterio, index) in criterios">
           <q-card-section>
             <div class="text-bold">{{ criterio.toUpperCase() }}</div>
           </q-card-section>
-          <q-card-section v-bind:key="index" v-for="(pergunta, index) in perguntas.filter((item) => (item.group === criterio && ((item.institution[1] === '' || item.institution[1] === edificacao) || (item.institution[2] == edificacao))))">
+          <q-card-section v-bind:key="index" v-for="(pergunta, index) in perguntas.filter((item) => ((item.group === criterio) && (((item.cargo[0] === cargo || item.cargo[1] === cargo)) && ((item.institution[0] === '' || item.institution[0] === edificacao) || (item.institution[1] == edificacao)))))">
             <QuestionarioComponent :label="pergunta.label" :type="pergunta.type" :hint="pergunta.hint"
               @onSelect="handleSelection"/>
           </q-card-section>
@@ -38,6 +37,7 @@ export default defineComponent({
   data() {
     return {
       edificacao: '',
+      cargo: '',
       titulo,
       criterios,
       perguntas,
@@ -49,7 +49,9 @@ export default defineComponent({
   mounted() {
     const data = localStorage.getItem('apo@session');
     const { edificacao } = VueJwtDecode.decode(data);
+    const { cargo } = VueJwtDecode.decode(data);
     this.edificacao = edificacao;
+    this.cargo = cargo;
   },
   methods: {
     handleSelection(data) {
