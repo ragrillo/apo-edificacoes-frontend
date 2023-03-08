@@ -1,97 +1,81 @@
 <template>
-  <q-page class="flex column flex-center justify-center">
-    <q-card style="width: 80%; max-width: 400px;">
-      <q-card-section>
-        <h1 class="text-h5">Entre para continuar</h1>
-      </q-card-section>
+  <q-page class="flex flex-center justify-center">
+    <div id="content" class="column q-gutter-y-md">
+      <q-form class="q-gutter-y-md">
+        <q-input v-model="email" type="email" label="E-mail" />
+        <q-input-senha @senha="obterSenha" />
 
-      <q-card-section>
-        <q-form>
-          <q-input outlined v-model="email" :error="emailError" no-error-icon type="email" label="E-mail" />
-          <div @keydown.enter="handleLogin()">
-            <q-input outlined v-model="password" :error="passError" no-error-icon :type="isVisible ? 'text' : 'password'"
-              label="Senha">
-              <template v-slot:append>
-                <q-btn dense rounded flat @click="isVisible = !isVisible"
-                  :icon="isVisible ? 'visibility_off' : 'visibility'" />
-              </template>
-            </q-input>
-          </div>
-        </q-form>
-      </q-card-section>
-
-      <q-card-section class="column q-gutter-sm">
-        <div v-show="errorMessage">
-          <q-banner dense class="bg-red text-white">
-            <template v-slot:avatar>
-              <q-icon size="1.5em" name="warning" />
-            </template>
-            {{ errorMessage }}
-          </q-banner>
+        <div>
+          <router-link to="/recuperar">Esqueci minha senha</router-link>
         </div>
+      </q-form>
 
-        <span class="messageError" v-if="messageUsuario">Usuário não encontrado</span>
+      <q-btn label="Entrar" color="primary" :loading="isLoading" @click="realizarLogin()" />
 
-        <q-btn unelevated label="Login" color="amber" class="text-black" :loading="isLoading" @click="handleLogin()" />
-      </q-card-section>
-    </q-card>
-    <div class="q-pa-lg">
-      <span>Ainda não possui conta? </span>
-      <router-link to="/signin">Cadastre-se!</router-link>
+      <div>
+        <span>Ainda não possui conta? </span>
+        <router-link to="/cadastro/usuario">Cadastre-se!</router-link>
+      </div>
+
+      <q-message type='error' :message="mensagem" v-if="mensagem" />
     </div>
   </q-page>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
+import QInputSenha from '../components/QInputSenha';
+import QMessage from '../components/QMessage';
 
-export default defineComponent({
+export default {
   data() {
     return {
       email: '',
-      password: '',
-      isVisible: false,
-      emailError: false,
-      passError: false,
+      senha: '',
+      mensagem: '',
       isLoading: false,
-      errorMessage: '',
-      messageUsuario: false,
-
     };
   },
+  components: {
+    QInputSenha,
+    QMessage,
+  },
   methods: {
-    async handleLogin() {
+    realizarLogin() {
+      this.mensagem = '';
       this.isLoading = true;
-      this.isVisible = false;
 
-      this.emailError = !this.email;
-      this.passError = !this.password;
+      const endpoint = '/usuarios/login';
 
-      if (!this.email || !this.password) {
-        this.isLoading = false;
-        return;
-      }
+      const payload = {
+        email: this.email.trim(),
+        senha: this.senha.trim(),
+      };
 
-      const payload = { email: this.email.trim(), senha: this.password.trim() };
-
-      await api.post('/usuarios/login', payload)
-        .then((res) => {
-          localStorage.setItem('apo@session', res.data);
-          this.$router.push('/perfil');
+      api.post(endpoint, payload)
+        .then(({ data }) => {
+          this.iniciarSessao(data);
         })
-        .catch(() => {
-          this.errorMessage = 'Usuário não encontrado';
+        .catch(({ response }) => {
+          this.mensagem = response.data;
         });
 
       this.isLoading = false;
     },
+    iniciarSessao(token) {
+      localStorage.setItem('apo@session', token);
+      this.$router.push('/perfil');
+    },
+    obterSenha(senha) {
+      this.senha = senha;
+    },
   },
-});
+};
 </script>
 
-<style lang="sass" scoped>
-.messageError
-  color: red
-
+<style>
+#content {
+  width: 90%;
+  max-width: 400px;
+}
 </style>
