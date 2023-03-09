@@ -18,8 +18,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/LoginPage.vue'),
       },
       {
-        path: '/signin',
-        component: () => import('pages/SignInPage.vue'),
+        path: '/cadastro/usuario',
+        component: () => import('pages/CadastrarUsuario.vue'),
       },
       {
         path: '/admin',

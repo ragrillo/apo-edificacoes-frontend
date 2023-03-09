@@ -1,21 +1,19 @@
 <template>
   <q-page>
-    <q-card class="q-md">
-      <q-card-section>
-        <div class="text-h6">Solicitar cadastro</div>
-        <p>Cadastrar uma Empresa ou um Usuário.</p>
-      </q-card-section>
+    <div class="text-h6">Solicitar cadastro</div>
+    <p>Cadastrar uma Empresa ou um Usuário.</p>
 
-      <q-form class="column q-pa-md">
-        <q-card-section class="q-pa-md">
-          <div class="text-bold">Selecione o tipo de cadastro</div>
-          <CadastroSelect @usuarioSelecionado="addUsuario" />
-          <EmpresaCadastro v-if="this.usuario === 'Empresa'" :tipoCadastro="this.usuario" />
-          <ColaboradorCadastro v-if="this.usuario === 'Colaborador'" :tipoCadastro="this.usuario" />
-          <MoradorCadastro v-if="this.usuario === 'Morador'" :tipoCadastro="this.usuario" />
-        </q-card-section>
-      </q-form>
-    </q-card>
+    <q-form>
+      <q-card-section>
+        <div class="text-bold">Tipo de cadastro</div>
+
+        <CadastroSelect @usuarioSelecionado="addUsuario" />
+
+        <EmpresaCadastro v-if="isUsuario('Empresa')" :tipoCadastro="this.usuario" />
+        <ColaboradorCadastro v-if="isUsuario('Colaborador')" :tipoCadastro="this.usuario" />
+        <MoradorCadastro v-if="isUsuario('Morador')" :tipoCadastro="this.usuario" />
+      </q-card-section>
+    </q-form>
   </q-page>
 </template>
 
@@ -46,6 +44,9 @@ export default defineComponent({
     },
     messageResposta(message) {
       this.message = message;
+    },
+    isUsuario(tipoCadastro) {
+      return this.usuario === tipoCadastro;
     },
   },
 });
