@@ -75,7 +75,7 @@ export default {
 
 <style>
 #content {
-  width: 90%;
+  width: 80%;
   max-width: 400px;
 }
 </style>
