@@ -1,5 +1,5 @@
 <template>
-  <q-input v-model="senha" label="Senha" :type="alterarTipo" @keyup="obterSenha">
+  <q-input v-model="senha" :label="label" :type="alterarTipo" @keyup="obterSenha">
     <template v-slot:append>
       <q-btn dense rounded flat @click="mostrarSenha" :icon="alterarIcone" />
     </template>
@@ -8,6 +8,12 @@
 
 <script>
 export default {
+  props: {
+    label: {
+      type: String,
+      default: 'Senha',
+    },
+  },
   data() {
     return {
       senha: '',
