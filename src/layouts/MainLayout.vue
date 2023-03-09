@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <div id="container">
-      <q-page-container id="content">
+      <q-page-container>
         <router-view />
       </q-page-container>
     </div>
@@ -15,16 +15,3 @@ export default defineComponent({
   name: 'MainLayout',
 });
 </script>
-
-<style>
-#container {
-  height: 100%;
-  display: grid;
-  place-items: center;
-}
-
-#content {
-  width: 100%;
-  max-width: 720px;
-}
-</style>
