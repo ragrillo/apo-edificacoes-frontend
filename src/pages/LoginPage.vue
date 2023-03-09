@@ -62,8 +62,14 @@ export default {
 
       this.isLoading = false;
     },
-    iniciarSessao(token) {
+    iniciarSessao(data) {
+      const { token, usuario } = data;
+
       localStorage.setItem('apo@session', token);
+
+      this.$store.commit('setToken', token);
+      this.$store.commit('setUsuario', usuario);
+
       this.$router.push('/perfil');
     },
     obterSenha(senha) {
