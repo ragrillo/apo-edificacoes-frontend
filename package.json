@@ -1,10 +1,9 @@
 {
   "name": "apo-edificacoes-client",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "APO Edificações",
-  "author": "Edison Matias <devedisonmatias@gmail.com>",
   "private": true,
+  "description": "A Quasar Project",
+  "author": "Edison Matias <devedisonmatias@gmail.com>",
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
@@ -17,13 +16,15 @@
     "quasar": "^2.6.0",
     "vue": "^3.0.0",
     "vue-jwt-decode": "^0.1.0",
-    "vue-router": "^4.0.0"
+    "vue-router": "^4.0.0",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@quasar/app-webpack": "^3.0.0",
     "@types/node": "^12.20.21",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
     "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.10.0",
@@ -46,5 +47,6 @@
     "node": ">= 12.22.1",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
-  }
+  },
+  "productName": "APO Edificações"
 }
