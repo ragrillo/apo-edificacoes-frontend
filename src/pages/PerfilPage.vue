@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import VueJwtDecode from 'vue-jwt-decode';
 import { api } from '../boot/axios';
 
 export default {
@@ -53,19 +52,18 @@ export default {
     };
   },
   mounted() {
-    const token = localStorage.getItem('apo@session');
-    this.token = VueJwtDecode.decode(token);
-
-    const { id, edificacao } = this.token;
-    const endpoint = `/unidades/${edificacao}/proprietario/${id}`;
-
-    api.get(endpoint).then(({ data }) => {
-      this.unidades = data;
-    });
+    this.obterUnidades();
   },
   methods: {
     irPara(rota) {
       this.$router.push(rota);
+    },
+    async obterUnidades() {
+      const { id, edificacao } = this.$store.state.usuario;
+      const endpoint = `/unidades/${edificacao}/proprietario/${id}`;
+
+      const { data } = await api.get(endpoint);
+      this.unidades = data;
     },
   },
   computed: {
