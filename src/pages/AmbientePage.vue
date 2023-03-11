@@ -1,81 +1,84 @@
 <template>
-  <q-card class="q-ma-md">
+  <q-card class="q-ma-lg">
     <q-card-section>
-      <div class="text-h6">Cadastro de Ambiente</div>
-      Preencha as informações abaixo.
+      <div class="text-h6">{{ nomeUnidade }}</div>
     </q-card-section>
-    <q-card-section class="titulo-secao">
-      <h1 class="text-h6">Selecione um Ambiente para cadastrar</h1>
-      <hr color="#1976d2">
-    </q-card-section>
+    <q-separator />
 
-    <SelectAmbiente @ambienteSelecionado="addAmbiente" />
-    <PopUpEditarAmbiente v-model="editar" @fecharPopUp="fecharPopUp" :nomeAmbiente="this.ambiente" />
+    <q-card-section>
+      <div class="text-bold">Adicionar ambiente</div>
+      <div>Selecione um ambiente abaixo</div>
 
-    <q-card-section class="titulo-secao">
-      <h1 class="text-h6">Ambientes cadastrados</h1>
-      <hr color="#1976d2">
+      <q-select filled v-model="ambienteSelecionado" :options="listaAmbientes" label="Ambiente" class="q-mt-md"
+        behavior="menu" />
     </q-card-section>
 
-    <div v-show="seAmbienteCadastrado()">
-      <CardAmbiente v-for="ambiente in listaAmbiente" :key="ambiente.nomeUnidade" v-bind="ambiente" />
-    </div>
+    <q-card-section>
+      <div class="text-bold">Ambiente cadastrados</div>
 
-    <div class="row justify-between">
-      <q-card-actions align="right">
-        <q-btn flat color="primary" label="voltar" to="/perfil" />
-      </q-card-actions>
-      <q-card-actions align="left">
-        <q-btn flat color="primary" label="Salvar" to="/perfil" />
-      </q-card-actions>
-    </div>
+      <q-list v-for="ambiente in ambientes" :key="ambiente.nome">
+        <q-item class="q-mt-md q-py-sm">
+          <q-item-section>
+            <q-item-label>{{ ambiente.nome }}</q-item-label>
+          </q-item-section>
+
+          <q-item-section side>
+            <q-btn flat color="primary" label="Avaliar" />
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-card-section>
   </q-card>
+
+  <pop-up-editar-ambiente-vue v-if="ambienteSelecionado" :nomeAmbiente="ambienteSelecionado" :unidade="unidade" />
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import VueJwtDecode from 'vue-jwt-decode';
-import PopUpEditarAmbiente from 'src/components/PopUpEditarAmbiente.vue';
-import CardAmbiente from '../components/CardAmbiente.vue';
-import SelectAmbiente from '../components/QselectAmbiente.vue';
+import { api } from '../boot/axios';
+import ambientes from '../assets/data/ambientes.json';
+import PopUpEditarAmbienteVue from '../components/PopUpEditarAmbiente.vue';
 
-const ambienteList = [{}];
-
-export default defineComponent({
-  name: 'AmbientePage',
+export default {
   components: {
-    CardAmbiente,
-    SelectAmbiente,
-    PopUpEditarAmbiente,
+    PopUpEditarAmbienteVue,
   },
   data() {
     return {
-      token: {},
-      ambientes: [],
-      editar: false,
-      ambiente: '',
-    };
-  },
-  setup() {
-    return {
-      listaAmbiente: ambienteList,
+      ambientes: [{
+        nome: 'Sala de Aula',
+        telefone: '123456789',
+      }],
+      unidade: null,
+      nomeUnidade: null,
+      ambienteSelecionado: null,
+      listaAmbientes: [],
     };
   },
   mounted() {
-    const token = localStorage.getItem('apo@session');
-    this.token = VueJwtDecode.decode(token);
+    const { id } = this.$route.params;
+    const { edificacao } = this.$store.state.usuario;
+
+    this.getUnidade(id);
+    // this.getAmbientes(id);
+
+    this.unidade = id;
+    this.listaAmbientes = ambientes[edificacao];
   },
   methods: {
-    addAmbiente(ambienteEscolhido) {
-      this.ambiente = ambienteEscolhido;
-      this.editar = true;
+    async getAmbientes(id) {
+      const endpoint = `/ambientes/unidade/${id}`;
+      const { data } = await api.get(endpoint);
+
+      this.ambientes = data;
     },
-    seAmbienteCadastrado() {
-      return ambienteList.length >= 1;
-    },
-    fecharPopUp(comandoFechar) {
-      this.editar = comandoFechar;
+    async getUnidade(id) {
+      const { edificacao } = this.$store.state.usuario;
+
+      const endpoint = `/unidades/${edificacao}/${id}`;
+      const { data } = await api.get(endpoint);
+
+      this.nomeUnidade = data.nome;
     },
   },
-});
+};
 </script>

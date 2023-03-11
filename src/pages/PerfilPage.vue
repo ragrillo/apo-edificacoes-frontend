@@ -8,25 +8,14 @@
       <q-card-section>
         <div v-if="possuiUnidades">
           <q-list v-for="unidade in unidades" :key="unidade.nome">
-            <q-item class="q-py-sm">
+            <q-item clickable class="q-py-md" @click="irPara(`/ambiente/${unidade._id}`)">
               <q-item-section>
                 <q-item-label>{{ unidade.nome }}</q-item-label>
                 <q-item-label caption>{{ unidade.telefone }}</q-item-label>
               </q-item-section>
 
               <q-item-section side>
-                <q-btn flat rounded dense color="primary" icon="more_vert">
-                  <q-menu>
-                    <q-list>
-                      <q-item clickable v-ripple @click="irPara('/unidade')">
-                        <q-item-section>Editar</q-item-section>
-                      </q-item>
-                      <q-item clickable v-ripple @click="irPara('/criterio')">
-                        <q-item-section>Avaliar</q-item-section>
-                      </q-item>
-                    </q-list>
-                  </q-menu>
-                </q-btn>
+                <q-btn flat dense rounded icon="edit" color="primary" />
               </q-item-section>
             </q-item>
           </q-list>
