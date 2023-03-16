@@ -15,12 +15,12 @@
           <q-list v-bind:key="index" v-for="(item, index) in criterios">
             <q-item>
               <q-item-section>
-                <q-item-label>{{ item.name }}</q-item-label>
+                <q-item-label>{{ item.titulo }}</q-item-label>
               </q-item-section>
 
               <q-item-section side>
-                <q-btn flat color="primary" label="Responder" @click="
-                  irParaCriterio(item.link)" />
+                <q-btn dense flat color="primary" label="Responder" @click="
+                  irParaCriterio(item.numero)" />
               </q-item-section>
             </q-item>
           </q-list>
@@ -28,17 +28,15 @@
 
         <q-tab-panel name="Gestão e Projeto">
           <q-list v-bind:key="index" v-for="(item, index) in criterios">
-            <q-item class="q-py-sm">
+            <q-item>
               <q-item-section>
-                <q-item-label>{{ item.name }}</q-item-label>
+                <q-item-label>{{ item.titulo }}</q-item-label>
               </q-item-section>
 
               <q-item-section side>
-                <q-btn flat color="primary" label=" Responder" @click="irParaCriterio(item.link)" />
+                <q-btn dense flat color="primary" label=" Responder" @click="irParaCriterio(item.numero)" />
               </q-item-section>
             </q-item>
-
-            <q-separator />
           </q-list>
         </q-tab-panel>
       </q-tab-panels>
@@ -48,7 +46,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import data from '../data/criterio-dimensao.json';
+import data from '../data/relacao-criterio-dimensao-e-codigo.json';
 
 export default defineComponent({
   name: 'CriteriosPage',
@@ -66,7 +64,7 @@ export default defineComponent({
   },
   methods: {
     handleDimensionChange() {
-      this.criterios = data.filter((item) => item.dimension === this.dimension);
+      this.criterios = data.filter((item) => item.dimensao === this.dimension);
     },
     irParaCriterio(numero) {
       const id = this.ambiente._id;
