@@ -21,7 +21,28 @@
           <q-input v-model="ambiente.areaAmbiente" filled readonly type="number" label="Área Total (m²)" />
 
           <div class="text-bold q-my-md">Janelas</div>
+          <q-input v-model="larguraJanela" filled label="Largura (m)" type="number" />
+          <q-input v-model="alturaJanela" filled label="Altura (m)" type="number" />
+          <q-input v-model="ventilacao" filled label="Área de Ventilação(m²)" type="number" />
+          <q-checkbox v-model="fachada" filled label="Instalada na fachada" />
+
+          <div>
+            <q-btn label="Adicionar" color="primary" @click="adicionarArea('Janela')" />
+          </div>
+
+          <div class="q-my-md text-bold" v-if="ambiente.janelas.length != 0">Janelas adicionadas</div>
+          <CardEsquadria v-for="(janela, index) in ambiente.janelas" :key="janela.nomeEsquadria" v-bind="janela"
+            @apagarEsquadria="apagarEsquadria(index, 'janela')" />
+
           <div class="text-bold q-my-md">Portas</div>
+          <q-input v-model="larguraPorta" filled label="Largura (m)" type="number" />
+          <q-input v-model="alturaPorta" filled label="Altura (m)" type="number" />
+          <div>
+            <q-btn label="Adicionar" color="primary" @click="adicionarArea('Porta')" />
+          </div>
+          <div class="q-my-md text-bold" v-if="ambiente.portas.length != 0">Portas adicionadas</div>
+          <CardEsquadria v-for="(porta, index) in ambiente.portas" :key="porta.nomeEsquadria" v-bind="porta"
+            @apagarEsquadria="apagarEsquadria(index, 'porta')" />
         </q-form>
       </q-card-section>
 
@@ -34,7 +55,9 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import { api } from '../boot/axios';
+import CardEsquadria from './CardPortaJanela.vue';
 
 const tipoAmbienteOptions = ['Coberto', 'Descoberto'];
 
@@ -55,6 +78,9 @@ const ambiente = {
 };
 
 export default {
+  components: {
+    CardEsquadria,
+  },
   props: {
     unidade: {
       type: String,
@@ -64,6 +90,16 @@ export default {
       type: String,
       required: true,
     },
+  },
+  setup() {
+    return {
+      fachada: ref(false),
+      larguraJanela: ref(''),
+      alturaJanela: ref(''),
+      ventilacao: ref(),
+      larguraPorta: ref(''),
+      alturaPorta: ref(''),
+    };
   },
   data() {
     return {
@@ -86,6 +122,41 @@ export default {
     calcularAreaAmbiente() {
       const { largura, comprimento } = this.ambiente.dimensoes;
       this.ambiente.areaAmbiente = largura * comprimento;
+    },
+    adicionarArea(area) {
+      if (area === 'Janela') {
+        this.ambiente.janelas.push({
+          nomeEsquadria: 'janela',
+          largura: parseFloat(this.larguraJanela),
+          altura: parseFloat(this.alturaJanela),
+          ventilacao: parseFloat(this.ventilacao),
+          fachada: this.fachada,
+          areaJanela: parseFloat(this.larguraJanela) * parseFloat(this.alturaJanela),
+        });
+        this.larguraJanela = '';
+        this.alturaJanela = '';
+        this.ventilacao = '';
+        this.fachada = false;
+      } else {
+        this.ambiente.portas.push({
+          nomeEsquadria: 'porta',
+          largura: parseFloat(this.larguraPorta),
+          altura: parseFloat(this.alturaPorta),
+          fachada: null,
+          areaJanela: parseFloat(this.larguraPorta) * parseFloat(this.alturaPorta),
+        });
+        this.larguraJanela = '';
+        this.alturaJanela = '';
+        this.ventilacao = '';
+        this.fachada = false;
+      }
+    },
+    apagarEsquadria(index, esquadria) {
+      if (esquadria === 'janela') {
+        this.ambiente.janelas.splice(index, 1);
+      } else {
+        this.ambiente.portas.splice(index, 1);
+      }
     },
     async salvarUnidade() {
       this.isLoading = true;
