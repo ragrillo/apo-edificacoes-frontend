@@ -1,0 +1,112 @@
+[
+  {
+    "numero": "01",
+    "titulo": "Materiais e Acabamentos",
+    "dimensao": "Ambiente"
+  },
+  {
+    "numero": "02",
+    "titulo": "Escolhas Construtivas e Documentação",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "03",
+    "titulo": "Acessibilidade e Circulação",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "04",
+    "titulo": "Aspectos Físicos",
+    "dimensao": "Ambiente"
+  },
+  {
+    "numero": "05",
+    "titulo": "Espaços",
+    "dimensao": "Ambiente"
+  },
+  {
+    "numero": "06",
+    "titulo": "Satisfação dos Usuários",
+    "dimensao": "Ambiente"
+  },
+  {
+    "numero": "07",
+    "titulo": "Conforto Visual",
+    "dimensao": "Ambiente"
+  },
+  {
+    "numero": "08",
+    "titulo": "Qualidade do Ar",
+    "dimensao": "Ambiente"
+  },
+  {
+    "numero": "09",
+    "titulo": "Conforto Térmico",
+    "dimensao": "Ambiente"
+  },
+  {
+    "numero": "10",
+    "titulo": "Conforto Acústico",
+    "dimensao": "Ambiente"
+  },
+  {
+    "numero": "11",
+    "titulo": "Gestão e Manutenção",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "12",
+    "titulo": "Segurança Estrutural",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "13",
+    "titulo": "Instalações Elétricas",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "14",
+    "titulo": "Instalações Hidraulicas",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "15",
+    "titulo": "Sustentabilidade",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "16",
+    "titulo": "Custos",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "17",
+    "titulo": "Local, Uso e Ocupação",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "18",
+    "titulo": "Mobilidade",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "19",
+    "titulo": "Promoção e Manutenção da Saúde",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "20",
+    "titulo": "Comunicação e Usuário",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "21",
+    "titulo": "Aspectos Sociais e Culturais",
+    "dimensao": "Gestão e Projeto"
+  },
+  {
+    "numero": "22",
+    "titulo": "Segurança Pessoal e Patrimonial",
+    "dimensao": "Gestão e Projeto"
+  }
+]
