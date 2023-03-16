@@ -64,11 +64,12 @@ export default {
     },
     iniciarSessao(data) {
       const { token, usuario } = data;
+      const { id, cargo, edificacao } = usuario;
 
-      localStorage.setItem('apo@session', token);
-
-      this.$store.commit('setToken', token);
-      this.$store.commit('setUsuario', usuario);
+      localStorage.setItem('apo@usuario_session', token);
+      localStorage.setItem('apo@usuario_id', id);
+      localStorage.setItem('apo@usuario_cargo', cargo);
+      localStorage.setItem('apo@usuario_edificacao', edificacao);
 
       this.$router.push('/perfil');
     },

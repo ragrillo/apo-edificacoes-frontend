@@ -78,7 +78,7 @@ export default {
   },
   mounted() {
     const { unidadeid } = this.$route.params;
-    const { edificacao } = this.$store.state.usuario;
+    const edificacao = localStorage.getItem('apo@usuario_edificacao');
 
     this.getUnidade(unidadeid);
     this.getAmbientes(unidadeid);
@@ -94,8 +94,7 @@ export default {
       this.ambientes = data;
     },
     async getUnidade(id) {
-      const { edificacao } = this.$store.state.usuario;
-
+      const edificacao = localStorage.getItem('apo@usuario_edificacao');
       const endpoint = `/unidades/${edificacao}/${id}`;
       const { data } = await api.get(endpoint);
 

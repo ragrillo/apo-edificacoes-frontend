@@ -59,20 +59,20 @@ export default {
     irPara(rota) {
       this.$router.push(rota);
     },
-    excluirUnidade(id) {
-      const { edificacao } = this.$store.state.usuario;
+    async excluirUnidade(id) {
+      const edificacao = localStorage.getItem('apo@usuario_edificacao');
       const endpoint = `/unidades/${edificacao}/${id}`;
 
-      api.delete(endpoint)
-        .then(() => {
-          this.obterUnidades();
-        });
+      await api.delete(endpoint);
+      this.obterUnidades();
     },
     async obterUnidades() {
-      const { id, edificacao } = this.$store.state.usuario;
-      const endpoint = `/unidades/${edificacao}/proprietario/${id}`;
+      const id = localStorage.getItem('apo@usuario_id');
+      const edificacao = localStorage.getItem('apo@usuario_edificacao');
 
+      const endpoint = `/unidades/${edificacao}/proprietario/${id}`;
       const { data } = await api.get(endpoint);
+
       this.unidades = data;
     },
   },

@@ -163,7 +163,7 @@ export default defineComponent({
     };
   },
   mounted() {
-    const token = localStorage.getItem('apo@session');
+    const token = localStorage.getItem('apo@usuario_session');
     this.token = VueJwtDecode.decode(token);
   },
   methods: {
