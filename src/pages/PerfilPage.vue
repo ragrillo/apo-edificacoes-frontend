@@ -8,14 +8,26 @@
       <q-card-section>
         <div v-if="possuiUnidades">
           <q-list v-for="unidade in unidades" :key="unidade.nome">
-            <q-item clickable class="q-py-md" @click="irPara(`/ambiente/${unidade._id}`)">
-              <q-item-section>
+            <q-item clickable>
+              <q-item-section @click="irPara(`/unidade/${unidade._id}/ambiente`)">
                 <q-item-label>{{ unidade.nome }}</q-item-label>
                 <q-item-label caption>{{ unidade.telefone }}</q-item-label>
               </q-item-section>
 
               <q-item-section side>
-                <q-btn flat dense rounded icon="edit" color="primary" />
+                <q-btn flat dense rounded icon="more_vert" color="primary">
+                  <q-menu>
+                    <q-list>
+                      <q-item clickable @click="irPara(`/unidade/${unidade._id}`)">
+                        <q-item-section>Editar</q-item-section>
+                      </q-item>
+
+                      <q-item clickable @click="excluirUnidade(unidade._id)">
+                        <q-item-section>Excluir</q-item-section>
+                      </q-item>
+                    </q-list>
+                  </q-menu>
+                </q-btn>
               </q-item-section>
             </q-item>
           </q-list>
@@ -46,6 +58,15 @@ export default {
   methods: {
     irPara(rota) {
       this.$router.push(rota);
+    },
+    excluirUnidade(id) {
+      const { edificacao } = this.$store.state.usuario;
+      const endpoint = `/unidades/${edificacao}/${id}`;
+
+      api.delete(endpoint)
+        .then(() => {
+          this.obterUnidades();
+        });
     },
     async obterUnidades() {
       const { id, edificacao } = this.$store.state.usuario;

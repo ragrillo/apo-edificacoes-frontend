@@ -1,0 +1,27 @@
+[
+	{
+		"value": "1",
+		"label": "Ambiente ou Coordenador",
+		"description": "Profissional responsável pela gestão e organização do processo de trabalho da unidade bem como a integração da mesma com outros serviços do município."
+	},
+	{
+		"value": "2",
+		"label": "Técnico, Engenheiro ou Arquiteto",
+		"description": "Profissional técnico responsável pela vistoria e verificação dos projetos, orientação e fiscalização das atividades e obras de construção civil. Responsável pela avaliação dos serviços executados bem como a otimização das etapas de serviços dentro do cronograma apresentado."
+	},
+	{
+		"value": "3",
+		"label": "Gestor do Departamento",
+		"description": "Profissional responsável por organizar os objetivos da empresa/departamento, planejar as metas e delegar as tarefas para que os colaboradores consigam colocar em prática o que a empresa/departamento almeja. Responsável pela tomada de decisões, como alocação de recursos. "
+	},
+	{
+		"value": "4",
+		"label": "Diretor da Secretaria",
+		"description": "Profissional responsável por planejar, organizar, dirigir, coordenar e controlar as ações políticas e de comunicação da empresa/secretaria/prefeitura. No setor privado é o responsável por dirigir e administrar a empresa, buscando a obtenção de lucro. Responsável pela tomada de decisões, como aprovação de recursos. "
+	},
+	{
+		"value": "5",
+		"label": "Administrador",
+		"description": "Profissional responsável por criar e fazer as manutenções da estrutura do aplicativo. Executa as permissões de novos usuários."
+	}
+]

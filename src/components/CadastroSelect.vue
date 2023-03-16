@@ -1,17 +1,17 @@
 <template>
-  <q-select class="select-usuario" v-model="usuarioSelecionado" outlined label="Usuário" behavior="menu"
-    :options="listaUsuarios" @update:model-value="enviarUsuario(usuarioSelecionado)" />
+  <q-select class="q-my-sm" v-model="usuarioSelecionado" filled label="Usuário" behavior="menu" :options="listaUsuarios"
+    @update:model-value="enviarUsuario(usuarioSelecionado)" />
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 
+const listaUsuarios = ['Empresa', 'Colaborador', 'Morador'];
+
 export default defineComponent({
-  name: 'CadastroSelect',
-  emits: ['usuarioSelecionado'],
   data() {
     return {
-      listaUsuarios: ['Empresa', 'Colaborador', 'Morador'],
+      listaUsuarios,
     };
   },
   setup() {
@@ -28,7 +28,3 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="sass" scoped>
-.select-usuario
-  margin-bottom: 3pc
-</style>

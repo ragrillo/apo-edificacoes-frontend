@@ -8,14 +8,17 @@
 
       <q-card-section>
         <q-form class="q-gutter-y-sm">
-          <q-input v-model="ambiente.nome" label="Nome do ambiente" />
-          <q-select v-model="ambiente.cobertura" label="Tipo do Ambiente" :options="tipoAmbienteOptions" />
+          <q-input v-model="ambiente.nome" filled label="Nome do ambiente" />
+          <q-select v-model="ambiente.cobertura" filled label="Tipo do Ambiente" :options="tipoAmbienteOptions"
+            behavior="menu" />
+
           <div class="text-bold q-my-md">Dimensões</div>
-          <q-input v-model="ambiente.dimensoes.largura" type="number" label="Largura (m)" @keyup="calcularAreaAmbiente" />
-          <q-input v-model="ambiente.dimensoes.comprimento" type="number" label="Comprimento (m)"
+          <q-input v-model="ambiente.dimensoes.largura" filled type="number" label="Largura (m)"
             @keyup="calcularAreaAmbiente" />
-          <q-input v-model="ambiente.dimensoes.peDireito" type="number" label="Pé Direito (m)" />
-          <q-input v-model="ambiente.areaAmbiente" readonly type="number" label="Área Total (m²)" />
+          <q-input v-model="ambiente.dimensoes.comprimento" filled type="number" label="Comprimento (m)"
+            @keyup="calcularAreaAmbiente" />
+          <q-input v-model="ambiente.dimensoes.peDireito" filled type="number" label="Pé Direito (m)" />
+          <q-input v-model="ambiente.areaAmbiente" filled readonly type="number" label="Área Total (m²)" />
 
           <div class="text-bold q-my-md">Janelas</div>
           <div class="text-bold q-my-md">Portas</div>
@@ -23,7 +26,7 @@
       </q-card-section>
 
       <q-card-actions align="right">
-        <q-btn flat color="primary" label="Cancelar" />
+        <q-btn flat color="primary" label="Cancelar" @click="encerrarEdicao" />
         <q-btn flat color="primary" label="Salvar" :loading="loading" @click="salvarUnidade" />
       </q-card-actions>
     </q-card>
@@ -71,11 +74,14 @@ export default {
   },
   mounted() {
     this.setUnidadeId();
+    this.ambiente.nome = this.ambienteSelecionado;
   },
   methods: {
     setUnidadeId() {
-      const { id } = this.$route.params;
-      this.ambiente.unidade = id;
+      this.ambiente.unidade = this.$route.params.unidadeid;
+    },
+    encerrarEdicao() {
+      this.$emit('close');
     },
     calcularAreaAmbiente() {
       const { largura, comprimento } = this.ambiente.dimensoes;
@@ -83,9 +89,12 @@ export default {
     },
     async salvarUnidade() {
       this.isLoading = true;
+
       const payload = this.ambiente;
       await api.post('/ambientes', payload);
+
       this.isLoading = false;
+      this.encerrarEdicao();
     },
   },
 };

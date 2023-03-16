@@ -1,7 +1,7 @@
 <template>
-  <q-input v-model="senha" :label="label" :type="alterarTipo" @keyup="obterSenha">
+  <q-input v-model="senha" filled :label="label" :type="alterarTipo" @keyup="obterSenha">
     <template v-slot:append>
-      <q-btn dense rounded flat @click="mostrarSenha" :icon="alterarIcone" />
+      <q-btn dense rounded flat @click="mostrarSenha" :icon="alterarIcone" color="grey-6" />
     </template>
   </q-input>
 </template>

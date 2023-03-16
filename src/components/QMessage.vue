@@ -1,5 +1,5 @@
 <template>
-  <q-banner :class="`text-white bg-${type === 'error' ? 'red' : 'primary'}`">
+  <q-banner :class="`q-mt-sm text-white bg-${type === 'error' ? 'red' : 'green'}`">
     {{ message }}
   </q-banner>
 </template>

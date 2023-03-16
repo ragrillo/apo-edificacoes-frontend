@@ -1,20 +1,17 @@
 <template>
-  <q-page>
-    <div class="text-h6">Solicitar cadastro</div>
-    <p>Cadastrar uma Empresa ou um Usuário.</p>
+  <q-card class="q-ma-lg">
+    <q-card-section>
+      <div class="text-h6">Solicitar Cadastro</div>
+      <p>Cadastrar um Usuário ou Empresa</p>
 
-    <q-form>
-      <q-card-section>
-        <div class="text-bold">Tipo de cadastro</div>
+      <div class="text-bold">Tipo de Cadastro</div>
+      <CadastroSelect @usuarioSelecionado="addUsuario" />
+    </q-card-section>
 
-        <CadastroSelect @usuarioSelecionado="addUsuario" />
-
-        <EmpresaCadastro v-if="isUsuario('Empresa')" :tipoCadastro="this.usuario" />
-        <ColaboradorCadastro v-if="isUsuario('Colaborador')" :tipoCadastro="this.usuario" />
-        <MoradorCadastro v-if="isUsuario('Morador')" :tipoCadastro="this.usuario" />
-      </q-card-section>
-    </q-form>
-  </q-page>
+    <EmpresaCadastro v-if="isUsuario('Empresa')" />
+    <ColaboradorCadastro v-if="isUsuario('Colaborador')" />
+    <MoradorCadastro v-if="isUsuario('Morador')" />
+  </q-card>
 </template>
 
 <script>

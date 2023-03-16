@@ -1,73 +1,71 @@
 <template>
-  <q-page class="q-pa-lg">
-    <q-card>
+  <q-card class="q-ma-lg">
+    <q-card-section>
+      <div class="text-h6">Cadastros solicitados</div>
+      Selecione um cadastro para obter mais informações e alterar seu status
+    </q-card-section>
+
+    <q-list separator v-if="usuarios.length > 0">
+      <q-item clickable v-ripple v-bind:key="usuario._id" v-for="usuario in usuarios" class="q-pa-md"
+        @click="requestusuario(usuario._id, 'details')">
+        <q-item-section>
+          <q-item-label>{{ usuario.nomeCompleto }}</q-item-label>
+          <q-item-label caption>{{ usuario.email }}</q-item-label>
+        </q-item-section>
+        <q-item-section side>
+          <q-chip outline color="primary" :label="usuario.status" />
+        </q-item-section>
+      </q-item>
+    </q-list>
+
+    <q-card-section v-else>
+      <div align="center" v-if="isLoading">
+        <q-circular-progress indeterminate size="sm" color="primary" />
+      </div>
+      <div v-else>Não há solicitações pendentes</div>
+    </q-card-section>
+  </q-card>
+
+  <q-dialog v-model="showDetails">
+    <q-card style="width: 100%">
       <q-card-section>
-        <div class="text-h6">Cadastros solicitados</div>
-        Selecione um cadastro para obter mais informações e alterar seu status
+        <div class="text-h6">Informações sobre {{ usuario.nomeCompleto }}</div>
       </q-card-section>
 
-      <q-list separator v-if="usuarios.length > 0">
-        <q-item clickable v-ripple v-bind:key="usuario._id" v-for="usuario in usuarios" class="q-pa-md"
-          @click="requestusuario(usuario._id, 'details')">
-          <q-item-section>
-            <q-item-label>{{ usuario.nomeCompleto }}</q-item-label>
-            <q-item-label caption>{{ usuario.email }}</q-item-label>
-          </q-item-section>
-          <q-item-section side>
-            <q-chip outline color="primary" :label="usuario.status" />
-          </q-item-section>
-        </q-item>
-      </q-list>
-
-      <q-card-section v-else>
-        <div align="center" v-if="isLoading">
-          <q-circular-progress indeterminate size="sm" color="primary" />
+      <q-card-section class="q-gutter-y-lg">
+        <div class="q-gutter-y-md">
+          <q-input outlined readonly v-model="usuario.cargo" label="Cargo" />
+          <q-input outlined readonly v-model="usuario.edificacao" v-show="usuario.edificacao" label="Edificação" />
+          <q-input outlined readonly v-model="usuario.nomeCompleto" label="Nome Completo" />
+          <q-input outlined readonly v-model="usuario.email" label="Email" />
+          <q-input outlined readonly v-model="usuario.telefone" label="Telefone" />
         </div>
-        <div v-else>Não há solicitações pendentes</div>
+
+        <div class="q-gutter-y-md" v-show="isEmpresa(usuario.cargo)">
+          <div class="text-bold">Informações sobre {{ usuario.razaoSocial }}</div>
+
+          <q-input outlined readonly v-model="usuario.cnpj" label="CNPJ" />
+          <q-input outlined readonly v-model="usuario.razaoSocial" label="Razão Social" />
+          <q-input outlined readonly v-model="usuario.emailEmpresarial" label="Email Empresarial" />
+          <q-input outlined readonly v-model="usuario.telefoneEmpresarial" label="Telefone Empresarial" />
+        </div>
+
+        <q-select outlined v-model="usuario.status" label="Status" behavior="menu" :options="statusOptions" />
       </q-card-section>
+
+      <q-card-actions align="right">
+        <q-btn flat label="Voltar" color="primary" @click="showDetails = false" />
+        <q-btn flat label="Atualizar" color="primary" :loading="isStatusLoading" @click="updateUsuario(usuario._id)" />
+      </q-card-actions>
     </q-card>
-
-    <q-dialog v-model="showDetails">
-      <q-card style="width: 100%">
-        <q-card-section>
-          <div class="text-h6">Informações sobre {{ usuario.nomeCompleto }}</div>
-        </q-card-section>
-
-        <q-card-section class="q-gutter-y-lg">
-          <div class="q-gutter-y-md">
-            <q-input outlined readonly v-model="usuario.cargo" label="Cargo" />
-            <q-input outlined readonly v-model="usuario.edificacao" v-show="usuario.edificacao" label="Edificação" />
-            <q-input outlined readonly v-model="usuario.nomeCompleto" label="Nome Completo" />
-            <q-input outlined readonly v-model="usuario.email" label="Email" />
-            <q-input outlined readonly v-model="usuario.telefone" label="Telefone" />
-          </div>
-
-          <div class="q-gutter-y-md" v-show="isEmpresa(usuario.cargo)">
-            <div class="text-bold">Informações sobre {{ usuario.razaoSocial }}</div>
-
-            <q-input outlined readonly v-model="usuario.cnpj" label="CNPJ" />
-            <q-input outlined readonly v-model="usuario.razaoSocial" label="Razão Social" />
-            <q-input outlined readonly v-model="usuario.emailEmpresarial" label="Email Empresarial" />
-            <q-input outlined readonly v-model="usuario.telefoneEmpresarial" label="Telefone Empresarial" />
-          </div>
-
-          <q-select outlined v-model="usuario.status" label="Status" behavior="menu" :options="statusOptions" />
-        </q-card-section>
-
-        <q-card-actions align="right">
-          <q-btn flat label="Voltar" color="primary" @click="showDetails = false" />
-          <q-btn flat label="Atualizar" color="primary" :loading="isStatusLoading" @click="updateUsuario(usuario._id)" />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
-  </q-page>
+  </q-dialog>
 </template>
 
 <script>
 // import VueJwtDecode from 'vue-jwt-decode';
 import { defineComponent } from 'vue';
 import { api } from '../boot/axios';
-import cargos from '../assets/data/cargos.json';
+import cargos from '../assets/data/descricao-de-cargos.json';
 
 const statusOptions = ['Pendente', 'Ativado', 'Desativado'];
 

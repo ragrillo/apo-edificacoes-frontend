@@ -1,8 +1,8 @@
 <template>
   <q-page class="flex flex-center justify-center">
     <div id="content" class="column q-gutter-y-md">
-      <q-form class="q-gutter-y-md">
-        <q-input v-model="email" type="email" label="E-mail" />
+      <q-form class="q-gutter-y-sm">
+        <q-input v-model="email" filled type="email" label="E-mail" />
         <q-input-senha @senha="obterSenha" />
 
         <div>
@@ -10,7 +10,7 @@
         </div>
       </q-form>
 
-      <q-btn label="Entrar" color="primary" :loading="isLoading" @click="realizarLogin()" />
+      <q-btn unelevated label="Entrar" color="primary" :loading="isLoading" @click="realizarLogin()" />
 
       <div>
         <span>Ainda não possui conta? </span>

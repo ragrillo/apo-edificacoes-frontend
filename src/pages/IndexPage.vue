@@ -1,54 +1,65 @@
 <template>
   <q-page class="q-pa-md">
-    <q-header>
-      <q-toolbar />
+    <q-header bordered class="bg-grey-1">
+      <q-toolbar class="bg-white">
+        <q-space />
+        <q-btn flat color="primary" label="Entrar" id="login" @click="$router.push('/login')" />
+      </q-toolbar>
     </q-header>
 
-    <q-card>
-      <q-card-section>
-        <div class="text-h6">Unidades</div>
-      </q-card-section>
-
-      <q-card-section>
-        <div v-if="isFetching" align="center">
-          <q-circular-progress color="primary" size="md" indeterminate />
-        </div>
-
-        <q-list v-else-if="unidades.length > 0" separator>
-          <q-item v-bind:key="index" v-for="(unidade, index) in unidades">
-            <q-item-section>{{ unidade }}</q-item-section>
-          </q-item>
-        </q-list>
-
-        <div v-else>Nenhuma unidade cadastrada</div>
-      </q-card-section>
-
-      <q-card-actions align="right">
-        <q-btn flat label="Adicionar" color="primary" to="/unidade" />
-      </q-card-actions>
-    </q-card>
+    <main class="q-ma-lg">
+      <div id="content">
+        <div class="text-h3 q-mb-md">Lorem ipsum dolor sit amet.</div>
+        <div class="text-body1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur quo numquam optio.
+          Culpa sequi quod
+          consectetur qui totam, animi ipsum.</div>
+      </div>
+    </main>
   </q-page>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<style>
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
-export default defineComponent({
-  name: 'IndexPage',
-  data() {
-    return {
-      unidades: [],
-      isFetching: true,
-    };
-  },
-  methods: {
-    handleSession() {
-      const token = localStorage.getItem('apo@session');
-      if (!token) this.$router.push('login');
-    },
-  },
-  mounted() {
-    this.handleSession();
-  },
-});
-</script>
+.text-h3 {
+  animation: fadeInBottomTop 1s;
+}
+
+.text-body1 {
+  animation: fadeInBottomTop 1.5s;
+}
+
+#login {
+  animation: fadeInLeftRight 1.5s;
+}
+
+@keyframes fadeInBottomTop {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes fadeInLeftRight {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+</style>

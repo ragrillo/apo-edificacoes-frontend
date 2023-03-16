@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Escola",
+    "value": "escolas"
+  },
+  {
+    "label": "Residência",
+    "value": "residencias"
+  },
+  {
+    "label": "UBS",
+    "value": "ubs"
+  }
+]

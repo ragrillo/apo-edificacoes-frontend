@@ -14,54 +14,76 @@
     </q-card-section>
 
     <q-card-section>
-      <div class="text-bold">Ambiente cadastrados</div>
+      <div class="text-bold q-mb-sm">Ambiente cadastrados</div>
 
-      <q-list v-for="ambiente in ambientes" :key="ambiente.nome">
-        <q-item class="q-mt-md q-py-sm">
-          <q-item-section>
-            <q-item-label>{{ ambiente.nome }}</q-item-label>
-          </q-item-section>
+      <div>
+        <q-list v-for="ambiente in ambientes" :key="ambiente.nome">
+          <q-item>
+            <q-item-section>
+              <q-item-label>{{ ambiente.nome }}</q-item-label>
+            </q-item-section>
 
-          <q-item-section side>
-            <q-btn flat color="primary" label="Avaliar" />
-          </q-item-section>
-        </q-item>
-      </q-list>
+            <q-item-section side>
+              <q-btn rounded dense flat color="primary" icon="more_vert">
+                <q-menu>
+                  <q-list>
+                    <q-item clickable>
+                      <q-item-section>Editar</q-item-section>
+                    </q-item>
+
+                    <q-item clickable>
+                      <q-item-section>Excluir</q-item-section>
+                    </q-item>
+
+                    <q-item clickable @click="mostrarPopUpCriterios(ambiente)">
+                      <q-item-section>Avaliar</q-item-section>
+                    </q-item>
+                  </q-list>
+                </q-menu>
+              </q-btn>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </div>
     </q-card-section>
   </q-card>
 
-  <pop-up-editar-ambiente-vue v-if="ambienteSelecionado" :nomeAmbiente="ambienteSelecionado" :unidade="unidade" />
+  <pop-up-editar-ambiente-vue v-if="ambienteSelecionado" :ambienteSelecionado="ambienteSelecionado" :unidade="unidade"
+    @close="encerrarEdicao" />
+
+  <pop-up-criterios-component v-if="avaliarAmbiente" :ambiente="ambiente" />
 </template>
 
 <script>
 import { api } from '../boot/axios';
 import ambientes from '../assets/data/ambientes.json';
 import PopUpEditarAmbienteVue from '../components/PopUpEditarAmbiente.vue';
+import PopUpCriteriosComponent from '../components/PopUpCriteriosComponent.vue';
 
 export default {
   components: {
     PopUpEditarAmbienteVue,
+    PopUpCriteriosComponent,
   },
   data() {
     return {
-      ambientes: [{
-        nome: 'Sala de Aula',
-        telefone: '123456789',
-      }],
+      ambientes: [],
+      listaAmbientes: [],
       unidade: null,
       nomeUnidade: null,
       ambienteSelecionado: null,
-      listaAmbientes: [],
+      avaliarAmbiente: false,
+      ambiente: null,
     };
   },
   mounted() {
-    const { id } = this.$route.params;
+    const { unidadeid } = this.$route.params;
     const { edificacao } = this.$store.state.usuario;
 
-    this.getUnidade(id);
-    // this.getAmbientes(id);
+    this.getUnidade(unidadeid);
+    this.getAmbientes(unidadeid);
 
-    this.unidade = id;
+    this.unidade = unidadeid;
     this.listaAmbientes = ambientes[edificacao];
   },
   methods: {
@@ -78,6 +100,14 @@ export default {
       const { data } = await api.get(endpoint);
 
       this.nomeUnidade = data.nome;
+    },
+    mostrarPopUpCriterios(ambiente) {
+      this.avaliarAmbiente = true;
+      this.ambiente = ambiente;
+    },
+    encerrarEdicao() {
+      this.ambienteSelecionado = null;
+      this.getAmbientes(this.unidade);
     },
   },
 };
