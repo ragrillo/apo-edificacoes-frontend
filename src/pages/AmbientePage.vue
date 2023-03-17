@@ -22,25 +22,13 @@
             <q-item-section>
               <q-item-label>{{ ambiente.nome }}</q-item-label>
             </q-item-section>
-
             <q-item-section side>
-              <q-btn rounded dense flat color="primary" icon="more_vert">
-                <q-menu>
-                  <q-list>
-                    <q-item clickable>
-                      <q-item-section>Editar</q-item-section>
-                    </q-item>
-
-                    <q-item clickable>
-                      <q-item-section>Excluir</q-item-section>
-                    </q-item>
-
-                    <q-item clickable @click="mostrarPopUpCriterios(ambiente)">
-                      <q-item-section>Avaliar</q-item-section>
-                    </q-item>
-                  </q-list>
-                </q-menu>
-              </q-btn>
+              <q-btn
+                flat
+                color="primary"
+                label="Avaliar"
+                @click="mostrarPopUpCriterios(ambiente)"
+              />
             </q-item-section>
           </q-item>
         </q-list>
