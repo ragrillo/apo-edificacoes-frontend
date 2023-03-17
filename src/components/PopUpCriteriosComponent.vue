@@ -1,5 +1,5 @@
 <template>
-  <q-dialog :modelValue="true">
+  <q-dialog :modelValue="true" persistent>
     <q-card style="width: 100%">
       <q-card-section class="row items-center">
         <div class="text-h6">{{ ambiente.nome }}</div>
@@ -40,6 +40,9 @@
           </q-list>
         </q-tab-panel>
       </q-tab-panels>
+      <q-card-actions align="right">
+        <q-btn flat color="primary" label="Voltar" @click="fecharpopup()" v-close-popup/>
+      </q-card-actions>
     </q-card>
   </q-dialog>
 </template>
@@ -70,6 +73,9 @@ export default defineComponent({
       const id = this.ambiente._id;
       const url = `/ambiente/${id}/criterio/${numero}`;
       this.$router.push(url);
+    },
+    fecharpopup() {
+      this.$emit('fecharpopup', false);
     },
   },
   mounted() {

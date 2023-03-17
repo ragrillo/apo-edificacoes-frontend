@@ -38,8 +38,7 @@
 
   <pop-up-editar-ambiente-vue v-if="ambienteSelecionado" :ambienteSelecionado="ambienteSelecionado" :unidade="unidade"
     @close="encerrarEdicao" />
-
-  <pop-up-criterios-component v-if="avaliarAmbiente" :ambiente="ambiente" />
+  <pop-up-criterios-component v-if="avaliarAmbiente" :ambiente="ambiente" @fecharpopup="avaliarAmbiente = false" />
 </template>
 
 <script>
