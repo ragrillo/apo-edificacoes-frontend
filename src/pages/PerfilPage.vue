@@ -8,28 +8,18 @@
       <q-card-section>
         <div v-if="possuiUnidades">
           <q-list v-for="unidade in unidades" :key="unidade.nome">
-            <q-item clickable>
-              <q-item-section @click="irPara(`/unidade/${unidade._id}/ambiente`)">
-                <q-item-label>{{ unidade.nome }}</q-item-label>
-                <q-item-label caption>{{ unidade.telefone }}</q-item-label>
-              </q-item-section>
-
-              <q-item-section side>
-                <q-btn flat dense rounded icon="more_vert" color="primary">
-                  <q-menu>
-                    <q-list>
-                      <q-item clickable @click="irPara(`/unidade/${unidade._id}`)">
-                        <q-item-section>Editar</q-item-section>
-                      </q-item>
-
-                      <q-item clickable @click="excluirUnidade(unidade._id)">
-                        <q-item-section>Excluir</q-item-section>
-                      </q-item>
-                    </q-list>
-                  </q-menu>
-                </q-btn>
+            <q-item>
+              <q-item-section class="q-gutter-y-md">
+                <div>
+                  <q-item-label>{{ unidade.nome }}</q-item-label>
+                  <q-item-label caption>{{ unidade.telefone }}</q-item-label>
+                </div>
+                <div>
+                  <q-btn flat dense color="primary" label="Iniciar avaliação" @click="irPara(`/unidade/${unidade._id}/ambiente`)"/>
+                </div>
               </q-item-section>
             </q-item>
+            <q-separator class="q-mb-sm"/>
           </q-list>
         </div>
 
