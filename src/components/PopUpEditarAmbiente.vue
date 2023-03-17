@@ -165,7 +165,19 @@ export default {
       await api.post('/ambientes', payload);
 
       this.isLoading = false;
+      this.limparFormulario();
       this.encerrarEdicao();
+    },
+    limparFormulario() {
+      this.ambiente.dimensoes.comprimento = '';
+      this.ambiente.dimensoes.largura = '';
+      this.ambiente.dimensoes.peDireito = '';
+      this.ambiente.cobertura = '';
+      this.ambiente.areaAmbiente = '';
+      this.ambiente.areaEsquadrias = '';
+      this.ambiente.nome = '';
+      this.ambiente.janelas.length = 0;
+      this.ambiente.portas.length = 0;
     },
   },
 };
