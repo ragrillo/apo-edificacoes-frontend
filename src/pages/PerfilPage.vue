@@ -5,13 +5,8 @@
         <div class="text-h6">Unidades Cadastradas</div>
       </q-card-section>
       <div v-if="visible">
-        <q-inner-loading
-          :showing="visible"
-          color="primary"
-          label="Aguarde..."
-          label-class="text-primary"
-          label-style="font-size: 1.1em"
-        />
+        <q-inner-loading :showing="visible" color="primary" label="Aguarde..." label-class="text-primary"
+          label-style="font-size: 1.1em" />
       </div>
       <q-card-section v-else>
         <div v-if="possuiUnidades">
@@ -23,30 +18,18 @@
                   <q-item-label caption>{{ unidade.telefone }}</q-item-label>
                 </div>
                 <div>
-                  <q-btn
-                    flat
-                    dense
-                    color="primary"
-                    label="Iniciar avaliação"
-                    @click="irPara(`/unidade/${unidade._id}/ambiente`)"
-                  />
+                  <q-btn flat dense color="primary" label="Iniciar avaliação"
+                    @click="irPara(`/unidade/${unidade._id}/ambiente`)" />
                 </div>
               </q-item-section>
             </q-item>
-            <q-separator class="q-mb-sm" />
           </q-list>
         </div>
 
         <span v-else>Não há unidades cadastradas.</span>
       </q-card-section>
       <q-card-actions align="right">
-        <q-btn
-          flat
-          round
-          color="primary"
-          icon="refresh"
-          @click="obterUnidades()"
-        />
+        <q-btn flat round color="primary" icon="refresh" @click="obterUnidades()" />
         <q-btn flat color="primary" label="Adicionar" to="/unidade" />
       </q-card-actions>
     </q-card>
