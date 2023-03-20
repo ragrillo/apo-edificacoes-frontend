@@ -9,10 +9,13 @@
 
     <QMessageVue v-if="mensagem" :message="mensagem" />
 
-    <q-card-actions align="right">
+    <q-card-actions class="justify-between">
       <q-btn flat color="primary" label="Voltar" @click="$router.back()" />
-      <q-btn flat color="primary" label="Enviar" :loading="isButtonLoading" @click="enviarRespostas()"
-        :disable="isFormularioVazio()" />
+      <div>
+        <q-btn flat color="primary" label="Próximo" :disable="isCriterio(22)" @click="irParaProximoCriterio()" />
+        <q-btn flat color="primary" label="Enviar" :loading="isButtonLoading" :disable="isFormularioVazio()"
+          @click="enviarRespostas()" />
+      </div>
     </q-card-actions>
   </q-card>
 </template>
@@ -36,13 +39,30 @@ export default ({
     QMessageVue,
     QuestionarioComponent,
   },
-  mounted() {
+  created() {
     const { numero } = this.$route.params;
     this.getCriterios(numero);
   },
+  beforeRouteUpdate(to, from, next) {
+    this.isCardLoading = true;
+    this.getCriterios(to.params.numero);
+    next();
+  },
   methods: {
+    isCriterio(criterio) {
+      const { numero } = this.$route.params;
+
+      return Number(numero) === criterio;
+    },
     isFormularioVazio() {
       return this.formulario.length === 0;
+    },
+    irParaProximoCriterio() {
+      const { ambienteid, numero } = this.$route.params;
+      const proximoCriterio = `${Number(numero) + 1}`.padStart(2, '0');
+      const endpoint = `/ambiente/${ambienteid}/criterio/${proximoCriterio}`;
+
+      this.$router.push(endpoint);
     },
     filtrarQuestionario() {
       const edificacao = localStorage.getItem('apo@usuario_edificacao');
