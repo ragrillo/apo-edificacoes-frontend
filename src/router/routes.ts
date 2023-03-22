@@ -30,11 +30,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/UnidadePage.vue'),
       },
       {
-        path: '/unidade/:unidadeid/ambiente',
+        path: '/ambiente',
         component: () => import('pages/AmbientePage.vue'),
       },
       {
-        path: '/ambiente/:ambienteid/criterio/:numero',
+        path: '/criterio/:numero',
         component: () => import('pages/CriterioPage.vue'),
       },
     ],

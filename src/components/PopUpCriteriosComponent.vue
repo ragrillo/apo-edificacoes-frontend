@@ -41,7 +41,7 @@
         </q-tab-panel>
       </q-tab-panels>
       <q-card-actions align="right">
-        <q-btn flat color="primary" label="Voltar" @click="fecharpopup()" v-close-popup/>
+        <q-btn flat color="primary" label="Voltar" @click="fecharpopup()" v-close-popup />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -65,21 +65,21 @@ export default defineComponent({
       dimension: 'Ambiente',
     };
   },
+  mounted() {
+    localStorage.setItem('apo@ambiente_id', this.ambiente._id);
+    this.handleDimensionChange();
+  },
   methods: {
     handleDimensionChange() {
       this.criterios = data.filter((item) => item.dimensao === this.dimension);
     },
     irParaCriterio(numero) {
-      const id = this.ambiente._id;
-      const url = `/ambiente/${id}/criterio/${numero}`;
+      const url = `/criterio/${numero}`;
       this.$router.push(url);
     },
     fecharpopup() {
       this.$emit('fecharpopup', false);
     },
-  },
-  mounted() {
-    this.handleDimensionChange();
   },
 });
 </script>

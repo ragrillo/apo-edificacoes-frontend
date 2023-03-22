@@ -23,12 +23,7 @@
               <q-item-label>{{ ambiente.nome }}</q-item-label>
             </q-item-section>
             <q-item-section side>
-              <q-btn
-                flat
-                color="primary"
-                label="Avaliar"
-                @click="mostrarPopUpCriterios(ambiente)"
-              />
+              <q-btn flat color="primary" label="Avaliar" @click="mostrarPopUpCriterios(ambiente)" />
             </q-item-section>
           </q-item>
         </q-list>
@@ -64,7 +59,7 @@ export default {
     };
   },
   mounted() {
-    const { unidadeid } = this.$route.params;
+    const unidadeid = localStorage.getItem('apo@unidade_id');
     const edificacao = localStorage.getItem('apo@usuario_edificacao');
 
     this.getUnidade(unidadeid);

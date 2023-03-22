@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center justify-center">
-    <div id="content" class="column q-gutter-y-md">
+    <div id="content" class="q-gutter-y-md">
       <q-form class="q-gutter-y-sm">
         <q-input v-model="email" filled type="email" label="E-mail" />
         <q-input-senha @senha="obterSenha" />
@@ -10,7 +10,10 @@
         </div>
       </q-form>
 
-      <q-btn unelevated label="Entrar" color="primary" :loading="isLoading" @click="realizarLogin()" />
+      <div class="column q-gutter-y-sm">
+        <q-btn unelevated label="Entrar" color="primary" :loading="isLoading" @click="realizarLogin()" />
+        <q-btn outline label="Entrar como Usuário Anônimo" color="primary" disable />
+      </div>
 
       <div>
         <span>Ainda não possui conta? </span>
@@ -58,9 +61,10 @@ export default {
         })
         .catch(({ response }) => {
           this.mensagem = response.data;
+        })
+        .finally(() => {
+          this.isLoading = false;
         });
-
-      this.isLoading = false;
     },
     iniciarSessao(data) {
       const { token, usuario } = data;

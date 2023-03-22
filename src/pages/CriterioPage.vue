@@ -7,13 +7,13 @@
       </q-list>
     </q-card-section>
 
-    <QMessageVue v-if="mensagem" :message="mensagem" />
-
     <q-card-actions class="justify-between">
-      <q-btn flat color="primary" label="Voltar" @click="$router.back()" />
+      <q-btn flat color="primary" label="Fechar" @click="$router.push('/ambiente')" />
       <div>
-        <q-btn flat color="primary" label="Próximo" :disable="isCriterio(22)" @click="irParaProximoCriterio()" />
-        <q-btn flat color="primary" label="Enviar" :loading="isButtonLoading" :disable="isFormularioVazio()"
+        <q-btn flat color="primary" label="Anterior" :disable="isCriterio(1)" @click="irParaCriterioAnterior()" />
+        <q-btn flat color="primary" label="Próximo" :loading="isButtonLoading"
+          :disable="!isFormularioCheio() || isCriterio(22)" @click="irParaProximoCriterio()" />
+        <q-btn flat color="primary" label="Salvar" :loading="isButtonLoading" :disable="!isFormularioCheio()"
           @click="enviarRespostas()" />
       </div>
     </q-card-actions>
@@ -22,7 +22,6 @@
 
 <script>
 import { api } from 'boot/axios';
-import QMessageVue from 'components/QMessage';
 import QuestionarioComponent from 'components/QuestionarioComponent';
 
 export default ({
@@ -32,11 +31,9 @@ export default ({
       questionario: [],
       isCardLoading: true,
       isButtonLoading: false,
-      mensagem: null,
     };
   },
   components: {
-    QMessageVue,
     QuestionarioComponent,
   },
   created() {
@@ -54,13 +51,23 @@ export default ({
 
       return Number(numero) === criterio;
     },
-    isFormularioVazio() {
-      return this.formulario.length === 0;
+    isFormularioCheio() {
+      return this.formulario.length === this.questionario.length - 1;
     },
-    irParaProximoCriterio() {
-      const { ambienteid, numero } = this.$route.params;
+    async irParaProximoCriterio() {
+      const { numero } = this.$route.params;
+
       const proximoCriterio = `${Number(numero) + 1}`.padStart(2, '0');
-      const endpoint = `/ambiente/${ambienteid}/criterio/${proximoCriterio}`;
+      const endpoint = `/criterio/${proximoCriterio}`;
+
+      await this.enviarRespostas();
+      this.$router.push(endpoint);
+    },
+    irParaCriterioAnterior() {
+      const { numero } = this.$route.params;
+
+      const criterioAnterior = `${Number(numero) - 1}`.padStart(2, '0');
+      const endpoint = `/criterio/${criterioAnterior}`;
 
       this.$router.push(endpoint);
     },
@@ -89,9 +96,8 @@ export default ({
       };
 
       const endpoint = '/formularios';
-      const { data } = await api.post(endpoint, payload);
+      await api.post(endpoint, payload);
 
-      this.mensagem = data;
       this.formulario = [];
       this.isButtonLoading = false;
     },
