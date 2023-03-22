@@ -18,7 +18,7 @@
                   <q-item-label caption>{{ unidade.telefone }}</q-item-label>
                 </div>
                 <div>
-                  <q-btn flat dense color="primary" label="Iniciar avaliação"
+                  <q-btn flat color="primary" label="Iniciar avaliação"
                     @click="irPara(`/unidade/${unidade._id}/ambiente`)" />
                 </div>
               </q-item-section>
@@ -29,7 +29,7 @@
         <span v-else>Não há unidades cadastradas.</span>
       </q-card-section>
       <q-card-actions align="right">
-        <q-btn flat round color="primary" icon="refresh" @click="obterUnidades()" />
+        <q-btn flat color="primary" label="Atualizar" @click="obterUnidades()" />
         <q-btn flat color="primary" label="Adicionar" to="/unidade" />
       </q-card-actions>
     </q-card>
