@@ -3,8 +3,10 @@
     <q-card-section>
       <div class="text-h6">{{ nomeUnidade }}</div>
     </q-card-section>
-    <q-separator />
-
+    <q-separator/>
+    <q-card-section>
+      <q-btn flat color="primary" label="Gestao e projeto" @click="mostrarPopUpUnidade()"></q-btn>
+    </q-card-section>
     <q-card-section>
       <div class="text-bold">Adicionar ambiente</div>
       <div>Selecione um ambiente abaixo</div>
@@ -23,7 +25,7 @@
               <q-item-label>{{ ambiente.nome }}</q-item-label>
             </q-item-section>
             <q-item-section side>
-              <q-btn flat color="primary" label="Avaliar" @click="mostrarPopUpCriterios(ambiente)" />
+              <q-btn flat color="primary" label="Avaliar" @click="mostrarPopUpAmbiente(ambiente)" />
             </q-item-section>
           </q-item>
         </q-list>
@@ -31,21 +33,23 @@
     </q-card-section>
   </q-card>
 
-  <pop-up-editar-ambiente-vue v-if="ambienteSelecionado" :ambienteSelecionado="ambienteSelecionado" :unidade="unidade"
-    @close="encerrarEdicao" />
-  <pop-up-criterios-component v-if="avaliarAmbiente" :ambiente="ambiente" @fecharpopup="avaliarAmbiente = false" />
+  <pop-up-editar-ambiente-vue v-if="ambienteSelecionado" :ambienteSelecionado="ambienteSelecionado" :unidade="unidade" @close="encerrarEdicao" />
+  <pop-up-criterios-ambiente v-if="avaliarAmbiente" :ambiente="ambiente" @fecharpopup="avaliarAmbiente = false" />
+  <pop-up-criterios-unidade v-if="avaliarUnidade" :unidade="unidade" @fecharpopup="avaliarUnidade = false" />
 </template>
 
 <script>
 import { api } from '../boot/axios';
 import ambientes from '../assets/data/ambientes.json';
 import PopUpEditarAmbienteVue from '../components/PopUpEditarAmbiente.vue';
-import PopUpCriteriosComponent from '../components/PopUpCriteriosComponent.vue';
+import PopUpCriteriosAmbiente from '../components/QPopUpCriteriosAmbiente.vue';
+import PopUpCriteriosUnidade from '../components/QPopUpCriteriosUnidade.vue';
 
 export default {
   components: {
     PopUpEditarAmbienteVue,
-    PopUpCriteriosComponent,
+    PopUpCriteriosAmbiente,
+    PopUpCriteriosUnidade,
   },
   data() {
     return {
@@ -55,6 +59,7 @@ export default {
       nomeUnidade: null,
       ambienteSelecionado: null,
       avaliarAmbiente: false,
+      avaliarUnidade: false,
       ambiente: null,
     };
   },
@@ -82,9 +87,12 @@ export default {
 
       this.nomeUnidade = data.nome;
     },
-    mostrarPopUpCriterios(ambiente) {
+    mostrarPopUpAmbiente(ambiente) {
       this.avaliarAmbiente = true;
       this.ambiente = ambiente;
+    },
+    mostrarPopUpUnidade() {
+      this.avaliarUnidade = true;
     },
     encerrarEdicao() {
       this.ambienteSelecionado = null;
