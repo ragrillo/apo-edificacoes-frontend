@@ -4,8 +4,9 @@
       <q-linear-progress v-if="isLoading" indeterminate />
 
       <q-card-section>
-        <div class="text-h6">Unidades Cadastradas</div>
+        <div class="text-h6">Unidades</div>
       </q-card-section>
+      <q-separator />
 
       <q-card-section>
         <div v-if="possuiUnidades">
@@ -17,7 +18,7 @@
                   <q-item-label caption>{{ unidade.telefone }}</q-item-label>
                 </div>
                 <div>
-                  <q-btn flat color="primary" label="Iniciar avaliação" @click="irParaAmbiente(unidade._id)" />
+                  <q-btn unelevated color="primary" label="Iniciar avaliação" @click="irParaAmbiente(unidade._id)" />
                 </div>
               </q-item-section>
             </q-item>
