@@ -36,6 +36,7 @@ const dica = {
 };
 
 export default ({
+  emits: ['resposta'],
   props: {
     criterio: {
       type: Object,

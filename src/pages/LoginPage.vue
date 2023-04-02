@@ -75,7 +75,7 @@ export default {
       localStorage.setItem('apo@usuario_cargo', cargo);
       localStorage.setItem('apo@usuario_edificacao', edificacao);
 
-      this.$router.push('/perfil');
+      this.$router.push(cargo === 5 ? '/admin' : '/perfil');
     },
     obterSenha(senha) {
       this.senha = senha;

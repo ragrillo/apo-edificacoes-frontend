@@ -6,15 +6,14 @@
         <QuestionarioComponent :criterio="criterio" @resposta="registrarResposta" />
       </q-list>
     </q-card-section>
-
+    <q-separator />
     <q-card-actions class="justify-between">
       <q-btn flat color="primary" label="Fechar" @click="$router.push('/ambiente')" />
       <div>
-        <q-btn flat color="primary" label="Anterior" :disable="isCriterio(1)" @click="irParaCriterioAnterior()" />
-        <q-btn flat color="primary" label="Próximo" :loading="isButtonLoading"
-          :disable="!isFormularioCheio() || isCriterio(22)" @click="irParaProximoCriterio()" />
-        <q-btn flat color="primary" label="Salvar" :loading="isButtonLoading" :disable="!isFormularioCheio()"
-          @click="enviarRespostas()" />
+        <q-btn flat color="primary" label="Anterior" @click="irParaCriterioAnterior()" />
+        <q-btn flat color="primary" label="Próximo" @click="irParaProximoCriterio()" />
+        <q-btn flat color="primary" :label="hasSaved ? 'Concluído' : 'Salvar'" :loading="isButtonLoading"
+          :disable="!isFormularioCheio() || hasSaved" @click="enviarRespostas()" />
       </div>
     </q-card-actions>
   </q-card>
@@ -31,6 +30,7 @@ export default ({
       questionario: [],
       isCardLoading: true,
       isButtonLoading: false,
+      hasSaved: false,
     };
   },
   components: {
@@ -40,11 +40,6 @@ export default ({
     const { numero } = this.$route.params;
     this.getCriterios(numero);
   },
-  beforeRouteUpdate(to, from, next) {
-    this.isCardLoading = true;
-    this.getCriterios(to.params.numero);
-    next();
-  },
   methods: {
     isCriterio(criterio) {
       const { numero } = this.$route.params;
@@ -52,24 +47,13 @@ export default ({
       return Number(numero) === criterio;
     },
     isFormularioCheio() {
-      return this.formulario.length === this.questionario.length - 1;
+      return this.formulario.length === this.questionario.length;
     },
     async irParaProximoCriterio() {
-      const { numero } = this.$route.params;
-
-      const proximoCriterio = `${Number(numero) + 1}`.padStart(2, '0');
-      const endpoint = `/criterio/${proximoCriterio}`;
-
-      await this.enviarRespostas();
-      this.$router.push(endpoint);
+      // TODO: Verificar se o formulário está cheio
     },
     irParaCriterioAnterior() {
-      const { numero } = this.$route.params;
-
-      const criterioAnterior = `${Number(numero) - 1}`.padStart(2, '0');
-      const endpoint = `/criterio/${criterioAnterior}`;
-
-      this.$router.push(endpoint);
+      // TODO: Verificar se o formulário está cheio
     },
     filtrarQuestionario() {
       const edificacao = localStorage.getItem('apo@usuario_edificacao');
@@ -78,13 +62,7 @@ export default ({
       return this.questionario.filter((item) => item.edificacoes.includes(edificacao) && item.cargos.includes(cargo));
     },
     registrarResposta(data) {
-      const index = this.formulario.findIndex((item) => item.criterio === data.criterio);
-
-      if (index === -1) {
-        this.formulario.push(data);
-      } else {
-        this.formulario[index] = data;
-      }
+      this.formulario.push(data);
     },
     async enviarRespostas() {
       this.isButtonLoading = true;
@@ -99,6 +77,7 @@ export default ({
       await api.post(endpoint, payload);
 
       this.formulario = [];
+      this.hasSaved = true;
       this.isButtonLoading = false;
     },
     async getCriterios(numero) {

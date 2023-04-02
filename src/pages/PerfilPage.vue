@@ -15,7 +15,7 @@
               <q-item-section class="q-gutter-y-md">
                 <div>
                   <q-item-label>{{ unidade.nome }}</q-item-label>
-                  <q-item-label caption>{{ unidade.telefone }}</q-item-label>
+                  <q-item-label caption>Tel.: {{ unidade.telefone }}</q-item-label>
                 </div>
                 <div>
                   <q-btn unelevated color="primary" label="Iniciar avaliação" @click="irParaAmbiente(unidade._id)" />
@@ -27,6 +27,8 @@
 
         <span v-else>Não há unidades cadastradas.</span>
       </q-card-section>
+      <q-separator />
+
       <q-card-actions align="right">
         <q-btn flat color="primary" label="Atualizar" @click="obterUnidades()" />
         <q-btn flat color="primary" label="Adicionar" to="/unidade" />

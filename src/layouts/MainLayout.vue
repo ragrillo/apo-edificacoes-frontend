@@ -15,3 +15,15 @@ export default defineComponent({
   name: 'MainLayout',
 });
 </script>
+
+<style>
+#container {
+  display: grid;
+  place-items: center;
+}
+
+.q-page-container {
+  width: 100%;
+  max-width: 770px;
+}
+</style>

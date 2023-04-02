@@ -2,111 +2,133 @@
   {
     "numero": "01",
     "titulo": "Materiais e Acabamentos",
-    "dimensao": "Ambiente"
+    "dimensao": "Ambiente",
+    "respondido": false
   },
   {
     "numero": "02",
     "titulo": "Escolhas Construtivas e Documentação",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   },
   {
     "numero": "03",
     "titulo": "Acessibilidade e Circulação",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   },
   {
     "numero": "04",
     "titulo": "Aspectos Físicos",
-    "dimensao": "Ambiente"
+    "dimensao": "Ambiente",
+    "respondido": true
   },
   {
     "numero": "05",
     "titulo": "Espaços",
-    "dimensao": "Ambiente"
+    "dimensao": "Ambiente",
+    "respondido": true
   },
   {
     "numero": "06",
     "titulo": "Satisfação dos Usuários",
-    "dimensao": "Ambiente"
+    "dimensao": "Ambiente",
+    "respondido": true
   },
   {
     "numero": "07",
     "titulo": "Conforto Visual",
-    "dimensao": "Ambiente"
+    "dimensao": "Ambiente",
+    "respondido": false
   },
   {
     "numero": "08",
     "titulo": "Qualidade do Ar",
-    "dimensao": "Ambiente"
+    "dimensao": "Ambiente",
+    "respondido": false
   },
   {
     "numero": "09",
     "titulo": "Conforto Térmico",
-    "dimensao": "Ambiente"
+    "dimensao": "Ambiente",
+    "respondido": false
   },
   {
     "numero": "10",
     "titulo": "Conforto Acústico",
-    "dimensao": "Ambiente"
+    "dimensao": "Ambiente",
+    "respondido": true
   },
   {
     "numero": "11",
     "titulo": "Gestão e Manutenção",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   },
   {
     "numero": "12",
     "titulo": "Segurança Estrutural",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   },
   {
     "numero": "13",
     "titulo": "Instalações Elétricas",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   },
   {
     "numero": "14",
     "titulo": "Instalações Hidraulicas",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": true
   },
   {
     "numero": "15",
     "titulo": "Sustentabilidade",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": true
   },
   {
     "numero": "16",
     "titulo": "Custos",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   },
   {
     "numero": "17",
     "titulo": "Local, Uso e Ocupação",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   },
   {
     "numero": "18",
     "titulo": "Mobilidade",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": true
   },
   {
     "numero": "19",
     "titulo": "Promoção e Manutenção da Saúde",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": true
   },
   {
     "numero": "20",
     "titulo": "Comunicação e Usuário",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   },
   {
     "numero": "21",
     "titulo": "Aspectos Sociais e Culturais",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": true
   },
   {
     "numero": "22",
     "titulo": "Segurança Pessoal e Patrimonial",
-    "dimensao": "Gestão e Projeto"
+    "dimensao": "Gestão e Projeto",
+    "respondido": false
   }
 ]

@@ -1,41 +1,42 @@
 <template>
   <q-card class="q-ma-lg">
     <q-card-section>
-      <div class="text-h6">{{ nomeUnidade }}</div>
+      <div class="text-bold">{{ nomeUnidade }}</div>
     </q-card-section>
-    <q-separator/>
-    <q-card-section>
-      <q-btn flat color="primary" label="Gestao e projeto" @click="mostrarPopUpUnidade()"></q-btn>
-    </q-card-section>
-    <q-card-section>
-      <div class="text-bold">Adicionar ambiente</div>
-      <div>Selecione um ambiente abaixo</div>
+    <q-separator />
 
-      <q-select filled v-model="ambienteSelecionado" :options="listaAmbientes" label="Ambiente" class="q-mt-md"
-        behavior="menu" />
-    </q-card-section>
+    <q-card-section class="q-gutter-y-md">
+      <div class="text-bold">Gestão e Projeto</div>
+      <q-btn unelevated color="primary" label="Avaliar Gestão e Projeto" @click="mostrarPopUpUnidade()" />
+      <q-separator />
 
-    <q-card-section>
-      <div class="text-bold q-mb-sm">Ambiente cadastrados</div>
+      <div class="text-bold">Ambientes</div>
+      <q-btn unelevated color="primary" label="Adicionar Ambiente" icon="add" />
 
-      <div>
-        <q-list v-for="ambiente in ambientes" :key="ambiente.nome">
+      <q-card flat bordered>
+        <q-list v-bind:key="index" v-for="(item, index) in ambientes">
           <q-item>
             <q-item-section>
-              <q-item-label>{{ ambiente.nome }}</q-item-label>
+              <q-item-label lines="1">{{ item.nome }}</q-item-label>
             </q-item-section>
             <q-item-section side>
               <q-btn flat color="primary" label="Avaliar" @click="mostrarPopUpAmbiente(ambiente)" />
             </q-item-section>
           </q-item>
+          <q-separator />
         </q-list>
-      </div>
+      </q-card>
     </q-card-section>
+
+    <q-card-actions align="right">
+      <q-btn flat color="primary" label="Voltar" to="/perfil" />
+    </q-card-actions>
   </q-card>
 
-  <pop-up-editar-ambiente-vue v-if="ambienteSelecionado" :ambienteSelecionado="ambienteSelecionado" :unidade="unidade" @close="encerrarEdicao" />
-  <pop-up-criterios-ambiente v-if="avaliarAmbiente" :ambiente="ambiente" @fecharpopup="avaliarAmbiente = false" />
-  <pop-up-criterios-unidade v-if="avaliarUnidade" :unidade="unidade" @fecharpopup="avaliarUnidade = false" />
+  <PopUpEditarAmbienteVue v-if="ambienteSelecionado" :ambienteSelecionado="ambienteSelecionado" :unidade="unidade"
+    @close="encerrarEdicao" />
+  <PopUpCriteriosAmbiente v-if="avaliarAmbiente" :ambiente="ambiente" @fecharpopup="avaliarAmbiente = false" />
+  <PopUpCriteriosUnidade v-if="avaliarUnidade" :unidade="unidade" @fecharpopup="avaliarUnidade = false" />
 </template>
 
 <script>
@@ -53,7 +54,41 @@ export default {
   },
   data() {
     return {
-      ambientes: [],
+      ambientes: [
+        {
+          nome: 'Sala de Aula',
+        },
+        {
+          nome: 'Laboratório',
+        },
+        {
+          nome: 'Biblioteca',
+        },
+        {
+          nome: 'Auditório',
+        },
+        {
+          nome: 'Sala de Reunião',
+        },
+        {
+          nome: 'Sala de Estudo',
+        },
+        {
+          nome: 'Sala de Professores',
+        },
+        {
+          nome: 'Sala de Coordenação',
+        },
+        {
+          nome: 'Sala de Direção',
+        },
+        {
+          nome: 'Sala de Secretaria',
+        },
+        {
+          nome: 'Sala de Serviço',
+        },
+      ],
       listaAmbientes: [],
       unidade: null,
       nomeUnidade: null,
@@ -68,7 +103,7 @@ export default {
     const edificacao = localStorage.getItem('apo@usuario_edificacao');
 
     this.getUnidade(unidadeid);
-    this.getAmbientes(unidadeid);
+    // this.getAmbientes(unidadeid);
 
     this.unidade = unidadeid;
     this.listaAmbientes = ambientes[edificacao];
