@@ -5,6 +5,7 @@
   <q-input filled v-model="endereco.logradouro" label="Logradouro" />
   <q-input filled v-model="endereco.numero" label="Número" />
   <q-input filled v-model="endereco.bairro" label="Bairro" />
+  <q-input filled v-model="endereco.complemento" label="Complemento" />
   <q-input filled v-model="endereco.cidade" label="Cidade" />
   <q-input filled v-model="endereco.estado" label="Estado" />
 </template>
@@ -19,6 +20,7 @@ const endereco = {
   bairro: '',
   cidade: '',
   estado: '',
+  complemento: '',
 };
 
 export default ({
