@@ -18,7 +18,7 @@
         <q-input v-model="form.dimensoes.peDireito" filled label="Pé direito (m)" type="number" />
         <q-input v-model="form.areaAmbiente" filled label="Área Total (m²)" type="number" />
 
-        <div class="text-bold q-my-md">Janelas</div>
+        <div class="q-ma-md text-bold">Janelas</div>
         <q-input v-model="larguraJanela" filled label="Largura (m)" type="number" />
         <q-input v-model="alturaJanela" filled label="Altura (m)" type="number" />
         <q-input v-model="ventilacao" filled label="Área de Ventilação(m²)" type="number" />
@@ -32,7 +32,7 @@
         <CardEsquadria v-for="(janela, index) in form.janelas" :key="janela.nomeEsquadria" v-bind="janela"
           @apagarEsquadria="apagarEsquadria(index, 'janela')" />
 
-        <div class="text-bold q-my-md">Portas</div>
+        <div class="q-ma-md text-bold">Portas</div>
         <q-input v-model="larguraPorta" filled label="Largura (m)" type="number" />
         <q-input v-model="alturaPorta" filled label="Altura (m)" type="number" />
         <div>
@@ -131,10 +131,8 @@ export default {
           fachada: null,
           areaJanela: parseFloat(this.larguraPorta) * parseFloat(this.alturaPorta),
         });
-        this.larguraJanela = '';
-        this.alturaJanela = '';
-        this.ventilacao = '';
-        this.fachada = false;
+        this.larguraPorta = '';
+        this.alturaPorta = '';
       }
     },
     apagarEsquadria(index, esquadria) {
@@ -165,7 +163,20 @@ export default {
 
       await api.post('/ambientes', payload);
 
+      this.limparForm();
       this.encerrarEdicao();
+    },
+    limparForm() {
+      this.form.nome = '';
+      this.form.grupo = '';
+      this.form.cobertura = '';
+      this.form.dimensoes.largura = null;
+      this.form.dimensoes.comprimento = null;
+      this.form.dimensoes.peDireito = null;
+      this.form.areaAmbiente = 0;
+      this.form.areaEsquadrias = 0;
+      this.form.janelas = [];
+      this.form.portas = [];
     },
   },
 };

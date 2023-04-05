@@ -1,35 +1,35 @@
 <template>
-  <q-card-section class="card-Ambiente full-width row  justify-around items-center content-center">
-    <div class="column items-center">
-      <p>Alt. </p>
-      <p>{{ altura }} m</p>
-    </div>
-    <div class="column items-center">
-      <p>Larg.</p>
-      <p> {{ largura }} m</p>
-    </div>
-    <div class="column items-center" v-if="ventilacao != null">
-      <p>Vent.</p>
-      <p>{{ ventilacao }} m²</p>
-    </div>
-    <div class="column items-center" v-if="fachada != null">
-      <p>Fach.</p>
-      <p v-if="fachada != true">Não</p>
-      <p v-else>Sim</p>
-    </div>
-    <div class="column items-center">
-      <p>Área</p>
-      <p>{{ areaJanela }} m²</p>
-    </div>
-    <div class="column items-center">
-      <q-btn dense outline color="primary" icon="remove" @click="apagarEsquadria()" />
-    </div>
-  </q-card-section>
+  <q-card flat bordered>
+    <q-card-section class="full-width row  justify-between items-center content-center">
+      <div class="column items-center">
+        <div class="text-bold">Altura</div>
+        <div>{{ altura.toFixed(2) }} m</div>
+      </div>
+      <div class="column items-center">
+        <div class="text-bold">Largura</div>
+        <div> {{ largura.toFixed(2) }} m</div>
+      </div>
+      <div class="column items-center" v-if="ventilacao != null">
+        <div class="text-bold">Ventilação</div>
+        <div>{{ ventilacao.toFixed(2) }} m²</div>
+      </div>
+      <div class="column items-center" v-if="fachada != null">
+        <div class="text-bold">Fachada</div>
+        <div>{{ fachada ? 'Sim' : 'Não' }}</div>
+      </div>
+      <div class="column items-center">
+        <div class="text-bold">Área</div>
+        <div>{{ areaJanela.toFixed(2) }} m²</div>
+      </div>
+      <div class="column items-center">
+        <q-btn rounded dense flat color="primary" icon="delete" @click="apagarEsquadria()" />
+      </div>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import VueJwtDecode from 'vue-jwt-decode';
 
 export default defineComponent({
   name: 'CardEsquadria',
@@ -65,25 +65,10 @@ export default defineComponent({
       token: {},
     };
   },
-  mounted() {
-    const token = localStorage.getItem('apo@session');
-    this.token = VueJwtDecode.decode(token);
-  },
   methods: {
     apagarEsquadria() {
       this.$emit('apagarEsquadria');
     },
   },
 });
-
 </script>
-
-<style lang="sass" scoped>
-
-.card-Ambiente
-  background: #ecf2ff
-  margin-bottom: 10px
-
-.titulo
-  font-size: 0.5em
-</style>
