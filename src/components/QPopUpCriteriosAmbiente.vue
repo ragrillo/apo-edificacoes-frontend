@@ -4,10 +4,7 @@
       <q-card-section class="row items-center">
         <div class="text-h6">{{ ambiente.nome }}</div>
       </q-card-section>
-
-      <q-tabs class="text-primary" v-model="dimension" @update:model-value="handleDimensionChange">
-        <q-tab name="Ambiente" label="Ambiente" />
-      </q-tabs>
+      <q-separator />
 
       <q-tab-panels v-model="dimension">
         <q-tab-panel name="Ambiente">
@@ -18,13 +15,15 @@
               </q-item-section>
 
               <q-item-section side>
-                <q-btn dense flat color="primary" label="Responder" @click="
+                <q-btn flat color="primary" label="Responder" @click="
                   irParaCriterio(item.numero)" />
               </q-item-section>
             </q-item>
           </q-list>
         </q-tab-panel>
       </q-tab-panels>
+      <q-separator />
+
       <q-card-actions align="right">
         <q-btn flat color="primary" label="Voltar" @click="fecharpopup()" v-close-popup />
       </q-card-actions>

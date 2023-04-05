@@ -22,6 +22,7 @@ const endereco = {
 };
 
 export default ({
+  emits: ['endereco'],
   props: {
     form: Object,
   },

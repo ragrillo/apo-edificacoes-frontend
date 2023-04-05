@@ -1,5 +1,7 @@
 <template>
   <q-card class="q-ma-lg">
+    <q-linear-progress v-if="isLoading" indeterminate color="primary" />
+
     <q-card-section>
       <div class="text-bold">{{ nomeUnidade }}</div>
     </q-card-section>
@@ -11,7 +13,7 @@
       <q-separator />
 
       <div class="text-bold">Ambientes</div>
-      <q-btn unelevated color="primary" label="Adicionar Ambiente" icon="add" />
+      <q-btn unelevated color="primary" label="Adicionar Ambiente" icon="add" @click="adicionarAmbiente = true" />
 
       <q-card flat bordered>
         <q-list v-bind:key="index" v-for="(item, index) in ambientes">
@@ -20,10 +22,9 @@
               <q-item-label lines="1">{{ item.nome }}</q-item-label>
             </q-item-section>
             <q-item-section side>
-              <q-btn flat color="primary" label="Avaliar" @click="mostrarPopUpAmbiente(ambiente)" />
+              <q-btn flat color="primary" label="Avaliar" @click="mostrarPopUpAmbiente(item)" />
             </q-item-section>
           </q-item>
-          <q-separator />
         </q-list>
       </q-card>
     </q-card-section>
@@ -33,8 +34,7 @@
     </q-card-actions>
   </q-card>
 
-  <PopUpEditarAmbienteVue v-if="ambienteSelecionado" :ambienteSelecionado="ambienteSelecionado" :unidade="unidade"
-    @close="encerrarEdicao" />
+  <PopUpEditarAmbienteVue v-if="adicionarAmbiente" :idUnidade="idUnidade" @close="encerrarEdicao()" />
   <PopUpCriteriosAmbiente v-if="avaliarAmbiente" :ambiente="ambiente" @fecharpopup="avaliarAmbiente = false" />
   <PopUpCriteriosUnidade v-if="avaliarUnidade" :unidade="unidade" @fecharpopup="avaliarUnidade = false" />
 </template>
@@ -54,66 +54,36 @@ export default {
   },
   data() {
     return {
-      ambientes: [
-        {
-          nome: 'Sala de Aula',
-        },
-        {
-          nome: 'Laboratório',
-        },
-        {
-          nome: 'Biblioteca',
-        },
-        {
-          nome: 'Auditório',
-        },
-        {
-          nome: 'Sala de Reunião',
-        },
-        {
-          nome: 'Sala de Estudo',
-        },
-        {
-          nome: 'Sala de Professores',
-        },
-        {
-          nome: 'Sala de Coordenação',
-        },
-        {
-          nome: 'Sala de Direção',
-        },
-        {
-          nome: 'Sala de Secretaria',
-        },
-        {
-          nome: 'Sala de Serviço',
-        },
-      ],
+      ambientes: [],
       listaAmbientes: [],
-      unidade: null,
+      idUnidade: null,
       nomeUnidade: null,
-      ambienteSelecionado: null,
+      adicionarAmbiente: false,
       avaliarAmbiente: false,
       avaliarUnidade: false,
       ambiente: null,
+      isLoading: true,
     };
   },
   mounted() {
-    const unidadeid = localStorage.getItem('apo@unidade_id');
+    const idUnidade = localStorage.getItem('apo@unidade_id');
     const edificacao = localStorage.getItem('apo@usuario_edificacao');
 
-    this.getUnidade(unidadeid);
-    // this.getAmbientes(unidadeid);
+    this.getUnidade(idUnidade);
+    this.getAmbientes(idUnidade);
 
-    this.unidade = unidadeid;
+    this.idUnidade = idUnidade;
     this.listaAmbientes = ambientes[edificacao];
   },
   methods: {
     async getAmbientes(id) {
+      this.isLoading = true;
+
       const endpoint = `/ambientes/unidade/${id}`;
       const { data } = await api.get(endpoint);
 
       this.ambientes = data;
+      this.isLoading = false;
     },
     async getUnidade(id) {
       const edificacao = localStorage.getItem('apo@usuario_edificacao');
@@ -123,6 +93,7 @@ export default {
       this.nomeUnidade = data.nome;
     },
     mostrarPopUpAmbiente(ambiente) {
+      console.log(ambiente);
       this.avaliarAmbiente = true;
       this.ambiente = ambiente;
     },
@@ -130,8 +101,8 @@ export default {
       this.avaliarUnidade = true;
     },
     encerrarEdicao() {
-      this.ambienteSelecionado = null;
-      this.getAmbientes(this.unidade);
+      this.adicionarAmbiente = false;
+      this.getAmbientes(this.idUnidade);
     },
   },
 };

@@ -1,54 +1,52 @@
 <template>
-  <q-dialog :modelValue="true">
+  <q-dialog :modelValue="show">
     <q-card style="width: 100%">
       <q-card-section>
-        <div class="text-h6">Adicionar Ambiente</div>
-        <div>Preencha as informações abaixo</div>
+        <div class="text-h6">Adicionar ambiente</div>
       </q-card-section>
+      <q-separator />
 
-      <q-card-section>
-        <q-form class="q-gutter-y-sm">
-          <q-input v-model="ambiente.nome" filled label="Nome do ambiente" />
-          <q-select v-model="ambiente.cobertura" filled label="Tipo do Ambiente" :options="tipoAmbienteOptions"
-            behavior="menu" />
+      <q-card-section class="q-gutter-y-sm">
+        <div class="q-ma-md text-bold">Infomações básicas</div>
+        <q-input v-model="form.nome" filled label="Nome do ambiente" />
+        <q-select v-model="form.cobertura" filled label="Tipo do ambiente" behavior="menu" :options="options.cobertura" />
+        <div class="q-ma-md text-bold">Dimensões</div>
+        <q-input v-model="form.dimensoes.largura" filled label="Largura (m)" type="number"
+          @keyup="calcularAreaAmbiente()" />
+        <q-input v-model="form.dimensoes.comprimento" filled label="Comprimento (m)" type="number"
+          @keyup="calcularAreaAmbiente()" />
+        <q-input v-model="form.dimensoes.peDireito" filled label="Pé direito (m)" type="number" />
+        <q-input v-model="form.areaAmbiente" filled label="Área Total (m²)" type="number" />
 
-          <div class="text-bold q-my-md">Dimensões</div>
-          <q-input v-model="ambiente.dimensoes.largura" filled type="number" label="Largura (m)"
-            @keyup="calcularAreaAmbiente" />
-          <q-input v-model="ambiente.dimensoes.comprimento" filled type="number" label="Comprimento (m)"
-            @keyup="calcularAreaAmbiente" />
-          <q-input v-model="ambiente.dimensoes.peDireito" filled type="number" label="Pé Direito (m)" />
-          <q-input v-model="ambiente.areaAmbiente" filled readonly type="number" label="Área Total (m²)" />
+        <div class="text-bold q-my-md">Janelas</div>
+        <q-input v-model="larguraJanela" filled label="Largura (m)" type="number" />
+        <q-input v-model="alturaJanela" filled label="Altura (m)" type="number" />
+        <q-input v-model="ventilacao" filled label="Área de Ventilação(m²)" type="number" />
+        <q-checkbox v-model="fachada" filled label="Instalada na fachada" />
 
-          <div class="text-bold q-my-md">Janelas</div>
-          <q-input v-model="larguraJanela" filled label="Largura (m)" type="number" />
-          <q-input v-model="alturaJanela" filled label="Altura (m)" type="number" />
-          <q-input v-model="ventilacao" filled label="Área de Ventilação(m²)" type="number" />
-          <q-checkbox v-model="fachada" filled label="Instalada na fachada" />
+        <div>
+          <q-btn unelevated label="Adicionar" color="primary" @click="adicionarArea('Janela')" />
+        </div>
 
-          <div>
-            <q-btn label="Adicionar" color="primary" @click="adicionarArea('Janela')" />
-          </div>
+        <div class="q-ma-md text-bold" v-if="form.janelas.length != 0">Janelas adicionadas</div>
+        <CardEsquadria v-for="(janela, index) in form.janelas" :key="janela.nomeEsquadria" v-bind="janela"
+          @apagarEsquadria="apagarEsquadria(index, 'janela')" />
 
-          <div class="q-my-md text-bold" v-if="ambiente.janelas.length != 0">Janelas adicionadas</div>
-          <CardEsquadria v-for="(janela, index) in ambiente.janelas" :key="janela.nomeEsquadria" v-bind="janela"
-            @apagarEsquadria="apagarEsquadria(index, 'janela')" />
-
-          <div class="text-bold q-my-md">Portas</div>
-          <q-input v-model="larguraPorta" filled label="Largura (m)" type="number" />
-          <q-input v-model="alturaPorta" filled label="Altura (m)" type="number" />
-          <div>
-            <q-btn label="Adicionar" color="primary" @click="adicionarArea('Porta')" />
-          </div>
-          <div class="q-my-md text-bold" v-if="ambiente.portas.length != 0">Portas adicionadas</div>
-          <CardEsquadria v-for="(porta, index) in ambiente.portas" :key="porta.nomeEsquadria" v-bind="porta"
-            @apagarEsquadria="apagarEsquadria(index, 'porta')" />
-        </q-form>
+        <div class="text-bold q-my-md">Portas</div>
+        <q-input v-model="larguraPorta" filled label="Largura (m)" type="number" />
+        <q-input v-model="alturaPorta" filled label="Altura (m)" type="number" />
+        <div>
+          <q-btn unelevated label="Adicionar" color="primary" @click="adicionarArea('Porta')" />
+        </div>
+        <div class="q-ma-md text-bold" v-if="form.portas.length != 0">Portas adicionadas</div>
+        <CardEsquadria v-for="(porta, index) in form.portas" :key="porta.nomeEsquadria" v-bind="porta"
+          @apagarEsquadria="apagarEsquadria(index, 'porta')" />
       </q-card-section>
+      <q-separator />
 
       <q-card-actions align="right">
-        <q-btn flat color="primary" label="Cancelar" @click="encerrarEdicao" />
-        <q-btn flat color="primary" label="Salvar" :loading="loading" @click="salvarUnidade" />
+        <q-btn flat color="primary" label="Cancelar" @click="encerrarEdicao()" />
+        <q-btn flat color="primary" label="Salvar" @click="salvarAmbiente()" />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -59,9 +57,11 @@ import { ref } from 'vue';
 import { api } from '../boot/axios';
 import CardEsquadria from './CardPortaJanela.vue';
 
-const tipoAmbienteOptions = ['Coberto', 'Descoberto'];
+const options = {
+  cobertura: ['Coberto', 'Descoberto'],
+};
 
-const ambiente = {
+const form = {
   unidade: '',
   nome: '',
   grupo: '',
@@ -78,18 +78,22 @@ const ambiente = {
 };
 
 export default {
+  emits: ['close'],
+  props: {
+    idUnidade: {
+      type: String,
+      required: true,
+    },
+  },
   components: {
     CardEsquadria,
   },
-  props: {
-    unidade: {
-      type: String,
-      required: true,
-    },
-    ambienteSelecionado: {
-      type: String,
-      required: true,
-    },
+  data() {
+    return {
+      form,
+      options,
+      show: true,
+    };
   },
   setup() {
     return {
@@ -101,31 +105,13 @@ export default {
       alturaPorta: ref(''),
     };
   },
-  data() {
-    return {
-      ambiente,
-      tipoAmbienteOptions,
-      isLoading: false,
-    };
-  },
   mounted() {
-    this.setUnidadeId();
-    this.ambiente.nome = this.ambienteSelecionado;
+    this.form.unidade = this.idUnidade;
   },
   methods: {
-    setUnidadeId() {
-      this.ambiente.unidade = this.$route.params.unidadeid;
-    },
-    encerrarEdicao() {
-      this.$emit('close');
-    },
-    calcularAreaAmbiente() {
-      const { largura, comprimento } = this.ambiente.dimensoes;
-      this.ambiente.areaAmbiente = largura * comprimento;
-    },
     adicionarArea(area) {
       if (area === 'Janela') {
-        this.ambiente.janelas.push({
+        this.form.janelas.push({
           nomeEsquadria: 'janela',
           largura: parseFloat(this.larguraJanela),
           altura: parseFloat(this.alturaJanela),
@@ -138,7 +124,7 @@ export default {
         this.ventilacao = '';
         this.fachada = false;
       } else {
-        this.ambiente.portas.push({
+        this.form.portas.push({
           nomeEsquadria: 'porta',
           largura: parseFloat(this.larguraPorta),
           altura: parseFloat(this.alturaPorta),
@@ -153,31 +139,33 @@ export default {
     },
     apagarEsquadria(index, esquadria) {
       if (esquadria === 'janela') {
-        this.ambiente.janelas.splice(index, 1);
+        this.form.janelas.splice(index, 1);
       } else {
-        this.ambiente.portas.splice(index, 1);
+        this.form.portas.splice(index, 1);
       }
     },
-    async salvarUnidade() {
-      this.isLoading = true;
+    calcularAreaAmbiente() {
+      const { largura, comprimento } = this.form.dimensoes;
+      this.form.areaAmbiente = largura * comprimento;
+    },
+    encerrarEdicao() {
+      this.$emit('close');
+    },
+    async salvarAmbiente() {
+      const { largura, comprimento, peDireito } = this.form.dimensoes;
 
-      const payload = this.ambiente;
+      const payload = {
+        ...this.form,
+        dimensoes: {
+          largura: parseFloat(largura),
+          comprimento: parseFloat(comprimento),
+          peDireito: parseFloat(peDireito),
+        },
+      };
+
       await api.post('/ambientes', payload);
 
-      this.isLoading = false;
-      this.limparFormulario();
       this.encerrarEdicao();
-    },
-    limparFormulario() {
-      this.ambiente.dimensoes.comprimento = '';
-      this.ambiente.dimensoes.largura = '';
-      this.ambiente.dimensoes.peDireito = '';
-      this.ambiente.cobertura = '';
-      this.ambiente.areaAmbiente = '';
-      this.ambiente.areaEsquadrias = '';
-      this.ambiente.nome = '';
-      this.ambiente.janelas.length = 0;
-      this.ambiente.portas.length = 0;
     },
   },
 };

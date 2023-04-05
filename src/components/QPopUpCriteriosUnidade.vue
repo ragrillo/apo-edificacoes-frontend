@@ -1,10 +1,10 @@
 <template>
   <q-dialog :modelValue="true" persistent>
     <q-card style="width: 100%">
-      <q-linear-progress indeterminate color="primary" />
+      <q-linear-progress v-if="isLoading" indeterminate color="primary" />
 
       <q-list v-bind:key="index" v-for="(item, index) in criterios">
-        <q-card flat bordered class="q-my-sm">
+        <q-card flat bordered class="q-ma-md">
           <q-card-section class="row">
             <div>
               <div class="text-bold">{{ item.nome }}</div>
@@ -41,6 +41,7 @@ export default defineComponent({
   data() {
     return {
       criterios: [],
+      isLoading: true,
       dimension: 'Gestão e Projeto',
     };
   },
@@ -51,6 +52,7 @@ export default defineComponent({
     async handleDimensionChange() {
       const { data } = await api.get('/dimensoes');
       this.criterios = data;
+      this.isLoading = false;
     },
     irParaCriterio(numero) {
       const url = `/criterio/${numero}`;
