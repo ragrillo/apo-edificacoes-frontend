@@ -25,6 +25,7 @@
               <q-btn flat color="primary" label="Avaliar" @click="mostrarPopUpAmbiente(item)" />
             </q-item-section>
           </q-item>
+          <q-separator />
         </q-list>
       </q-card>
     </q-card-section>
