@@ -29,8 +29,10 @@
         </q-list>
       </q-card>
     </q-card-section>
+    <q-separator />
 
     <q-card-actions align="right">
+      <q-btn flat color="primary" label="Atualizar" @click="recarregarPagina()" />
       <q-btn flat color="primary" label="Voltar" to="/perfil" />
     </q-card-actions>
   </q-card>
@@ -94,7 +96,6 @@ export default {
       this.nomeUnidade = data.nome;
     },
     mostrarPopUpAmbiente(ambiente) {
-      console.log(ambiente);
       this.avaliarAmbiente = true;
       this.ambiente = ambiente;
     },
@@ -104,6 +105,9 @@ export default {
     encerrarEdicao() {
       this.adicionarAmbiente = false;
       this.getAmbientes(this.idUnidade);
+    },
+    recarregarPagina() {
+      window.location.reload();
     },
   },
 };
