@@ -66,7 +66,7 @@ export default ({
     },
     async enviarRespostas() {
       this.isButtonLoading = true;
-      const { ambienteid } = this.$route.params;
+      const ambienteid = localStorage.getItem('apo@ambiente_id');
 
       const payload = {
         ambiente: ambienteid,

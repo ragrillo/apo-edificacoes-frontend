@@ -14,9 +14,13 @@
                 <q-item-label>{{ item.titulo }}</q-item-label>
               </q-item-section>
 
-              <q-item-section side>
+              <q-item-section side v-if="verificaRespondido(item.numero)">
+                <q-btn flat color="green" label="Responder" @click="
+                  irParaCriterio(item.numero)"/>
+              </q-item-section>
+              <q-item-section side v-else>
                 <q-btn flat color="primary" label="Responder" @click="
-                  irParaCriterio(item.numero)" />
+                  irParaCriterio(item.numero)"/>
               </q-item-section>
             </q-item>
           </q-list>
@@ -33,6 +37,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { api } from '../boot/axios';
 import data from '../data/relacao-criterio-dimensao-e-codigo.json';
 
 export default defineComponent({
@@ -47,13 +52,28 @@ export default defineComponent({
     return {
       criterios: [],
       dimension: 'Ambiente',
+      respostas: [],
+      verifica: [],
     };
   },
   mounted() {
     localStorage.setItem('apo@ambiente_id', this.ambiente._id);
     this.handleDimensionChange();
+    this.obterRespostas();
   },
   methods: {
+    async obterRespostas() {
+      const respostas1 = await api.get('/formularios');
+      this.respostas = respostas1.data.filter((item) => item.ambiente === this.ambiente._id);
+    },
+    verificaRespondido(criterio) {
+      const verifica = this.respostas.filter((item) => item.respostas[0].criterio.slice(0, 2) === criterio);
+      console.log(verifica);
+      if (verifica.length === 0) {
+        return false;
+      }
+      return true;
+    },
     handleDimensionChange() {
       this.criterios = data.filter((item) => item.dimensao === this.dimension);
     },
