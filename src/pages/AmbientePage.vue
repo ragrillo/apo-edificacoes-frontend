@@ -39,7 +39,7 @@
 
   <PopUpEditarAmbienteVue v-if="adicionarAmbiente" :idUnidade="idUnidade" @close="encerrarEdicao()" />
   <PopUpCriteriosAmbiente v-if="avaliarAmbiente" :ambiente="ambiente" @fecharpopup="avaliarAmbiente = false" />
-  <PopUpCriteriosUnidade v-if="avaliarUnidade" :unidade="unidade" @fecharpopup="avaliarUnidade = false" />
+  <PopUpCriteriosUnidade v-if="avaliarUnidade" :unidade="idUnidade" @fecharpopup="avaliarUnidade = false" />
 </template>
 
 <script>

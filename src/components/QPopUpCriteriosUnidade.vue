@@ -5,15 +5,19 @@
 
       <q-list v-bind:key="index" v-for="(item, index) in criterios">
         <q-card flat bordered class="q-ma-md">
-          <q-card-section class="row">
-            <div>
-              <div class="text-bold">{{ item.nome }}</div>
-              <div class="text-grey-8">{{ item.grupo }}</div>
-            </div>
-            <q-space />
-            <q-btn flat :disable="item.respondido" :color="item.respondido ? 'green' : 'primary'"
-              :label="item.respondido ? 'Respondido' : 'Responder'" :icon="item.respondido ? 'done' : undefined"
-              @click="irParaCriterio(item.numero)" />
+          <q-card-section>
+            <q-item>
+              <q-item-section>
+                <q-item-label class="text-bold">Critério {{ item.numero }}</q-item-label>
+                <q-item-label class="text-grey-8" lines="1">{{ item.nome }}</q-item-label>
+              </q-item-section>
+
+              <q-item-section side>
+                <q-btn flat :disable="item.respondido" :color="item.respondido ? 'green' : 'primary'"
+                  :label="item.respondido ? 'Respondido' : 'Responder'" :icon="item.respondido ? 'done' : undefined"
+                  @click="irParaCriterio(item.numero)" />
+              </q-item-section>
+            </q-item>
           </q-card-section>
         </q-card>
       </q-list>
@@ -51,7 +55,7 @@ export default defineComponent({
   methods: {
     async handleDimensionChange() {
       const { data } = await api.get('/dimensoes');
-      this.criterios = data;
+      this.criterios = data.filter(((item) => item.grupo === this.dimension));
       this.isLoading = false;
     },
     irParaCriterio(numero) {

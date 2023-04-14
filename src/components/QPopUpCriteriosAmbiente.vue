@@ -16,11 +16,11 @@
 
               <q-item-section side v-if="verificaRespondido(item.numero)">
                 <q-btn flat color="green" label="Responder" @click="
-                  irParaCriterio(item.numero)"/>
+                  irParaCriterio(item.numero)" />
               </q-item-section>
               <q-item-section side v-else>
                 <q-btn flat color="primary" label="Responder" @click="
-                  irParaCriterio(item.numero)"/>
+                  irParaCriterio(item.numero)" />
               </q-item-section>
             </q-item>
           </q-list>
@@ -68,10 +68,11 @@ export default defineComponent({
     },
     verificaRespondido(criterio) {
       const verifica = this.respostas.filter((item) => item.respostas[0].criterio.slice(0, 2) === criterio);
-      console.log(verifica);
+
       if (verifica.length === 0) {
         return false;
       }
+
       return true;
     },
     handleDimensionChange() {
