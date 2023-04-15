@@ -8,9 +8,11 @@
           <q-card-section>
             <div class="row">
               <div class="col text-bold">{{ item.nome }}</div>
-              <q-btn class="col" dense flat :disable="item.respondido" :color="item.respondido ? 'green' : 'primary'"
-                :label="item.respondido ? 'Respondido' : 'Responder'" :icon="item.respondido ? 'done' : undefined"
-                @click="irParaCriterio(item.numero)" />
+              <div>
+                <q-btn class="col" flat :disable="item.respondido" :color="item.respondido ? 'green' : 'primary'"
+                  :label="item.respondido ? 'Respondido' : 'Responder'" :icon="item.respondido ? 'done' : undefined"
+                  @click="irParaCriterio(item.numero)" />
+              </div>
             </div>
           </q-card-section>
         </q-card>
