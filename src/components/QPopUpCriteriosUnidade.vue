@@ -6,18 +6,12 @@
       <q-list v-bind:key="index" v-for="(item, index) in criterios">
         <q-card flat bordered class="q-ma-md">
           <q-card-section>
-            <q-item>
-              <q-item-section>
-                <q-item-label class="text-bold">Critério {{ item.numero }}</q-item-label>
-                <q-item-label class="text-grey-8" lines="1">{{ item.nome }}</q-item-label>
-              </q-item-section>
-
-              <q-item-section side>
-                <q-btn flat :disable="item.respondido" :color="item.respondido ? 'green' : 'primary'"
-                  :label="item.respondido ? 'Respondido' : 'Responder'" :icon="item.respondido ? 'done' : undefined"
-                  @click="irParaCriterio(item.numero)" />
-              </q-item-section>
-            </q-item>
+            <div class="row">
+              <div class="col text-bold">{{ item.nome }}</div>
+              <q-btn class="col" dense flat :disable="item.respondido" :color="item.respondido ? 'green' : 'primary'"
+                :label="item.respondido ? 'Respondido' : 'Responder'" :icon="item.respondido ? 'done' : undefined"
+                @click="irParaCriterio(item.numero)" />
+            </div>
           </q-card-section>
         </q-card>
       </q-list>
