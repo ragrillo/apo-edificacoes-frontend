@@ -43,11 +43,10 @@ export default ({
   methods: {
     isCriterio(criterio) {
       const { numero } = this.$route.params;
-
       return Number(numero) === criterio;
     },
     isFormularioCheio() {
-      return this.formulario.length === this.questionario.length;
+      return this.formulario.length === (this.questionario.length - 1);
     },
     async irParaProximoCriterio() {
       // TODO: Verificar se o formulário está cheio
@@ -62,7 +61,13 @@ export default ({
       return this.questionario.filter((item) => item.edificacoes.includes(edificacao) && item.cargos.includes(cargo));
     },
     registrarResposta(data) {
-      this.formulario.push(data);
+      const index = this.formulario.findIndex((item) => item.criterio === data.criterio);
+
+      if (index === -1) {
+        this.formulario.push(data);
+      } else {
+        this.formulario[index] = data;
+      }
     },
     async enviarRespostas() {
       this.isButtonLoading = true;
