@@ -46,7 +46,7 @@ export default ({
       return Number(numero) === criterio;
     },
     isFormularioCheio() {
-      return this.formulario.length === (this.questionario.length - 1);
+      return this.formulario.length === this.filtrarQuestionario().length;
     },
     async irParaProximoCriterio() {
       // TODO: Verificar se o formulário está cheio
