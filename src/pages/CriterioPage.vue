@@ -1,97 +1,82 @@
 <template>
   <q-card class="q-ma-lg">
-    <q-linear-progress v-if="isCardLoading" indeterminate color="primary" />
-    <q-card-section v-else>
-      <q-list v-for="criterio in filtrarQuestionario()" :key="criterio.codigo">
-        <QuestionarioComponent :criterio="criterio" @resposta="registrarResposta" />
-      </q-list>
+    <q-linear-progress v-if="isLoading" indeterminate color="primary" />
+
+    <q-card-section>
+      <q-card-title class="text-h6">Critério</q-card-title>
     </q-card-section>
     <q-separator />
-    <q-card-actions class="justify-between">
-      <q-btn flat color="primary" label="Fechar" @click="$router.push('/ambiente')" />
-      <div>
-        <q-btn flat color="primary" label="Anterior" @click="irParaCriterioAnterior()" />
-        <q-btn flat color="primary" label="Próximo" @click="irParaProximoCriterio()" />
-        <q-btn flat color="primary" :label="hasSaved ? 'Concluído' : 'Salvar'" :loading="isButtonLoading"
-          :disable="!isFormularioCheio() || hasSaved" @click="enviarRespostas()" />
+
+    <q-card-section>
+      <div v-for="(pergunta, index) in prepareQuestionario()" v-bind:key="index">
+        <div class="q-my-md text-bold text-uppercase">{{ pergunta.categoria }}</div>
+        <div v-for="item in pergunta.perguntas" v-bind:key="item.codigo">
+          <div class="q-my-sm">{{ item.enunciado }}</div>
+          <div v-for="(value, index) in item.opcoesResposta" :key="index">
+            <q-radio v-model="resposta" :label="value" :val="value" />
+          </div>
+        </div>
       </div>
+    </q-card-section>
+    <q-separator />
+
+    <q-card-actions align="right">
+      <q-btn flat color="primary" label="Fechar" />
+      <q-btn flat color="primary" label="Anterior" />
+      <q-btn flat color="primary" label="Próximo" />
+      <q-btn flat color="primary" label="Salvar" />
     </q-card-actions>
   </q-card>
 </template>
 
 <script>
 import { api } from 'boot/axios';
-import QuestionarioComponent from 'components/QuestionarioComponent';
 
-export default ({
+export default {
   data() {
     return {
-      formulario: [],
+      isLoading: true,
       questionario: [],
-      isCardLoading: true,
-      isButtonLoading: false,
-      hasSaved: false,
     };
   },
-  components: {
-    QuestionarioComponent,
-  },
-  created() {
+  mounted() {
     const { numero } = this.$route.params;
-    this.getCriterios(numero);
+    this.getQuestionario(numero);
+    this.isLoading = false;
   },
   methods: {
-    isCriterio(criterio) {
-      const { numero } = this.$route.params;
-      return Number(numero) === criterio;
-    },
-    isFormularioCheio() {
-      return this.formulario.length === this.filtrarQuestionario().length;
-    },
-    async irParaProximoCriterio() {
-      // TODO: Verificar se o formulário está cheio
-    },
-    irParaCriterioAnterior() {
-      // TODO: Verificar se o formulário está cheio
-    },
-    filtrarQuestionario() {
-      const edificacao = localStorage.getItem('apo@usuario_edificacao');
-      const cargo = localStorage.getItem('apo@usuario_cargo');
+    getQuestionario(number) {
+      const endpoint = `/criterios/${number}`;
 
-      return this.questionario.filter((item) => item.edificacoes.includes(edificacao) && item.cargos.includes(cargo));
+      api.get(endpoint)
+        .then((response) => {
+          this.questionario = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
     },
-    registrarResposta(data) {
-      const index = this.formulario.findIndex((item) => item.criterio === data.criterio);
+    prepareQuestionario() {
+      const questionario = [];
 
-      if (index === -1) {
-        this.formulario.push(data);
-      } else {
-        this.formulario[index] = data;
-      }
-    },
-    async enviarRespostas() {
-      this.isButtonLoading = true;
-      const ambienteid = localStorage.getItem('apo@ambiente_id');
+      this.questionario.forEach((pergunta) => {
+        const categoria = questionario.find((item) => item.categoria === pergunta.categoria);
 
-      const payload = {
-        ambiente: ambienteid,
-        respostas: this.formulario,
-      };
+        if (categoria) {
+          categoria.perguntas.push(pergunta);
+        } else {
+          questionario.push({
+            categoria: pergunta.categoria,
+            perguntas: [pergunta],
+          });
+        }
+      });
 
-      const endpoint = '/formularios';
-      await api.post(endpoint, payload);
-
-      this.formulario = [];
-      this.hasSaved = true;
-      this.isButtonLoading = false;
-    },
-    async getCriterios(numero) {
-      const endpoint = `/criterios/${numero}`;
-      const { data } = await api.get(endpoint);
-
-      this.questionario = data;
-      this.isCardLoading = false;
+      return questionario;
     },
   },
-});
+};
 </script>
