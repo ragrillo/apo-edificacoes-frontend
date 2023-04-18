@@ -99,14 +99,21 @@ export default {
     },
     enviarFormulario() {
       const endpoint = '/formularios';
-      const payload = this.respostas;
+      const ambienteId = localStorage.getItem('apo@ambiente_id');
+
+      const payload = {
+        ambiente: ambienteId,
+        respostas: this.respostas,
+      };
 
       api.post(endpoint, payload)
         .then(() => {
           this.hasSubmitted = true;
+          alert('Formulário salvo com sucesso!');
         })
         .catch((error) => {
           console.log(error);
+          alert('Erro ao salvar formulário!');
         })
         .finally(() => {
           this.isLoading = false;
