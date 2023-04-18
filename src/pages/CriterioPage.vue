@@ -3,7 +3,7 @@
     <q-linear-progress v-if="isLoading" indeterminate color="primary" />
 
     <q-card-section>
-      <q-card-title class="text-h6">Critério</q-card-title>
+      <q-card-title class="text-h6">{{ nomeDimensao }}</q-card-title>
     </q-card-section>
     <q-separator />
 
@@ -11,41 +11,52 @@
       <div v-for="(pergunta, index) in prepareQuestionario()" v-bind:key="index">
         <div class="q-my-md text-bold text-uppercase">{{ pergunta.categoria }}</div>
         <div v-for="item in pergunta.perguntas" v-bind:key="item.codigo">
-          <div class="q-my-sm">{{ item.enunciado }}</div>
-          <div v-for="(value, index) in item.opcoesResposta" :key="index">
-            <q-radio v-model="resposta" :label="value" :val="value" />
-          </div>
+          <QuestionarioComponent :criterio="item" @resposta="addResposta" />
         </div>
       </div>
     </q-card-section>
     <q-separator />
 
     <q-card-actions align="right">
-      <q-btn flat color="primary" label="Fechar" />
-      <q-btn flat color="primary" label="Anterior" />
-      <q-btn flat color="primary" label="Próximo" />
-      <q-btn flat color="primary" label="Salvar" />
+      <q-btn flat color="primary" label="Fechar" to="/ambiente" />
+      <q-btn flat color="primary" label="Anterior" @click="irParaAnterior()" />
+      <q-btn flat color="primary" label="Próximo" @click="irParaProximo()" />
+      <q-btn flat color="primary" :label="hasSubmitted ? 'Salvo' : 'Salvar'" :disable="hasSubmitted"
+        @click="enviarFormulario()" />
     </q-card-actions>
   </q-card>
 </template>
 
 <script>
 import { api } from 'boot/axios';
+import QuestionarioComponent from 'components/QuestionarioComponent.vue';
 
 export default {
   data() {
     return {
-      isLoading: true,
+      respostas: [],
       questionario: [],
+      isLoading: true,
+      hasSubmitted: false,
+      resposta: '',
+      nomeDimensao: '',
     };
   },
+  components: {
+    QuestionarioComponent,
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.isLoading = true;
+    this.getQuestionario(to.params.numero);
+    next();
+  },
   mounted() {
-    const { numero } = this.$route.params;
-    this.getQuestionario(numero);
-    this.isLoading = false;
+    this.getQuestionario(this.$route.params.numero);
   },
   methods: {
     getQuestionario(number) {
+      this.setNomeDimensao();
+
       const endpoint = `/criterios/${number}`;
 
       api.get(endpoint)
@@ -76,6 +87,67 @@ export default {
       });
 
       return questionario;
+    },
+    addResposta(payload) {
+      const index = this.respostas.findIndex((item) => item.criterio === payload.criterio);
+
+      if (index === -1) {
+        this.respostas.push(payload);
+      } else {
+        this.respostas[index] = payload;
+      }
+    },
+    enviarFormulario() {
+      const endpoint = '/formularios';
+      const payload = this.respostas;
+
+      api.post(endpoint, payload)
+        .then(() => {
+          this.hasSubmitted = true;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
+    },
+    irParaProximo() {
+      api.get('/dimensoes')
+        .then(({ data }) => {
+          const { numero } = this.$route.params;
+          const filter = data.filter((item) => item.grupo === 'Gestão e Projeto');
+          const proximo = filter.find((item) => item.numero > numero);
+
+          if (proximo) {
+            this.$router.push(`/criterio/${proximo.numero}`);
+          }
+        });
+    },
+    irParaAnterior() {
+      api.get('/dimensoes')
+        .then(({ data }) => {
+          const { numero } = this.$route.params;
+          const filter = data.filter((item) => item.grupo === 'Gestão e Projeto');
+          const index = filter.findIndex((item) => item.numero === numero);
+          const anterior = filter.slice(0, index);
+          const target = anterior[anterior.length - 1];
+
+          if (target) {
+            this.$router.push(`/criterio/${target.numero}`);
+          }
+        });
+    },
+    setNomeDimensao() {
+      api.get('/dimensoes')
+        .then(({ data }) => {
+          const { numero } = this.$route.params;
+          const dimensao = data.find((item) => item.numero === numero);
+
+          if (dimensao) {
+            this.nomeDimensao = dimensao.nome;
+          }
+        });
     },
   },
 };
