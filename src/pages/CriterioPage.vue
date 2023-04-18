@@ -1,97 +1,161 @@
 <template>
   <q-card class="q-ma-lg">
-    <q-linear-progress v-if="isCardLoading" indeterminate color="primary" />
-    <q-card-section v-else>
-      <q-list v-for="criterio in filtrarQuestionario()" :key="criterio.codigo">
-        <QuestionarioComponent :criterio="criterio" @resposta="registrarResposta" />
-      </q-list>
+    <q-linear-progress v-if="isLoading" indeterminate color="primary" />
+
+    <q-card-section>
+      <q-card-title class="text-h6">{{ nomeDimensao }}</q-card-title>
     </q-card-section>
     <q-separator />
-    <q-card-actions class="justify-between">
-      <q-btn flat color="primary" label="Fechar" @click="$router.push('/ambiente')" />
-      <div>
-        <q-btn flat color="primary" label="Anterior" @click="irParaCriterioAnterior()" />
-        <q-btn flat color="primary" label="Próximo" @click="irParaProximoCriterio()" />
-        <q-btn flat color="primary" :label="hasSaved ? 'Concluído' : 'Salvar'" :loading="isButtonLoading"
-          :disable="!isFormularioCheio() || hasSaved" @click="enviarRespostas()" />
+
+    <q-card-section>
+      <div v-for="(pergunta, index) in prepareQuestionario()" v-bind:key="index">
+        <div class="q-my-md text-bold text-uppercase">{{ pergunta.categoria }}</div>
+        <div v-for="item in pergunta.perguntas" v-bind:key="item.codigo">
+          <QuestionarioComponent :criterio="item" @resposta="addResposta" />
+        </div>
       </div>
+    </q-card-section>
+    <q-separator />
+
+    <q-card-actions align="right">
+      <q-btn flat color="primary" label="Fechar" to="/ambiente" />
+      <q-btn flat color="primary" label="Anterior" @click="irParaAnterior()" />
+      <q-btn flat color="primary" label="Próximo" @click="irParaProximo()" />
+      <q-btn flat color="primary" :label="hasSubmitted ? 'Salvo' : 'Salvar'" :disable="hasSubmitted"
+        @click="enviarFormulario()" />
     </q-card-actions>
   </q-card>
 </template>
 
 <script>
 import { api } from 'boot/axios';
-import QuestionarioComponent from 'components/QuestionarioComponent';
+import QuestionarioComponent from 'components/QuestionarioComponent.vue';
 
-export default ({
+export default {
   data() {
     return {
-      formulario: [],
+      respostas: [],
       questionario: [],
-      isCardLoading: true,
-      isButtonLoading: false,
-      hasSaved: false,
+      isLoading: true,
+      hasSubmitted: false,
+      resposta: '',
+      nomeDimensao: '',
     };
   },
   components: {
     QuestionarioComponent,
   },
-  created() {
-    const { numero } = this.$route.params;
-    this.getCriterios(numero);
+  beforeRouteUpdate(to, from, next) {
+    this.isLoading = true;
+    this.getQuestionario(to.params.numero);
+    next();
+  },
+  mounted() {
+    this.getQuestionario(this.$route.params.numero);
   },
   methods: {
-    isCriterio(criterio) {
-      const { numero } = this.$route.params;
-      return Number(numero) === criterio;
-    },
-    isFormularioCheio() {
-      return this.formulario.length === this.filtrarQuestionario().length;
-    },
-    async irParaProximoCriterio() {
-      // TODO: Verificar se o formulário está cheio
-    },
-    irParaCriterioAnterior() {
-      // TODO: Verificar se o formulário está cheio
-    },
-    filtrarQuestionario() {
-      const edificacao = localStorage.getItem('apo@usuario_edificacao');
-      const cargo = localStorage.getItem('apo@usuario_cargo');
+    getQuestionario(number) {
+      this.setNomeDimensao();
 
-      return this.questionario.filter((item) => item.edificacoes.includes(edificacao) && item.cargos.includes(cargo));
+      const endpoint = `/criterios/${number}`;
+
+      api.get(endpoint)
+        .then((response) => {
+          this.questionario = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
     },
-    registrarResposta(data) {
-      const index = this.formulario.findIndex((item) => item.criterio === data.criterio);
+    prepareQuestionario() {
+      const questionario = [];
+
+      this.questionario.forEach((pergunta) => {
+        const categoria = questionario.find((item) => item.categoria === pergunta.categoria);
+
+        if (categoria) {
+          categoria.perguntas.push(pergunta);
+        } else {
+          questionario.push({
+            categoria: pergunta.categoria,
+            perguntas: [pergunta],
+          });
+        }
+      });
+
+      return questionario;
+    },
+    addResposta(payload) {
+      const index = this.respostas.findIndex((item) => item.criterio === payload.criterio);
 
       if (index === -1) {
-        this.formulario.push(data);
+        this.respostas.push(payload);
       } else {
-        this.formulario[index] = data;
+        this.respostas[index] = payload;
       }
     },
-    async enviarRespostas() {
-      this.isButtonLoading = true;
-      const ambienteid = localStorage.getItem('apo@ambiente_id');
+    enviarFormulario() {
+      const endpoint = '/formularios';
+      const ambienteId = localStorage.getItem('apo@ambiente_id');
 
       const payload = {
-        ambiente: ambienteid,
-        respostas: this.formulario,
+        ambiente: ambienteId,
+        respostas: this.respostas,
       };
 
-      const endpoint = '/formularios';
-      await api.post(endpoint, payload);
-
-      this.formulario = [];
-      this.hasSaved = true;
-      this.isButtonLoading = false;
+      api.post(endpoint, payload)
+        .then(() => {
+          this.hasSubmitted = true;
+          alert('Formulário salvo com sucesso!');
+        })
+        .catch((error) => {
+          console.log(error);
+          alert('Erro ao salvar formulário!');
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
     },
-    async getCriterios(numero) {
-      const endpoint = `/criterios/${numero}`;
-      const { data } = await api.get(endpoint);
+    irParaProximo() {
+      api.get('/dimensoes')
+        .then(({ data }) => {
+          const { numero } = this.$route.params;
+          const filter = data.filter((item) => item.grupo === 'Gestão e Projeto');
+          const proximo = filter.find((item) => item.numero > numero);
 
-      this.questionario = data;
-      this.isCardLoading = false;
+          if (proximo) {
+            this.$router.push(`/criterio/${proximo.numero}`);
+          }
+        });
+    },
+    irParaAnterior() {
+      api.get('/dimensoes')
+        .then(({ data }) => {
+          const { numero } = this.$route.params;
+          const filter = data.filter((item) => item.grupo === 'Gestão e Projeto');
+          const index = filter.findIndex((item) => item.numero === numero);
+          const anterior = filter.slice(0, index);
+          const target = anterior[anterior.length - 1];
+
+          if (target) {
+            this.$router.push(`/criterio/${target.numero}`);
+          }
+        });
+    },
+    setNomeDimensao() {
+      api.get('/dimensoes')
+        .then(({ data }) => {
+          const { numero } = this.$route.params;
+          const dimensao = data.find((item) => item.numero === numero);
+
+          if (dimensao) {
+            this.nomeDimensao = dimensao.nome;
+          }
+        });
     },
   },
-});
+};
 </script>
