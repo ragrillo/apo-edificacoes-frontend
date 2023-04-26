@@ -54,6 +54,15 @@ export default {
     this.getQuestionario(this.$route.params.numero);
   },
   methods: {
+    filtrarQuestionario(questionario) {
+      const edificacao = localStorage.getItem('apo@usuario_edificacao');
+      const cargo = localStorage.getItem('apo@usuario_cargo');
+
+      const filtered = questionario.filter((item) => item.edificacoes.includes(edificacao))
+        .filter((item) => item.cargos.includes(cargo));
+
+      return filtered;
+    },
     getQuestionario(number) {
       this.setNomeDimensao();
 
@@ -61,7 +70,7 @@ export default {
 
       api.get(endpoint)
         .then((response) => {
-          this.questionario = response.data;
+          this.questionario = this.filtrarQuestionario(response.data);
         })
         .catch((error) => {
           console.log(error);
